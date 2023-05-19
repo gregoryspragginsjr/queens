@@ -1,0 +1,76 @@
+@mixin heading-style-1() {
+  font-family: $font-secondary;
+  font-size: rem-calc(60px);
+  font-weight: 1000;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(72px);
+  }
+}
+
+@mixin heading-style-2() {
+  font-family: $font-primary;
+  font-size: rem-calc(30px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(60px);
+  }
+}
+
+@mixin heading-style-3() {
+  font-family: $font-primary;
+  font-size: rem-calc(30px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(48px);
+  }
+}
+
+@mixin heading-style-4() {
+  font-family: $font-primary;
+  font-size: rem-calc(30px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(36px);
+  }
+}
+
+@mixin paragraph-style-1() {
+  font-family: $font-primary;
+  font-size: rem-calc(16px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 160%;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(18px);
+  }
+}
+
+@mixin paragraph-style-2() {
+  font-family: $font-tertiary;
+  font-size: rem-calc(16px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 160%;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(18px);
+  }
+}

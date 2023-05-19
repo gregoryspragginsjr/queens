@@ -1,0 +1,5 @@
+.context {
+  &--xlarge p {
+    @extend .paragraph-style-1;
+  }
+}

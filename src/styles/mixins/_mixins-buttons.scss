@@ -1,0 +1,26 @@
+@mixin btn($color, $background, $hover-color: '', $hover-background: '', $border: '') {
+  @include subheading-style-2();
+
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 20px;
+  color: $color;
+  background-color: $background;
+  border: 1px solid;
+  transition: $transition-default;
+
+  @if $border == '' {
+    border-color: $background;
+  }
+
+  @else {
+    border-color: $border;
+  }
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-background;
+  }
+}

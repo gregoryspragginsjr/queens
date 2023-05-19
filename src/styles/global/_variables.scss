@@ -1,0 +1,25 @@
+@import '../mixins/mixins-foundation';
+
+// Colors
+$white: #ffffff;
+$black: #000000;
+$navy: #00205b;
+$neon: #cdff00;
+
+// Fonts
+$font-primary: 'Stratos', serif;
+$font-secondary: 'Garaje', serif;
+$font-tertiary: 'Bridge-Text', serif;
+
+// Grid
+$grid-max-width: rem-calc(1200px);
+$grid-column-gutter: (
+  small: 20px,
+  large: 40px,
+);
+
+// Easing
+$ease-default: ease-in-out;
+
+// Transitions
+$transition-default: 0.2s $ease-default;

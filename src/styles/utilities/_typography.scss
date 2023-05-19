@@ -1,0 +1,31 @@
+// Typography
+/* ------------------------------------- */
+
+// Headings
+.heading-style-1 { @include heading-style-1() }
+
+.heading-style-2 { @include heading-style-2() }
+
+.heading-style-3 { @include heading-style-3() }
+
+.heading-style-4 { @include heading-style-4() }
+
+// Subheadings
+// .subheading-style-1 { @include subheading-style-1() }
+
+// Paragraph
+.paragraph-style-1 { @include paragraph-style-1(); }
+
+.paragraph-style-2 { @include paragraph-style-2(); }
+
+// Colors
+.text-light { color: $white; }
+
+.text-dark { color: $navy; }
+
+.text-primary { color: $neon; }
+
+// Spacing Relationships
+/* ------------------------------------- */
+// .heading-style-2 + .paragraph-style-1 { margin-top: 24px; }
+
