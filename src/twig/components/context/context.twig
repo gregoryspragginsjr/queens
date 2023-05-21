@@ -1,4 +1,32 @@
-<div class="context context--xlarge">
-  <h2 class="heading-style-2 text-dark">{{ heading }}</h2>
-  {{ paragraph|raw }}
+{% if in_component_library %}
+  {% set buttonGroup = '@button-group' %}
+  {% set squiggleComponent = '@squiggle' %}
+{% else %}
+  {% set buttonGroup = 'button-group.twig' %}
+  {% set squiggleComponent = 'squiggle.twig' %}
+{% endif %}
+
+<div class="context context--{{ size|default('medium') }} context--{{ type|default('dark') }} {% if align == 'center' %}text-center{% endif %}">
+  {% if subheading %}
+    <div class="context__subheading">{{ subheading }}</div>
+  {% endif %}
+  {% if heading %}
+    <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}">
+      {{ heading }}
+      {% if squiggle %}{% include squiggleComponent %}{% endif %}
+    </h2>
+  {% endif %}
+  {% if paragraphs %}
+    {{ paragraphs|raw }}
+  {% endif %}
+  {% if buttons %}
+    {% if type == 'primary' %}
+      {% set type = 'light' %}
+    {% endif %}
+    {% include buttonGroup with {
+      type: type|default('dark'),
+      align: align,
+      items: buttons,
+    } %}
+  {% endif %}
 </div>

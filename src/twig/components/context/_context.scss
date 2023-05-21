@@ -1,5 +1,79 @@
 .context {
-  &--xlarge p {
-    @extend .paragraph-style-1;
+  &__heading {
+    .text-center & {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__subheading {
+    @extend .subheading-style-1;
+  }
+
+  &--dark {
+    color: $navy;
+  }
+
+  &--light,
+  &--primary {
+    color: $white;
+  }
+
+  &--large {
+    .context__heading {
+      @extend .heading-style-2;
+    }
+
+    .squiggle {
+      margin-top: 24px;
+    }
+  
+    p {
+      @extend .paragraph-style-1;
+    }
+  }
+
+  &--medium {
+    .context__heading {
+      @extend .heading-style-3;
+    }
+
+    .squiggle {
+      margin-top: 16px;
+    }
+  
+    p {
+      @extend .paragraph-style-2;
+    }
+  }
+
+  &--small {
+    .context__heading {
+      @extend .heading-style-4;
+    }
+
+    .squiggle {
+      margin-top: 16px;
+    }
+  
+    p {
+      @extend .paragraph-style-3;
+    }
+  }
+
+  &--xsmall {
+    .context__heading {
+      @extend .heading-style-5;
+    }
+
+    .squiggle {
+      margin-top: 8px;
+    }
+  
+    p {
+      @extend .paragraph-style-3;
+    }
   }
 }

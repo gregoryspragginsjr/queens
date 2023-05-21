@@ -1,17 +1,18 @@
 @mixin btn($color, $background, $hover-color: '', $hover-background: '', $border: '') {
-  @include subheading-style-2();
+  @include subheading-style-1();
 
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 16px 20px;
+  padding: 20px 24px;
   color: $color;
   background-color: $background;
   border: 1px solid;
+  border-radius: 94px;
   transition: $transition-default;
 
   @if $border == '' {
-    border-color: $background;
+    border-color: $color;
   }
 
   @else {
@@ -20,7 +21,39 @@
 
   &:hover {
     color: $hover-color;
-    background-color: $hover-background;
-    border-color: $hover-background;
+
+    @if $hover-background == '' {
+      background-color: $color;
+    }
+
+    @else {
+      background-color: $hover-background;
+    }
+  }
+}
+
+@mixin arrow-btn($color, $hover-color: '') {
+  @include subheading-style-1();
+
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 2px;
+  color: $color;
+
+  &:hover {
+    color: $hover-color;
+
+    svg {
+      fill: $hover-color;
+      margin-left: 16px;
+    }
+  }
+
+  svg {
+    fill: $color;
+    width: 16px;
+    margin-left: 10px;
+    transition: $transition-default;
   }
 }

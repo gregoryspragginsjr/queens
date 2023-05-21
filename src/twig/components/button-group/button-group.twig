@@ -1,0 +1,18 @@
+{% import "icons.twig" as icons %}
+
+{% if size == 'small' or size == 'xsmall' %}
+  {% set arrow = true %}
+{% endif %}
+
+<div class="button-group{% if align == 'center' %} button-group--centered{% endif %}">
+  {% for item in items %}
+    {% if arrow %}
+      <a class="arrow-btn arrow-btn--{{ type|default('dark') }}" href="{{ item.button.url }}">
+        {{ item.button.title }}
+        {{ icons.icon('arrow', 'arrow-btn__svg') }}
+      </a>
+    {% else %}
+      <a class="btn btn--{{ type|default('dark') }}" href="{{ item.button.url }}">{{ item.button.title }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

@@ -40,14 +40,40 @@
 
 @mixin heading-style-4() {
   font-family: $font-primary;
-  font-size: rem-calc(30px);
+  font-size: rem-calc(20px);
   font-weight: 500;
   font-style: normal;
   line-height: 120%;
   letter-spacing: -0.02em;
 
   @include breakpoint(medium) {
-    font-size: rem-calc(36px);
+    font-size: rem-calc(30px);
+  }
+}
+
+@mixin heading-style-5() {
+  font-family: $font-primary;
+  font-size: rem-calc(18px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(24px);
+  }
+}
+
+@mixin subheading-style-1() {
+  font-family: $font-secondary;
+  font-size: rem-calc(14px);
+  font-weight: 1000;
+  font-style: oblique;
+  line-height: 120%;
+  text-transform: uppercase;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(16px);
   }
 }
 
@@ -72,5 +98,17 @@
 
   @include breakpoint(medium) {
     font-size: rem-calc(18px);
+  }
+}
+
+@mixin paragraph-style-3() {
+  font-family: $font-tertiary;
+  font-size: rem-calc(14px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 160%;
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(16px);
   }
 }

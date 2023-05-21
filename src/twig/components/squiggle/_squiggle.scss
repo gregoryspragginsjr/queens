@@ -1,0 +1,27 @@
+.squiggle {
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+  font-size: 0;
+  line-height: initial;
+
+  &--dark svg {
+    stroke: $navy;
+  }
+
+  &--light svg {
+    stroke: $white;
+  }
+
+  &--primary svf {
+    stroke: $neon;
+  }
+
+  &__window {
+    width: 826px;
+  }
+
+  &__svg {
+    height: 100%;
+  }
+}

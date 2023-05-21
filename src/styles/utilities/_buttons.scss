@@ -1,6 +1,28 @@
 // Buttons
 /* ------------------------------------- */
 
+.btn {
+
+  &--dark {
+    @include btn($navy, transparent, $white);
+  }
+
+  &--light {
+    @include btn($white, transparent, $navy);
+  }
+}
+
+.arrow-btn {
+
+  &--dark {
+    @include arrow-btn($navy, $navy);
+  }
+
+  &--light {
+    @include arrow-btn($white, $white);
+  }
+}
+
 
 // Button Group
 /* ------------------------------------- */

@@ -1,3 +1,5 @@
+{% import "icons.twig" as icons %}
+
 {% macro picture(class, srcset, src, sizeDesktop, sizeMobile, alt, in_component_library) %}
   {% if in_component_library %}
     <picture>
