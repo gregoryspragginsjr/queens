@@ -1,6 +1,31 @@
 // Typography
 /* ------------------------------------- */
 
+body {
+  @include paragraph-style-3();
+  color: $navy; 
+}
+
+p {
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+address {
+  font-style: normal;
+  line-height: 120%;
+
+  a {
+    display: inline-block;
+  }
+}
+
 // Headings
 .heading-style-1 { @include heading-style-1() }
 
@@ -23,11 +48,15 @@
 .paragraph-style-3 { @include paragraph-style-3(); }
 
 // Colors
+.text-current { color: currentColor; }
+
 .text-light { color: $white; }
 
 .text-dark { color: $navy; }
 
 .text-primary { color: $neon; }
+
+.fill-current { fill: currentColor; }
 
 // Alignment
 .text-center { text-align: center; }
