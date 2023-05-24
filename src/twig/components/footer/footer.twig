@@ -1,0 +1,80 @@
+{% import 'icons.twig' as icons %}
+
+{% if in_component_library %}
+  {% set logo = '@logo' %}
+{% else %}
+  {% set logo = 'logo.twig' %}
+{% endif %}
+
+<footer class="footer" id="site-footer">
+  <div class="footer__inner grid">
+    <div class="footer__col">
+      <div class="footer__logo">
+        {% include logo with { light: true } %}
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h5 class="list-subheading">Contact Us</h5>
+      <ul class="footer__list text-light">
+        <li>
+          <address class="icon-text">
+            {{ icons.icon('map-pin', 'fill-current icon icon--md') }}
+            <a href="{{ address.url }}" rel="noopener noreferrer" target="_blank">{{ address.text }}</a>
+          </address>
+        </li>
+        <li>
+          <div class="icon-text">
+            {{ icons.icon('phone', 'fill-current icon icon--md') }}
+            <a href="tel:{{ phone }}">{{ phone }}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    {% if main %}
+      <div class="footer__col">
+        <h5 class="list-subheading">Info For</h5>
+        <ul class="footer__list">
+          {% for item in main %}
+            <li class="footer__list-item">
+              <a href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if utility %}
+      <div class="footer__col">
+        <h5 class="list-subheading">Policies</h5>
+        <ul class="footer__list">
+          {% for item in utility %}
+            <li class="footer__list-item">
+              <a href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="footer__bottom">
+    <div class="grid">
+      {% if social %}
+        <ul class="footer__social footer__bottom-col">
+          {% for item in social %}
+            <li class="footer__social-item">
+              <a href="{{ item.platform.url }}" class="footer__social-link" rel="noopener noreferrer">
+                {{ icons.icon(item.platform.title|lower, 'fill-current icon icon--md') }}
+                <span class="sr-only">{{ item.platform.title }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <div class="footer__copyright footer__bottom-col">&copy; 2023 Queens University of Charlotte</div>
+    </div>
+  </div>
+</footer>
