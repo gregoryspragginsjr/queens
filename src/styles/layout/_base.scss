@@ -1,0 +1,24 @@
+body {
+    @include paragraph-style-3();
+    color: $navy; 
+  }
+  
+  p {
+    a {
+      color: inherit;
+      text-decoration: underline;
+  
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  
+  address {
+    font-style: normal;
+    line-height: 120%;
+  
+    a {
+      display: inline-block;
+    }
+  }
