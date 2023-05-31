@@ -2,8 +2,10 @@
 
 {% if in_component_library %}
   {% set logo = '@logo' %}
+  {% set squiggleComponent = '@squiggle' %}
 {% else %}
   {% set logo = 'logo.twig' %}
+  {% set squiggleComponent = 'squiggle.twig' %}
 {% endif %}
 
 <footer class="footer" id="site-footer">
@@ -12,6 +14,7 @@
       <div class="footer__logo">
         {% include logo with { light: true } %}
       </div>
+      {% include squiggleComponent with { type: 'light' } %}
     </div>
 
     <div class="footer__col">

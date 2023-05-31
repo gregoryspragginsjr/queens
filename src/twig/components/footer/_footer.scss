@@ -41,6 +41,7 @@
 
   &__col {
     @extend .paragraph-style-2;
+    position: relative;
     grid-column: span 12 / span 12;
     width: 100%;
     text-align: center;
@@ -50,14 +51,38 @@
       text-align: left;
     }
 
+    &:first-child {
+      @include breakpoint(large) {
+        padding-right: 48px;
+      }
+    }
     .list-subheading {
       @extend .subheading-style-1;
       margin-bottom: 16px;
       color: $neon;
     }
+    .squiggle {
+      margin: 25px auto 0;
+      pointer-events: none;
+
+      @include breakpoint(medium) {
+        display: none;
+        margin: 0;
+      }
+      @include breakpoint(large) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        transform: translate(-12px,0) rotate(90deg);
+      }
+    }
   }
 
   &__logo {
+    z-index: 2;
+    position: relative;
     margin: 0 auto;
     width: 100%;
     max-width: 162px;
