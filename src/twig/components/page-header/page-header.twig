@@ -1,0 +1,29 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set squiggleComponent = '@squiggle' %}
+{% else %}
+  {% set squiggleComponent = 'squiggle.twig' %}
+{% endif %}
+
+{% if image is defined and image %}
+  {% set type = 'page-header--image' %}
+{% endif %}
+
+<div class="page-header {{ type|default('page-header--default') }}">
+  <div class="page-header__inner grid">
+    <div class="page-header__main">
+      <h1 class="heading-style-1">{{ heading }}</h1>
+      {% include squiggleComponent with { type: 'light' } %}
+      {% if image is defined and image %}
+        <div class="page-header__small-text">
+          <div>Queens University of Charlotte</div>
+          <div>Royals Rise</div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if image is defined and image %}
+    <div class="page-header__media">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.large, image.sizes.large, image.alt, in_component_library) }}</div>
+  {% endif %}
+</div>
