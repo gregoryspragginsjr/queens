@@ -1,0 +1,28 @@
+// Icons
+/* ------------------------------------- */
+
+.icon {
+  line-height: 1;
+
+  &--sm {
+    width: 16px;
+  }
+
+  &--md {
+    width: 24px;
+  }
+
+  &--lg {
+    width: 32px;
+  }
+}
+
+.icon-text {
+  display: flex;
+  align-items: flex-start;
+  gap: rem-calc(8px);
+
+  .icon {
+    flex: 0 0 auto;
+  }
+}

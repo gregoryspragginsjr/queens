@@ -1,0 +1,156 @@
+.footer {
+  background-color: $navy;
+
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &__list {
+    li {
+      line-height: 120%;
+      margin-top: 16px;
+    }
+
+    .icon-text {
+      justify-content: center;
+
+      @include breakpoint(medium) {
+        justify-content: start;
+      }
+    }
+  }
+
+  &__inner {
+    row-gap: 32px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    @include breakpoint(medium) {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__col {
+    @extend .paragraph-style-2;
+    position: relative;
+    grid-column: span 12 / span 12;
+    width: 100%;
+    text-align: center;
+    
+    @include breakpoint(medium) {
+      grid-column: span 3 / span 3;
+      text-align: left;
+    }
+
+    &:first-child {
+      @include breakpoint(large) {
+        padding-right: 48px;
+      }
+    }
+    .list-subheading {
+      @extend .subheading-style-1;
+      margin-bottom: 16px;
+      color: $neon;
+    }
+    .squiggle {
+      margin: 25px auto 0;
+      pointer-events: none;
+
+      @include breakpoint(medium) {
+        display: none;
+        margin: 0;
+      }
+      @include breakpoint(large) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        transform: translate(-12px,0) rotate(90deg);
+      }
+    }
+  }
+
+  &__logo {
+    z-index: 2;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 162px;
+
+    @include breakpoint(medium) {
+      margin: 0;
+      max-width: 200px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: $sky-blue;
+
+    @include breakpoint(medium) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &-col {
+      grid-column: span 12 / span 12;
+      width: 100%;
+      text-align: center;
+      
+      @include breakpoint(medium) {
+        grid-column: span 6 / span 6;
+        text-align: left;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      justify-content: flex-end;
+      order: 2;
+      margin-bottom: 0;
+      width: auto;
+    }
+
+    &-item {
+      & + li {
+        margin-left: 16px;
+      }
+    }
+    
+    &-link {
+      display: block;
+      color: $navy;
+      line-height: 0;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__copyright {
+    @include breakpoint(medium) {
+      order: 1;
+    }
+  }
+}

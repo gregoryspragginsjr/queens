@@ -8,10 +8,13 @@
 @import 'mixins/mixins-buttons';
 @import 'utilities/typography';
 @import 'utilities/buttons';
+@import 'utilities/icons';
+@import 'layout/base';
 @import 'layout/grid';
 @import 'layout/miscellaneous';
 
 // Components
 @import '~components/context/context';
 @import '~components/button-group/button-group';
+@import '~components/footer/footer';
 @import '~components/squiggle/squiggle';

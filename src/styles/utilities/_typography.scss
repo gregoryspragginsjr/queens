@@ -23,11 +23,15 @@
 .paragraph-style-3 { @include paragraph-style-3(); }
 
 // Colors
+.text-current { color: currentColor; }
+
 .text-light { color: $white; }
 
 .text-dark { color: $navy; }
 
 .text-primary { color: $neon; }
+
+.fill-current { fill: currentColor; }
 
 // Alignment
 .text-center { text-align: center; }
