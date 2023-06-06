@@ -1,0 +1,47 @@
+.context-section {
+  padding: 60px 0;
+
+  @include breakpoint(medium) {
+    padding: 100px 0;
+  }
+
+  &--dark {
+    background-color: $sky-blue;
+  }
+
+  &__icons {
+    display: flex;
+    grid-column: span 12 / span 12;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__icon {
+    width: 30px;
+    fill: $navy;
+  }
+
+  &__main {
+    grid-column: span 12 / span 12;
+
+    .context-section--align-center & {
+      @include breakpoint(medium) {
+        grid-column-start: 3;
+      }
+    }
+
+    @include breakpoint(medium) {
+      grid-column: span 8 / span 8;
+
+      .context-section--large & {
+        grid-column: span 10 / span 10;
+        grid-column-start: 2;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{% import "icons.twig" as icons %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="context-section context-section--{{ type|default('light') }} context-section--align-{{ align|default('left') }} context-section--{{ size|default('medium') }}">
+  <div class="context-section__inner grid">
+    {% if icons and align == 'center' %}
+      <div class="context-section__icons">
+        {{ icons.icon('candy',  'context-section__icon') }}
+        {{ icons.icon('kablam', 'context-section__icon') }}
+      </div>
+    {% endif %}
+    <div class="context-section__main">
+      {% include context with {
+        type: 'dark',
+        align: align,
+        size: size,
+        squiggle: squiggle,
+        subheading: subheading,
+        heading: heading,
+        paragraphs: paragraphs,
+        buttons: buttons,
+      } %}
+    </div>
+  </div>
+</div>
