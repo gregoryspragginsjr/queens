@@ -13,7 +13,11 @@
   {% if heading %}
     <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}">
       {{ heading }}
-      {% if squiggle %}{% include squiggleComponent %}{% endif %}
+      {% if icon %}
+        {{ icons.icon(icon, 'context__icon') }}
+      {% elseif squiggle %}
+        {% include squiggleComponent %}
+      {% endif %}
     </h2>
   {% endif %}
   {% if paragraphs %}

@@ -7,10 +7,10 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(112px);
   }
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
     font-size: rem-calc(144px);
   }
 }
@@ -24,7 +24,7 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(72px);
   }
 }
@@ -37,7 +37,7 @@
   line-height: 120%;
   letter-spacing: -0.02em;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(60px);
   }
 }
@@ -50,7 +50,7 @@
   line-height: 120%;
   letter-spacing: -0.02em;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(48px);
   }
 }
@@ -63,7 +63,7 @@
   line-height: 120%;
   letter-spacing: -0.02em;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(30px);
   }
 }
@@ -76,7 +76,7 @@
   line-height: 120%;
   letter-spacing: -0.02em;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(24px);
   }
 }
@@ -89,7 +89,7 @@
   line-height: 120%;
   text-transform: uppercase;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(16px);
   }
 }
@@ -101,7 +101,7 @@
   font-style: normal;
   line-height: 160%;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(18px);
   }
 }
@@ -113,7 +113,7 @@
   font-style: normal;
   line-height: 160%;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(18px);
   }
 }
@@ -125,7 +125,7 @@
   font-style: normal;
   line-height: 160%;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     font-size: rem-calc(16px);
   }
 }

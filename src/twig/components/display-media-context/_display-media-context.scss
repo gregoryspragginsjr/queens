@@ -1,0 +1,65 @@
+.display-media-context {
+  position: relative;
+  padding: 50px 0 0;
+  background-color: $sky-blue;
+
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+
+  &__image {
+    padding: 20px;
+
+    @include breakpoint(medium) {
+      width: 50%;
+    }
+
+    .display-media-context--reverse & {
+      @include breakpoint(medium) {
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__overlay {
+    @include breakpoint(medium) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__overlay + &__image {
+    margin-top: 30px;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__context {
+    display: flex;
+    align-items: center;
+    grid-column: span 12 / span 12;
+
+    @include breakpoint(medium) {
+      grid-column: span 6 / span 6;
+      grid-column-start: 7;
+    }
+
+    .display-media-context--reverse & {
+      @include breakpoint(medium) {
+        grid-column-start: 1;
+      }
+    }
+  }
+
+  .context__icon {
+    fill: $white;
+  }
+}

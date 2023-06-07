@@ -4,12 +4,16 @@
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 20px 24px;
+  padding: 16px 20px;
   color: $color;
   background-color: $background;
   border: 1px solid;
   border-radius: 94px;
   transition: $transition-default;
+
+  @include breakpoint(large) {
+    padding: 20px 24px;
+  }
 
   @if $border == '' {
     border-color: $color;

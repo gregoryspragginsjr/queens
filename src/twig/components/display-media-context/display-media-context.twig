@@ -1,0 +1,36 @@
+{% import "macros.twig" as macros %}
+{% import "icons.twig" as icons %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="display-media-context{% if reverse %} display-media-context--reverse{% endif %}">
+  <div class="display-media-context__overlay">
+    <div class="display-media-context__inner grid">
+      <div class="display-media-context__context">
+        {% include context with {
+          align: 'center',
+          size: 'large',
+          subheading: subheading,
+          heading: heading,
+          paragraphs: paragraphs,
+          buttons: buttons,
+        } %}
+      </div>
+    </div>
+  </div>
+  <div class="display-media-context__image">
+    {{ macros.picture(
+      'object-cover',
+      image.srcset,
+      image.src,
+      image.sizes.Square,
+      image.sizes.Square,
+      image.alt,
+      in_component_library
+    ) }}
+  </div>
+</div>

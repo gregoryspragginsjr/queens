@@ -76,4 +76,13 @@
       @extend .paragraph-style-3;
     }
   }
+
+  &__icon {
+    width: 58px;
+    margin-top: 20px;
+
+    @include breakpoint(large) {
+      margin-top: 28px;
+    }
+  }
 }
