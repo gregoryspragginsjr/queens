@@ -5,8 +5,12 @@
     padding: 100px 0;
   }
 
-  &--dark {
+  &--blue {
     background-color: $sky-blue;
+  }
+
+  &--dark {
+    background-color: $navy; 
   }
 
   &__icons {

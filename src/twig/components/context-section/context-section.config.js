@@ -16,6 +16,12 @@ module.exports = {
   },
   variants: [
     {
+      name: 'Dark',
+      context: {
+        type: 'dark',
+      }
+    },
+    {
       name: 'Centered',
       context: {
         align: 'center',
@@ -25,9 +31,9 @@ module.exports = {
       }
     },
     {
-      name: 'Centered Dark',
+      name: 'Centered Blue',
       context: {
-        type: 'dark',
+        type: 'blue',
         align: 'center',
         size: 'large',
         squiggle: true,

@@ -16,7 +16,7 @@
     {% endif %}
     <div class="context-section__main">
       {% include context with {
-        type: 'dark',
+        type: type == 'dark' ? 'light' : 'dark',
         align: align,
         size: size,
         squiggle: squiggle,
