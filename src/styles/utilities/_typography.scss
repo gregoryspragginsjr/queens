@@ -25,6 +25,8 @@
 
 .paragraph-style-3 { @include paragraph-style-3(); }
 
+.paragraph-style-4 { @include paragraph-style-4(); }
+
 // Colors
 .text-current { color: currentColor; }
 
@@ -45,6 +47,8 @@
 .heading-style-2 + .paragraph-style-1 { margin-top: 24px; }
 
 .heading-style-3 + .paragraph-style-2 { margin-top: 16px; }
+
+.heading-style-3 + .paragraph-style-4 { margin-top: 24px; }
 
 .heading-style-4 + .paragraph-style-3 { margin-top: 16px; }
 
