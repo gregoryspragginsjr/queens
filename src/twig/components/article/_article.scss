@@ -27,8 +27,14 @@
   }
 
   &__image + .context {
-    @include breakpoint(medium) {
-      margin-top: 24px;
+    margin-top: 24px;
+
+    .article--break-condensed & {
+      margin-top: 0;
+
+      @include breakpoint(medium) {
+        margin-top: 24px;
+      }
     }
   }
 }

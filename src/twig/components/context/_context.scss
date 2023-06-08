@@ -70,7 +70,11 @@
 
     .squiggle {
       width: 80px;
-      margin: 16px 0;
+      margin: 12px 0;
+
+      @include breakpoint(medium) {
+        margin: 16px 0;
+      }
     }
   
     p {

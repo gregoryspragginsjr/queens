@@ -137,5 +137,62 @@ module.exports = {
         type: 'primary',
       }
     },
+    {
+      name: 'Staggered',
+      context: {
+        columns: 'staggered',
+        break: 'default',
+        squiggle: true,
+        items: [
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/660x470',
+              src: 'https://via.placeholder.com/660x470',
+              alt: 'Test alt',
+            },
+            heading: 'Internships',
+            paragraphs: '<p>We know that students and young professionals with internship experience are 35% more likely to get at least one job offer after graduating than those without it (source: zippia.com). So, we provide the resources to ensure that every Royal has the opportunity to intern.</p>'
+          },
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/660x470',
+              src: 'https://via.placeholder.com/660x470',
+              alt: 'Test alt',
+            },
+            heading: 'Careers',
+            paragraphs: '<p>Many big-name companies and organizations like Deloitte, Google, Atrium Health, and more are eager to work with Queens grads. You’ll work with our Vandiver Career Center from day one to make a plan and progress on your career goals.</p>'
+          },
+        ]
+      }
+    },
+    {
+      name: 'Staggered Reverse',
+      context: {
+        columns: 'staggered',
+        break: 'default',
+        reverse: true,
+        squiggle: true,
+        items: [
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/660x470',
+              src: 'https://via.placeholder.com/660x470',
+              alt: 'Test alt',
+            },
+            heading: 'Internships',
+            paragraphs: '<p>We know that students and young professionals with internship experience are 35% more likely to get at least one job offer after graduating than those without it (source: zippia.com). So, we provide the resources to ensure that every Royal has the opportunity to intern.</p>'
+          },
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/660x470',
+              src: 'https://via.placeholder.com/660x470',
+              alt: 'Test alt',
+            },
+            heading: 'Careers',
+            paragraphs: '<p>Many big-name companies and organizations like Deloitte, Google, Atrium Health, and more are eager to work with Queens grads. You’ll work with our Vandiver Career Center from day one to make a plan and progress on your career goals.</p>'
+          },
+        ]
+      }
+    }
   ]
 }
