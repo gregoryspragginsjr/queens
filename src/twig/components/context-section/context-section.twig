@@ -2,8 +2,10 @@
 
 {% if in_component_library %}
   {% set context = '@context' %}
+  {% set buttonGroup = '@button-group' %}
 {% else %}
   {% set context = 'context.twig' %}
+  {% set buttonGroup = 'button-group.twig' %}
 {% endif %}
 
 <div class="context-section context-section--{{ type|default('light') }} context-section--align-{{ align|default('left') }} context-section--{{ size|default('medium') }}">
@@ -26,5 +28,14 @@
         buttons: buttons,
       } %}
     </div>
+    {% if buttons and align != 'center' %}
+      <div class="context-section__secondary">
+        {% include buttonGroup with {
+          type: type == 'dark' ? 'light' : 'dark',
+          align: align,
+          items: buttons,
+        } %}
+      </div>
+    {% endif %}
   </div>
 </div>

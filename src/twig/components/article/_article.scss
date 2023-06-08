@@ -1,0 +1,40 @@
+.article {
+  &--break-condensed {
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
+
+  &__image {
+    font-size: 0;
+    line-height: 0;
+
+    .article--break-condensed & {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      margin-left: 20px;
+
+      @include breakpoint(medium) {
+        width: auto;
+        height: auto;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__image + .context {
+    margin-top: 24px;
+
+    .article--break-condensed & {
+      margin-top: 0;
+
+      @include breakpoint(medium) {
+        margin-top: 24px;
+      }
+    }
+  }
+}
