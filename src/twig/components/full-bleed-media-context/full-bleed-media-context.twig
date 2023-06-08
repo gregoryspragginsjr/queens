@@ -1,0 +1,34 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set buttonGroup = '@button-group' %}
+{% else %}
+  {% set buttonGroup = 'button-group.twig' %}
+{% endif %}
+
+<div class="full-bleed-media-context full-bleed-media-context--{{ type|default('dark') }}{{ reverse ? ' full-bleed-media-context--reverse' }}">
+  <div class="full-bleed-media-context__inner grid">
+    <div class="full-bleed-media-context__context">
+      <div class="context context--medium context--{{ type|default('primary') }}">
+        {% if heading %}
+          <h2 class="context__heading">{{ heading }}</h2>
+        {% endif %}
+        {% if paragraphs %}
+          {{ paragraphs|raw }}
+        {% endif %}
+        {% if buttons %}
+          {% if type == 'gold' %}
+            {% set type = 'dark' %}
+          {% endif %}
+          {% include buttonGroup with {
+            type: type|default('light'),
+            align: align,
+            items: buttons,
+          } %}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="full-bleed-media-context__image">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Square, image.sizes.Square, image.alt, in_component_library) }}</div>
+  </div>
+</div>
