@@ -1,0 +1,18 @@
+{% if in_component_library %}
+  {% set article = '@article' %}
+{% else %}
+  {% set article = 'article.twig' %}
+{% endfor %}
+
+<div class="article-grid article-grid--{{ type|default('default') }} article-grid--{{ columns|default(3) }}-column {% if border %}article-grid--bordered{% endif %}">
+  <div class="article-grid__inner grid">
+    {% for item in items %}
+      <div class="article-grid__item">
+        {% if type == 'blue' %}
+          {% set type = 'dark' %}
+        {% endif %}
+        {% include article with item %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
