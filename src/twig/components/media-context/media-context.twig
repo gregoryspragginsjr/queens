@@ -1,0 +1,39 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}">
+  <div class="media-context__inner grid">
+    <div class="media-context__context">
+      {% include context with {
+        type: type == 'dark' ? 'light' : 'dark',
+        align: 'left',
+        size: size,
+        squiggle: squiggle,
+        subheading: subheading,
+        heading: heading,
+        paragraphs: paragraphs,
+        buttons: buttons,
+      } %}
+    </div>
+    <div class="media-context__image">
+      {% if video.id %}
+        {# VIDEO COMPONENT HERE #}
+      {% else %}
+        {{ macros.picture(
+          'media-context__img',
+          image.srcset,
+          image.src,
+          image.sizes.Rectangle,
+          image.sizes.Rectangle_mobile,
+          image.alt,
+          in_component_library
+        ) }}
+      {% endif %}
+    </div>
+  </div>
+</div>

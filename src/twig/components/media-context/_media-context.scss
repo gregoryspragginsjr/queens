@@ -1,0 +1,40 @@
+.media-context {
+  padding: 60px 0;
+
+  @include breakpoint(large) {
+    padding: 100px 0;
+  }
+
+  &--dark {
+    background-color: $navy; 
+  }
+
+  &__context,
+  &__image {
+    grid-column: span 12 / span 12;
+  }
+
+  &__context {
+    @include breakpoint(medium) {
+      grid-column: span 5 / span 5;
+    }
+  }
+
+  &__context + &__image {
+    margin-top: 40px;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    @include breakpoint(medium) {
+      grid-column: span 7 / span 7;
+
+      .media-context--reverse & {
+        grid-row: 1;
+      }
+    }
+  }
+}
