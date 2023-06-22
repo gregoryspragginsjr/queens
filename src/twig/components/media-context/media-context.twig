@@ -2,8 +2,10 @@
 
 {% if in_component_library %}
   {% set context = '@context' %}
+  {% set videoComponent = '@video' %}
 {% else %}
   {% set context = 'context.twig' %}
+  {% set videoComponent = 'video.twig' %}
 {% endif %}
 
 <div class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}">
@@ -22,7 +24,7 @@
     </div>
     <div class="media-context__image">
       {% if video.id %}
-        {# VIDEO COMPONENT HERE #}
+        {% include videoComponent with video %}
       {% else %}
         {{ macros.picture(
           'media-context__img',

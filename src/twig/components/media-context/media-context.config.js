@@ -32,5 +32,13 @@ module.exports = {
         type: 'dark',
       }
     },
+    {
+      name: 'With Video',
+      context: {
+        video: {
+          id: '86jwyC1kFDk',
+        },
+      }
+    },
   ]
 }
