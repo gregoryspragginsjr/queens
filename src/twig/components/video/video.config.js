@@ -15,7 +15,10 @@ module.exports = {
     {
       name: 'With Loop',
       context: {
-        loop: 'https://experience.brynathyn.edu/wp-content/themes/bryn-athyn/dist/videos/videoplayback2.mp4',
+        video: {
+          id: '86jwyC1kFDk',
+          loop: 'https://experience.brynathyn.edu/wp-content/themes/bryn-athyn/dist/videos/videoplayback2.mp4',
+        },
       },
     }
   ]

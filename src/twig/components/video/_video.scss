@@ -44,6 +44,24 @@
     }
   }
 
+  &__loop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    background-repeat: repeat;
+    background-size: cover;
+
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
+
   &__image {
     position: absolute;
     top: 0;
