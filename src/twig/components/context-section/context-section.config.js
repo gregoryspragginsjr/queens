@@ -40,5 +40,15 @@ module.exports = {
         icons: true,
       }
     },
+    {
+      name: 'Centered Gradient',
+      context: {
+        type: 'gradient',
+        align: 'center',
+        size: 'large',
+        squiggle: true,
+        icons: true,
+      }
+    },
   ]
 }

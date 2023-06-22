@@ -1,10 +1,4 @@
 .context-section {
-  padding: 60px 0;
-
-  @include breakpoint(large) {
-    padding: 100px 0;
-  }
-
   &--blue {
     background-color: $sky-blue;
   }
@@ -13,9 +7,37 @@
     background-color: $navy; 
   }
 
+  &--gradient {
+    padding: 30px 30px;
+    background:
+      linear-gradient(
+        180deg,
+        $sky-blue 0%,
+        $navy 40.10%,
+        $navy 100%
+      );
+
+    @include breakpoint(large) {
+      padding: 80px 60px;
+    }
+  }
+
   &--align-left {
     p + .button-group {
       display: none;
+    }
+  }
+
+  &__main {
+    position: relative;
+    padding: 60px 0;
+
+    @include breakpoint(large) {
+      padding: 100px 0;
+    }
+
+    .context-section--gradient & {
+      background-color: $white;
     }
   }
 
@@ -36,7 +58,7 @@
     fill: $navy;
   }
 
-  &__main {
+  &__primary {
     grid-column: span 12 / span 12;
 
     .context-section--align-center & {
