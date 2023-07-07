@@ -1,0 +1,53 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set contextSection = '@context-section' %}
+  {% set buttonGroup = '@button-group' %}
+{% else %}
+  {% set contextSection = 'context-section.twig' %}
+  {% set buttonGroup = 'button-group.twig' %}
+{% endif %}
+
+<div class="staggered-card-slider staggered-card-slider--{{ type|default('light') }}">
+  <div class="staggered-card-slider__context">
+    {% include contextSection with {
+      type: 'light',
+      align: 'left',
+      size: 'medium',
+      squiggle: '',
+      subheading: subheading,
+      heading: heading,
+      paragraphs: paragraphs,
+      buttons: buttons,
+    } %}
+  </div>
+
+  <div class="horizontal-scroller">
+    <div class="horizontal-scroller__inner">
+      {% for item in items %}
+        <div class="horizontal-scroller__item">
+          <div class="horizontal-scroller__card">
+            <div class="horizontal-scroller__card-image">
+              {{ macros.picture(
+                'w-full object-cover',
+                item.image.srcset,
+                item.image.src,
+                item.image.sizes.desktop,
+                item.image.sizes.mobile,
+                item.image.alt,
+                in_component_library
+              ) }}
+            </div>
+
+            <div class="horizontal-scroller__card-text">
+              <h3>{{ item.heading }}</h3>
+              {% if item.paragraphs %}
+                {{ item.paragraphs|raw }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

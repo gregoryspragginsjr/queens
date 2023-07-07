@@ -81,6 +81,15 @@
   }
 }
 
+@mixin heading-style-6() {
+  font-family: $font-primary;
+  font-size: rem-calc(18px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+}
+
 @mixin subheading-style-1() {
   font-family: $font-secondary;
   font-size: rem-calc(14px);
