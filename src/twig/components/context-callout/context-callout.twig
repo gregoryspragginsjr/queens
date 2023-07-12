@@ -1,0 +1,37 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="context-callout">
+  <div class="context-callout__inner grid">
+    <div class="context-callout__main">
+      <div class="context-callout__context">
+        {% include context with {
+          type: 'dark',
+          align: 'left',
+          size: 'medium',
+          squiggle: '',
+          subheading: subheading,
+          heading: heading,
+          paragraphs: paragraphs,
+          buttons: buttons,
+        } %}
+      </div>
+      <div class="context-callout__image">
+        {{ macros.picture(
+          'context-callout__img',
+          image.srcset,
+          image.src,
+          image.sizes.Rectangle,
+          image.sizes.Rectangle_mobile,
+          image.alt,
+          in_component_library
+        ) }}
+      </div>
+    </div>
+  </div>
+</div>
