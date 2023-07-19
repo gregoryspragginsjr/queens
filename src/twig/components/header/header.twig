@@ -1,0 +1,90 @@
+{% import "icons.twig" as icons %}
+
+{% if in_component_library %}
+  {% set logo = '@logo' %}
+  {% set squiggleComponent = '@squiggle' %}
+{% else %}
+  {% set logo = 'logo.twig' %}
+  {% set squiggleComponent = 'squiggle.twig' %}
+{% endif %}
+
+<header class="header">
+  <div class="header__utility">
+    <div class="header__inner grid">
+      <div class="header__content">
+        <ul>
+          {% for item in utility %}
+            <li>
+              <a href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <button class="header__search-btn">
+          {{ icons.icon('search', '') }}
+          <span>Search</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="header__main">
+    <div class="header__inner grid">
+      <div class="header__content">
+        <a class="header__logo" href="/">
+          {% include logo %}
+        </a>
+        <div class="header__drawer">
+          <ul class="header__menu">
+            {% for item in main|slice(0,3) %}
+              <li>
+                <a href="{{ item.url }}">
+                  {{ item.title }}
+                  {% include squiggleComponent %}
+                </a>
+                {% if item.children %}
+                  <button class="header__drawer-btn">
+                    {{ icons.icon('chevron-arrow', '') }}
+                  </button>
+                  <ul class="header__dropdown">
+                    {% for child in item.children %}
+                      <li>
+                        <a href="{{ child.url }}">
+                          <span class="header__icon-wrap">{{ icons.icon(child.title, '') }}</span>
+                          <span>{{ child.title }}</span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          <ul class="header__menu">
+            {% for item in main|slice(3,6) %}
+              <li>
+                <a href="{{ item.url }}">
+                  {{ item.title }}
+                  {% include squiggleComponent %}
+                </a>
+                {% if item.children %}
+                  <button class="header__drawer-btn">
+                    {{ icons.icon('chevron-arrow', '') }}
+                  </button>
+                  <ul class="header__dropdown">
+                    {% for child in item.children %}
+                      <li>
+                        <a href="{{ child.url }}">
+                          <span class="header__icon-wrap">{{ icons.icon(child.title, '') }}</span>
+                          <span>{{ child.title }}</span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

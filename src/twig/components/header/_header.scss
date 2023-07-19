@@ -1,0 +1,359 @@
+.header {
+
+  &__utility {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    background-color: $navy;
+
+    @include breakpoint(large) {
+      position: static;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li,
+    .header__search-btn {
+      font-family: $font-primary;
+      font-size: rem-calc(14px);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $white;
+    }
+
+    li + li {
+      margin-left: 32px;
+    }
+
+    a,
+    .header__search-btn {
+      position: relative;
+      display: block;
+      padding: 9px 0;
+      color: $white;
+      text-decoration: none;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $neon;
+        content: '';
+        transition: $transition-default;
+      }
+
+      &:hover::after {
+        width: 100%;
+        right: auto;
+        left: 0;
+      }
+    }
+
+    .header__search-btn {
+      display: flex;
+      background-color: transparent;
+      border: 0;
+    }
+  }
+
+  &__search-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: $neon;
+      margin-right: 4px;
+    }
+  }
+  
+  &__main {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    background-color: $white;
+    border-bottom: 1px solid $navy-light;
+
+    @include breakpoint(large) {
+      height: 98px;
+      border-bottom: none;
+    }
+
+    li {
+      position: relative;
+      font-family: $font-primary;
+      font-size: rem-calc(16px);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 160%;
+      letter-spacing: 0;
+      text-transform: none;
+      white-space: nowrap;
+
+      &:nth-child(4) {
+        align-self: flex-end;
+      }
+
+      a {
+        position: relative;
+        color: $navy;
+        text-decoration: none;
+        transition: $transition-default;
+
+        @include breakpoint(large) {
+          padding: 10px 0 23px;
+        }
+
+        &:hover {
+          color: #3e65ad;
+
+          .squiggle {
+            width: 100%;
+
+            svg {
+              stroke: #3e65ad;
+            }
+          }
+        }
+      }
+    }
+
+    .squiggle {
+      position: absolute;
+      left: 0;
+      width: 0;
+      transition: $transition-default;
+
+      svg {
+        transition: $transition-default;
+      }
+    }
+
+    .squiggle__window {
+      width: 400px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: span 12 / span 12;
+  }
+
+  &__menu {
+    @include breakpoint(large) {
+      display: flex;
+    }
+
+    > li {
+      font-family: $font-secondary;
+      font-size: rem-calc(24px);
+      font-weight: 1000;
+      font-style: oblique;
+      line-height: 120%;
+      text-transform: uppercase;
+      letter-spacing: -0.48px;
+
+      @include breakpoint(large) {
+        font-family: $font-primary;
+        font-size: rem-calc(16px);
+        font-style: normal;
+        line-height: 160%;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+    }
+
+    > li + li {
+      margin-top: 32px;
+
+      @include breakpoint(large) {
+        margin-top: 0;
+        margin-left: 24px;
+      }
+    }
+
+    li:hover .header__dropdown {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__menu + &__menu {
+    margin-top: 32px;
+
+    @include breakpoint(large) {
+      margin-top: 0;
+    }
+  }
+
+  &__logo {
+    width: 95px;
+
+    @include breakpoint(large) {
+      position: absolute;
+      left: 50%;
+      width: 130px;
+      transform: translateX(-50%);
+    }
+
+    &:hover svg {
+      fill: #3e65ad;
+    }
+
+    svg {
+      transition: $transition-default;
+    }
+  }
+
+  &__dropdown {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: $transition-default;
+
+    @include breakpoint(large) {
+      top: 100%;
+      left: 50%;
+      position: absolute;
+      height: auto;
+      padding: 28px 32px;
+      margin-top: 20px;
+      background: $white;
+      border-radius: 4px;
+      box-shadow: 0px 0 24px 0px rgba(22, 22, 22, 0.10);
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: calc(50% - 10px);
+      display: none;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border-top-left-radius: 4px;
+      transform: rotate(45deg);
+
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+
+    li + li {
+      margin-top: 14px;
+    }
+
+    li {
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 4px 0;
+
+        &:hover {
+          svg {
+            animation-name: spin;
+            fill: #3e65ad;
+          }
+        }
+      }
+    }
+  }
+
+  &__icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+
+    svg {
+      width: 100%;
+      max-height: 20px;
+      max-height: 20px;
+      fill: $navy;
+      transition: $transition-default;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 3s;
+    }
+  }
+
+  &__drawer {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 72px);
+    padding: 36px 20px;
+    background:
+      linear-gradient(
+        180deg,
+        $white 35.42%,
+        #eceda3 100%
+      );
+
+    @include breakpoint(large) {
+      position: static;
+      overflow-y: visible;
+      display: flex;
+      justify-content: space-between;
+      height: auto;
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  &__drawer-btn {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+    
+    @include breakpoint(large) {
+      display: none;
+    }
+
+    svg {
+      fill: $navy;
+      width: 10px;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotateY(0deg)
+  }
+
+  to {
+      transform: rotateY(-1turn)
+  }
+}
