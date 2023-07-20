@@ -1,17 +1,28 @@
 .header {
 
   &__utility {
+    z-index: 2;
     position: fixed;
     bottom: 0;
     left: 0;
+    visibility: hidden;
     display: flex;
     align-items: center;
     width: 100%;
     height: 32px;
+    opacity: 0;
     background-color: $navy;
+    transition: $transition-default;
 
     @include breakpoint(large) {
       position: static;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
     }
 
     ul {
@@ -60,9 +71,13 @@
     }
 
     .header__search-btn {
-      display: flex;
+      display: none;
       background-color: transparent;
       border: 0;
+
+      @include breakpoint(large) {
+        display: flex;
+      }
     }
   }
 
@@ -70,12 +85,20 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    background-color: transparent;
+    border: 0;
 
     svg {
-      width: 14px;
-      height: 14px;
-      fill: $neon;
+      width: 16px;
+      height: 16px;
+      fill: $navy;
       margin-right: 4px;
+
+      @include breakpoint(large) {
+        width: 14px;
+        height: 14px;
+        fill: $neon;
+      }
     }
   }
   
@@ -188,8 +211,10 @@
     }
 
     li:hover .header__dropdown {
-      visibility: visible;
-      opacity: 1;
+      @include breakpoint(large) {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 
@@ -221,16 +246,14 @@
   }
 
   &__dropdown {
+    position: absolute;
     visibility: hidden;
     opacity: 0;
-    height: 0;
     transition: $transition-default;
 
     @include breakpoint(large) {
       top: 100%;
       left: 50%;
-      position: absolute;
-      height: auto;
       padding: 28px 32px;
       margin-top: 20px;
       background: $white;
@@ -256,6 +279,13 @@
       }
     }
 
+    .active & {
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      margin-top: 20px;
+    }
+
     li + li {
       margin-top: 14px;
     }
@@ -263,7 +293,7 @@
     li {
 
       a {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         padding: 4px 0;
 
@@ -301,6 +331,7 @@
     position: fixed;
     top: 72px;
     left: 0;
+    visibility: hidden;
     overflow-y: scroll;
     width: 100%;
     height: calc(100vh - 72px);
@@ -311,15 +342,24 @@
         $white 35.42%,
         #eceda3 100%
       );
+    opacity: 0;
+    transition: $transition-default;
 
     @include breakpoint(large) {
       position: static;
+      visibility: visible;
       overflow-y: visible;
       display: flex;
       justify-content: space-between;
       height: auto;
       padding: 0;
+      opacity: 1;
       background: transparent;
+    }
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -336,14 +376,102 @@
     border: 0;
     border-radius: 4px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+    transition: $transition-default;
     
     @include breakpoint(large) {
       display: none;
     }
 
+    .active & {
+      background-color: $navy;
+
+      svg {
+        fill: $white;
+        transform: rotate(180deg);
+      }
+    }
+
     svg {
+      pointer-events: none;
       fill: $navy;
       width: 10px;
+      transition: $transition-default;
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(large) {
+      display: none;
+    }
+
+    .header__search-btn {
+      font-size: 0;
+    }
+  }
+
+  &__search-btn + &__hamburger {
+    margin-left: 24px;
+  }
+
+  &__hamburger {
+    display: flex;
+    align-items: center;
+    width: 17px;
+    height: 14px;
+    padding-right: 0;
+    appearance: none;
+    border: 0;
+    background-color: transparent;
+
+    &[aria-expanded='true'] {
+      span {
+        background-color: transparent;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+  
+        &::after {
+          top: 0;
+          width: 100%;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      display: block;
+      width: 17px;
+      height: 2px;
+      background-color: $navy;
+      border-radius: 10px;
+      transition: $transition-default;
+
+      &::before,
+      &::after {
+        position: absolute;
+        left: 0;
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+        background-color: $navy;
+        transform-origin: center;
+        transition: inherit;
+        content: '';
+      }
+
+      &::before {
+        top: -6px;
+      }
+
+      &::after {
+        top: 6px;
+      }
     }
   }
 }

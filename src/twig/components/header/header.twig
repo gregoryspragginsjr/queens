@@ -8,8 +8,15 @@
   {% set squiggleComponent = 'squiggle.twig' %}
 {% endif %}
 
-<header class="header">
-  <div class="header__utility">
+<component
+  is="header"
+  v-slot="header"
+  class="header"
+>
+  <div
+    class="header__utility"
+    :class="{'header__utility--active': header.drawerActive}"
+  >
     <div class="header__inner grid">
       <div class="header__content">
         <ul>
@@ -32,16 +39,34 @@
         <a class="header__logo" href="/">
           {% include logo %}
         </a>
-        <div class="header__drawer">
+        <div class="header__mobile-nav">
+          <button class="header__search-btn">
+            {{ icons.icon('search', '') }}
+            <span>Search</span>
+          </button>
+          <button
+            class="header__hamburger"
+            :aria-expanded="header.drawerActive"
+            @click="header.toggleDrawer()"
+          >
+            <span></span>
+          </button>
+        </div>
+        <div
+          class="header__drawer"
+          :class="{'header__drawer--active' : header.drawerActive}">
           <ul class="header__menu">
             {% for item in main|slice(0,3) %}
-              <li>
+              <li :class="{'active': header.activeChild == {{ loop.index0 }}}">
                 <a href="{{ item.url }}">
                   {{ item.title }}
                   {% include squiggleComponent %}
                 </a>
                 {% if item.children %}
-                  <button class="header__drawer-btn">
+                  <button
+                    class="header__drawer-btn"
+                    @click="header.toggleActiveChild({{ loop.index0 }}, $event)"
+                  >
                     {{ icons.icon('chevron-arrow', '') }}
                   </button>
                   <ul class="header__dropdown">
@@ -60,13 +85,16 @@
           </ul>
           <ul class="header__menu">
             {% for item in main|slice(3,6) %}
-              <li>
+              <li :class="{'active': header.activeChild == {{ loop.index0 + 3 }}}">
                 <a href="{{ item.url }}">
                   {{ item.title }}
                   {% include squiggleComponent %}
                 </a>
                 {% if item.children %}
-                  <button class="header__drawer-btn">
+                  <button
+                    class="header__drawer-btn"
+                    @click="header.toggleActiveChild({{ loop.index0 + 3 }}, $event)"
+                  >
                     {{ icons.icon('chevron-arrow', '') }}
                   </button>
                   <ul class="header__dropdown">
@@ -87,4 +115,4 @@
       </div>
     </div>
   </div>
-</header>
+</component>
