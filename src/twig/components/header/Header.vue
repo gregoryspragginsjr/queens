@@ -3,8 +3,10 @@
     <slot
       :active="active"
       :drawerActive="drawerActive"
+      :searchActive="searchActive"
       :activeChild="activeChild"
       :toggleDrawer="toggleDrawer"
+      :toggleSearch="toggleSearch"
       :toggleActiveChild="toggleActiveChild"
     />
   </header>
@@ -16,6 +18,7 @@
       return {
         active: false,
         drawerActive: false,
+        searchActive: false,
         activeChild: undefined,
       }
     },
@@ -23,6 +26,9 @@
       toggleDrawer() {
         this.drawerActive = !this.drawerActive;
         this.activeChild = undefined;
+      },
+      toggleSearch() {
+        this.searchActive = !this.searchActive;
       },
       toggleActiveChild(child, e) {
 

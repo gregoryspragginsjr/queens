@@ -155,6 +155,66 @@ module.exports = {
           },
         ]
       },
+    ],
+    topSearched: [
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Link Lorem Ipsum',
+      },
+    ],
+    helpfulLinks: [
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Apply',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Visit',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'News',
+      },
+      {
+        url: 'https://www.queens.edu/',
+        title: 'Give',
+      },
     ]
   }
 }

@@ -26,7 +26,10 @@
             </li>
           {% endfor %}
         </ul>
-        <button class="header__search-btn">
+        <button
+          class="header__search-btn"
+          @click="header.toggleSearch()"
+        >
           {{ icons.icon('search', '') }}
           <span>Search</span>
         </button>
@@ -40,7 +43,10 @@
           {% include logo %}
         </a>
         <div class="header__mobile-nav">
-          <button class="header__search-btn">
+          <button
+            class="header__search-btn"
+            @click="header.toggleSearch()"
+          >
             {{ icons.icon('search', '') }}
             <span>Search</span>
           </button>
@@ -109,6 +115,54 @@
                   </ul>
                 {% endif %}
               </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="search-modal"
+    :class="{'search-modal--active': header.searchActive}"
+  >
+    <div class="search-modal__inner grid">
+      <div class="search-modal__top">
+        <button
+          class="search-modal__close-btn"
+          @click="header.toggleSearch()"
+        >
+          <span class="sr-only">Close Search</span>
+          {{ icons.icon('x', '') }}
+        </button>
+      </div>
+    </div>
+    <div class="search-modal__inner grid">
+      <div class="search-modal__main">
+        <div class="search-modal__input-wrap">
+          <form role="search" method="get" action="{{ site.link }}">
+            <input type="text" placeholder="What are you looking for?" />
+          </form>
+          <button>
+            {{ icons.icon('search', '') }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="search-modal__inner grid">
+      <div class="search-modal__secondary">
+        <div class="search-modal__top-searched">
+          <h2 class="search-modal__heading">Top Searched</h2>
+          <ul>
+            {% for item in topSearched %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="search-modal__helpful-links">
+          <h2 class="search-modal__heading">Helpful Links</h2>
+          <ul>
+            {% for item in helpfulLinks %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
             {% endfor %}
           </ul>
         </div>

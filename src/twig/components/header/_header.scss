@@ -485,3 +485,203 @@
       transform: rotateY(-1turn)
   }
 }
+
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px 0;
+  background-color: $navy;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: $transition-default;
+
+  @include breakpoint(medium) {
+    padding: 48px 0;
+  }
+
+  &--active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  &__top,
+  &__main,
+  &__secondary {
+    grid-column: span 12 / span 12;
+  }
+
+  &__top {
+    justify-content: flex-end;
+  }
+
+  &__close-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+    padding: 6px 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    @include breakpoint(medium) {
+      padding: 6px;
+    }
+
+    &:hover {
+      svg {
+        fill: $neon;
+      }
+    }
+
+    svg {
+      width: 18px;
+      fill: $white;
+      transition: $transition-default;
+
+      @include breakpoint(medium) {
+        width: 20px;
+      }
+    }
+  }
+
+  &__inner + &__inner {
+    margin-top: 64px;
+  }
+
+  &__main,
+  &__secondary {
+    @include breakpoint(medium) {
+      grid-column: span 10 / span 10;
+      grid-column-start: 2;
+    }
+  }
+
+  &__secondary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__input-wrap {
+    position: relative;
+    width: 100%;
+
+    input {
+      font-family: $font-primary;
+      font-size: rem-calc(24px);
+      font-weight: 500;
+      line-height: 125%;
+      letter-spacing: -0.4px;
+      color: $white;
+      width: 100%;
+      padding-right: 32px;
+      padding-bottom: 16px;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid $sky-blue;
+      outline: 0;
+
+      &::placeholder {
+        color: $white;
+      }
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(36px);
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+
+      &:hover {
+        svg {
+          fill: $neon;
+        }
+      }
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: $white;
+      transition: $transition-default;
+
+      @include breakpoint(medium) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__top-searched {
+    grid-column: span 1 / span 1;
+
+    @include breakpoint(medium) {
+      grid-column: span 2 / span 2;
+    }
+
+    ul {
+      @include breakpoint(medium) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  &__helpful-links {
+    grid-column: span 1 / span 1;
+  }
+
+  &__heading {
+    font-family: $font-secondary;
+    font-size: rem-calc(12px);
+    font-weight: 1000;
+    font-style: oblique;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: $neon;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(14px);
+    }
+  }
+
+  &__heading + ul {
+    margin-top: 24px;
+  }
+
+  ul {
+    display: grid;
+    gap: 16px;
+  }
+
+  li {
+    font-family: $font-primary;
+    font-size: rem-calc(14px);
+    font-weight: 500;
+    line-height: 160%;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(16px);
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      transition: $transition-default;
+
+      &:hover {
+        color: $sky-blue;
+      }
+    }
+  }
+}
