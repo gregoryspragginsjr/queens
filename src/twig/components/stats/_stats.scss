@@ -1,0 +1,40 @@
+.stats {
+  padding: 60px 0;
+  background-color: $sky-blue;
+
+  @include breakpoint(medium) {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    row-gap: 20px;
+
+    @include breakpoint(medium down) {
+      grid-auto-flow: column;
+      grid-template-columns: initial;
+      padding: 0 20px 20px;
+      overflow-x: scroll;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+    }
+
+    @include breakpoint(medium) {
+      row-gap: 40px;
+    }
+  }
+
+  &__stat-block {
+    @include breakpoint(medium down) {
+      min-width: 300px;
+    }
+
+    @include breakpoint(medium) {
+      grid-column: span 4 / span 4;
+    }
+  }
+
+  &__graphic {
+    display: block;
+    width: 100%;
+  }
+}
