@@ -1,0 +1,30 @@
+.wysiwyg {
+  > h1 { @extend .heading-style-1; }
+
+  > h2 { @extend .heading-style-2; }
+
+  > h3 { @extend .heading-style-3; }
+
+  > h4 { @extend .heading-style-4; }
+
+  > h5 { @extend .heading-style-5; }
+
+  > p,
+  > ul {
+    @extend .paragraph-style-2;
+
+    a {
+      color: $navy;
+      text-decoration: underline;
+      transition: $transition-default;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+  }
+}
