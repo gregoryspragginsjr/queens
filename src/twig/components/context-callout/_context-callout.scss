@@ -1,0 +1,49 @@
+.context-callout {
+  position: relative;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-column: span 12 / span 12;
+    border: 1px solid $navy;
+    border-radius: 30px;
+    padding: 30px;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+      column-gap: 50px;
+      padding: 48px 60px;
+    }
+
+    @include breakpoint(large) {
+      column-gap: 100px;
+    }
+  }
+
+  &__context {
+    flex: 1 1 auto;
+
+    @include breakpoint(medium) {      
+      width: 65%;
+    }
+  }
+
+  &__context + &__image {
+    margin-top: 40px;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    @include breakpoint(medium) {
+      max-width: 260px;
+    }
+
+    img {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@import '~variables';
+
+.accordion {
+
+  &__panel + &__panel {
+    border-top: 1px solid #c6c6c6;
+  }
+
+  &__header {
+    @include heading-style-5();
+
+    margin: 0;
+  }
+
+  &__arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: $transition-default;
+
+    [aria-expanded='true'] & {
+      background-color: $navy;
+    }
+
+    svg {
+      width: 14px;
+      fill: $navy;
+      transition: $transition-default;
+
+      [aria-expanded='true'] & {
+        fill: $white;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__button {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border: 0;
+    padding: 20px 0;
+    width: 100%;
+    text-align: left;
+    appearance: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  &__window {
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+  }
+
+  &__content {
+    padding: 0 0 20px;
+  }
+
+  p:nth-child(1) {
+    margin-top: 0;
+  }
+}

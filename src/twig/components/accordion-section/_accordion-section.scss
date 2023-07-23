@@ -1,0 +1,26 @@
+.accordion-section {
+  &__context,
+  &__main {
+    grid-column: span 12 / span 12;
+  }
+
+  &__context {
+    @include breakpoint(large) {
+      grid-column: span 4 / span 4;
+    }
+  }
+
+  &__context + &__main {
+    margin-top: 40px;
+
+    @include breakpoint(large) {
+      margin-top: 0;
+    }
+  }
+
+  &__main {
+    @include breakpoint(large) {
+      grid-column: span 8 / span 8;
+    }
+  }
+}
