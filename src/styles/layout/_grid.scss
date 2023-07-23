@@ -6,11 +6,10 @@
   column-gap: map.get($grid-column-gutter, small);
   width: 100%;
   max-width: $grid-max-width;
-  padding: 0 calc(map.get($site-margin, small));
+  padding: 0 calc(map.get($grid-column-gutter, large) / 2);
   margin: 0 auto;
 
   @include breakpoint(medium) {
     column-gap: map.get($grid-column-gutter, large);
-    padding: 0 calc(map.get($site-margin, large));
   }
 }
