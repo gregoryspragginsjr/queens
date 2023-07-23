@@ -1,0 +1,66 @@
+.staggered-media-context-grid {
+
+  &__item {
+    grid-column: span 12 / span 12;
+    padding: 0 0 50px;
+
+    @include breakpoint(medium) {
+      grid-column: span 6 / span 6;
+    }
+  }
+
+  .media-context {
+    display: flex;
+    column-gap: 16px;
+
+    @include breakpoint(medium) {
+      column-gap: 24px;
+    }
+
+    &--sm {
+      &:nth-child(3n+2) {
+        @include breakpoint(medium) {
+          transform: translateX(20px);
+        }
+      }
+
+      &:nth-child(4n+3) {
+        @include breakpoint(medium) {
+          transform: translateX(-20px);
+        }
+      }
+
+      .media-context__image {
+        @include breakpoint(large) {
+          width: 160px;
+          height: 200px;
+        }
+      }
+    }
+
+    &--lg {
+      .media-context__image {
+        @include breakpoint(large) {
+          width: 280px;
+          height: 224px;
+        }
+      }
+    }
+
+    &--reversed {
+      @include breakpoint(medium) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__image {
+      flex: 0 0 auto;
+      width: 80px;
+      height: 80px;
+    }
+
+    &__context {
+      flex: 1 1 auto;
+    }
+  }
+}
