@@ -40,14 +40,20 @@
       width: 190px;
 
       @include breakpoint(medium) {
+        margin-top: 80px;
         width: 360px;
       }
     }
     &:nth-child(4n+1) {
       width: 210px;
-
+      
       @include breakpoint(medium) {
         width: 420px;
+      }
+    }
+    &:nth-child(3n+2) {
+      @include breakpoint(medium) {
+        margin-top: 40px;
       }
     }
   }
