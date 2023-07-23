@@ -15,10 +15,16 @@ $font-secondary: 'Garaje', serif;
 $font-tertiary: 'Bridge-Text', serif;
 
 // Grid
-$grid-max-width: rem-calc(1200px);
+$grid-max-width: rem-calc(1280px);
 $grid-column-gutter: (
   small: 20px,
   large: 40px,
+);
+
+// Site Margins
+$site-margin: (
+  small: 30px,
+  large: 60px,
 );
 
 // Easing
