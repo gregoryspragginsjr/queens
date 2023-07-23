@@ -1,0 +1,24 @@
+{% if in_component_library %}
+  {% set context = '@context' %}
+  {% set accordion = '@accordion' %}
+{% else %}
+  {% set context = 'context.twig' %}
+  {% set accordion = 'accordion.twig' %}
+{% endif %}
+
+<div class="accordion-section">
+  <div class="accordion-section__inner grid">
+    <div class="accordion-section__context">
+      {% include context with {
+        size: 'medium',
+        subheading: subheading,
+        heading: heading,
+        paragraphs: paragraphs,
+        buttons: buttons,
+      } %}
+    </div>
+    <div class="accordion-section__main">
+      {% include accordion %}
+    </div>
+  </div>
+</div>
