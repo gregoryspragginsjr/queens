@@ -1,0 +1,172 @@
+{% import "icons.twig" as icons %}
+
+{% if in_component_library %}
+  {% set logo = '@logo' %}
+  {% set squiggleComponent = '@squiggle' %}
+{% else %}
+  {% set logo = 'logo.twig' %}
+  {% set squiggleComponent = 'squiggle.twig' %}
+{% endif %}
+
+<component
+  is="header"
+  v-slot="header"
+  class="header"
+>
+  <div
+    class="header__utility"
+    :class="{'header__utility--active': header.drawerActive}"
+  >
+    <div class="header__inner grid">
+      <div class="header__content">
+        <ul>
+          {% for item in utility %}
+            <li>
+              <a href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <button
+          class="header__search-btn"
+          @click="header.toggleSearch()"
+        >
+          {{ icons.icon('search', '') }}
+          <span>Search</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="header__main">
+    <div class="header__inner grid">
+      <div class="header__content">
+        <a class="header__logo" href="/">
+          {% include logo %}
+        </a>
+        <div class="header__mobile-nav">
+          <button
+            class="header__search-btn"
+            @click="header.toggleSearch()"
+          >
+            {{ icons.icon('search', '') }}
+            <span>Search</span>
+          </button>
+          <button
+            class="header__hamburger"
+            :aria-expanded="header.drawerActive"
+            @click="header.toggleDrawer()"
+          >
+            <span></span>
+          </button>
+        </div>
+        <div
+          class="header__drawer"
+          :class="{'header__drawer--active' : header.drawerActive}">
+          <ul class="header__menu">
+            {% for item in main|slice(0,3) %}
+              <li :class="{'active': header.activeChild == {{ loop.index0 }}}">
+                <a href="{{ item.url }}">
+                  {{ item.title }}
+                  {% include squiggleComponent %}
+                </a>
+                {% if item.children %}
+                  <button
+                    class="header__drawer-btn"
+                    @click="header.toggleActiveChild({{ loop.index0 }}, $event)"
+                  >
+                    {{ icons.icon('chevron-arrow', '') }}
+                  </button>
+                  <ul class="header__dropdown">
+                    {% for child in item.children %}
+                      <li>
+                        <a href="{{ child.url }}">
+                          <span class="header__icon-wrap">{{ icons.icon(child.title, '') }}</span>
+                          <span>{{ child.title }}</span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          <ul class="header__menu">
+            {% for item in main|slice(3,6) %}
+              <li :class="{'active': header.activeChild == {{ loop.index0 + 3 }}}">
+                <a href="{{ item.url }}">
+                  {{ item.title }}
+                  {% include squiggleComponent %}
+                </a>
+                {% if item.children %}
+                  <button
+                    class="header__drawer-btn"
+                    @click="header.toggleActiveChild({{ loop.index0 + 3 }}, $event)"
+                  >
+                    {{ icons.icon('chevron-arrow', '') }}
+                  </button>
+                  <ul class="header__dropdown">
+                    {% for child in item.children %}
+                      <li>
+                        <a href="{{ child.url }}">
+                          <span class="header__icon-wrap">{{ icons.icon(child.title, '') }}</span>
+                          <span>{{ child.title }}</span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="search-modal"
+    :class="{'search-modal--active': header.searchActive}"
+  >
+    <div class="search-modal__inner grid">
+      <div class="search-modal__top">
+        <button
+          class="search-modal__close-btn"
+          @click="header.toggleSearch()"
+        >
+          <span class="sr-only">Close Search</span>
+          {{ icons.icon('x', '') }}
+        </button>
+      </div>
+    </div>
+    <div class="search-modal__inner grid">
+      <div class="search-modal__main">
+        <div class="search-modal__input-wrap">
+          <form role="search" method="get" action="{{ site.link }}">
+            <input type="text" placeholder="What are you looking for?" />
+          </form>
+          <button>
+            {{ icons.icon('search', '') }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="search-modal__inner grid">
+      <div class="search-modal__secondary">
+        <div class="search-modal__top-searched">
+          <h2 class="search-modal__heading">Top Searched</h2>
+          <ul>
+            {% for item in topSearched %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="search-modal__helpful-links">
+          <h2 class="search-modal__heading">Helpful Links</h2>
+          <ul>
+            {% for item in helpfulLinks %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</component>
