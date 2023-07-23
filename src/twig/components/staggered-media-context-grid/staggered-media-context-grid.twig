@@ -1,0 +1,49 @@
+{% import 'macros.twig' as macros %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="staggered-media-context-grid">
+  <div class="staggered-media-context-grid__inner grid">
+    {% for item in items %}
+      {% if loop.index % 4 == 2 or loop.index % 4 == 3 %}
+        {% set size = 'sm' %}
+      {% endif %}
+      {% if loop.index % 4 == 1 or loop.index % 4 == 2 %}
+        {% set direction = 'reversed' %}
+      {% endif %}
+
+      <div class="staggered-media-context-grid__item media-context media-context--{{ size|default('lg') }} media-context--{{ direction|default('normal') }}">
+        {% if item.image %}
+          <div class="media-context__image">
+            {{ macros.picture(
+              'w-full object-cover',
+              item.image.srcset,
+              item.image.src,
+              item.image.sizes.desktop,
+              item.image.sizes.mobile,
+              item.image.alt,
+              in_component_library
+            ) }}
+          </div>
+        {% endif %}
+
+        <div class="media-context__context">
+          {% include context with {
+            type: 'dark',
+            align: 'left',
+            size: 'xsmall',
+            squiggle: '',
+            subheading: item.subheading,
+            heading: item.heading,
+            paragraphs: item.paragraphs,
+            buttons: item.buttons,
+          }  %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
