@@ -1,0 +1,78 @@
+.staggered-card-slider {
+  position: relative;
+  padding: 130px 0;
+
+  &--gradient {
+    background: linear-gradient(180deg, #CDFF00 0%, #A89968 40.1%, #A89968 100%);
+  }
+
+  .context-section__main {
+    padding-top: 0;
+  }
+}
+
+.horizontal-scroller {
+  position: relative;
+  
+  &__inner {
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-flow: column;
+    padding: 0 20px 50px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+
+    @include breakpoint(medium) {
+      grid-gap: 40px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 160px;
+
+    @include breakpoint(medium) {
+      width: 260px;
+    }
+
+    &:nth-child(4n+3) {
+      width: 190px;
+
+      @include breakpoint(medium) {
+        margin-top: 80px;
+        width: 360px;
+      }
+    }
+    &:nth-child(4n+1) {
+      width: 210px;
+      
+      @include breakpoint(medium) {
+        width: 420px;
+      }
+    }
+    &:nth-child(3n+2) {
+      @include breakpoint(medium) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__card {
+    &-image {
+      img {
+        display: block;
+      }
+    }
+    &-text {
+      margin-top: 24px;
+
+      h3 {
+        @extend .heading-style-6;
+      }
+      p {
+        margin-top: 6px;
+      }
+    }
+  }
+}
