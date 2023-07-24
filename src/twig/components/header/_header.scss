@@ -1,0 +1,687 @@
+.header {
+
+  &__utility {
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    opacity: 0;
+    background-color: $navy;
+    transition: $transition-default;
+
+    @include breakpoint(large) {
+      position: static;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li,
+    .header__search-btn {
+      font-family: $font-primary;
+      font-size: rem-calc(14px);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $white;
+    }
+
+    li + li {
+      margin-left: 32px;
+    }
+
+    a,
+    .header__search-btn {
+      position: relative;
+      display: block;
+      padding: 9px 0;
+      color: $white;
+      text-decoration: none;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $neon;
+        content: '';
+        transition: $transition-default;
+      }
+
+      &:hover::after {
+        width: 100%;
+        right: auto;
+        left: 0;
+      }
+    }
+
+    .header__search-btn {
+      display: none;
+      background-color: transparent;
+      border: 0;
+
+      @include breakpoint(large) {
+        display: flex;
+      }
+    }
+  }
+
+  &__search-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: $navy;
+      margin-right: 4px;
+
+      @include breakpoint(large) {
+        width: 14px;
+        height: 14px;
+        fill: $neon;
+      }
+    }
+  }
+  
+  &__main {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    background-color: $white;
+    border-bottom: 1px solid $navy-light;
+
+    @include breakpoint(large) {
+      height: 98px;
+      border-bottom: none;
+    }
+
+    li {
+      position: relative;
+      font-family: $font-primary;
+      font-size: rem-calc(16px);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 160%;
+      letter-spacing: 0;
+      text-transform: none;
+      white-space: nowrap;
+
+      &:nth-child(4) {
+        align-self: flex-end;
+      }
+
+      a {
+        position: relative;
+        color: $navy;
+        text-decoration: none;
+        transition: $transition-default;
+
+        @include breakpoint(large) {
+          padding: 10px 0 23px;
+        }
+
+        &:hover {
+          color: #3e65ad;
+
+          .squiggle {
+            width: 100%;
+
+            svg {
+              stroke: #3e65ad;
+            }
+          }
+        }
+      }
+    }
+
+    .squiggle {
+      position: absolute;
+      left: 0;
+      width: 0;
+      transition: $transition-default;
+
+      svg {
+        transition: $transition-default;
+      }
+    }
+
+    .squiggle__window {
+      width: 400px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: span 12 / span 12;
+  }
+
+  &__menu {
+    @include breakpoint(large) {
+      display: flex;
+    }
+
+    > li {
+      font-family: $font-secondary;
+      font-size: rem-calc(24px);
+      font-weight: 1000;
+      font-style: oblique;
+      line-height: 120%;
+      text-transform: uppercase;
+      letter-spacing: -0.48px;
+
+      @include breakpoint(large) {
+        font-family: $font-primary;
+        font-size: rem-calc(16px);
+        font-style: normal;
+        line-height: 160%;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+    }
+
+    > li + li {
+      margin-top: 32px;
+
+      @include breakpoint(large) {
+        margin-top: 0;
+        margin-left: 24px;
+      }
+    }
+
+    li:hover .header__dropdown {
+      @include breakpoint(large) {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__menu + &__menu {
+    margin-top: 32px;
+
+    @include breakpoint(large) {
+      margin-top: 0;
+    }
+  }
+
+  &__logo {
+    width: 95px;
+
+    @include breakpoint(large) {
+      position: absolute;
+      left: 50%;
+      width: 130px;
+      transform: translateX(-50%);
+    }
+
+    &:hover svg {
+      fill: #3e65ad;
+    }
+
+    svg {
+      transition: $transition-default;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-default;
+
+    @include breakpoint(large) {
+      top: 100%;
+      left: 50%;
+      padding: 28px 32px;
+      margin-top: 20px;
+      background: $white;
+      border-radius: 4px;
+      box-shadow: 0px 0 24px 0px rgba(22, 22, 22, 0.10);
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: calc(50% - 10px);
+      display: none;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border-top-left-radius: 4px;
+      transform: rotate(45deg);
+
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+
+    .active & {
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      margin-top: 20px;
+    }
+
+    li + li {
+      margin-top: 14px;
+    }
+
+    li {
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 0;
+
+        &:hover {
+          svg {
+            animation-name: spin;
+            fill: #3e65ad;
+          }
+        }
+      }
+    }
+  }
+
+  &__icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+
+    svg {
+      width: 100%;
+      max-height: 20px;
+      max-height: 20px;
+      fill: $navy;
+      transition: $transition-default;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 3s;
+    }
+  }
+
+  &__drawer {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    visibility: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 72px);
+    padding: 36px 20px;
+    background:
+      linear-gradient(
+        180deg,
+        $white 35.42%,
+        #eceda3 100%
+      );
+    opacity: 0;
+    transition: $transition-default;
+
+    @include breakpoint(large) {
+      position: static;
+      visibility: visible;
+      overflow-y: visible;
+      display: flex;
+      justify-content: space-between;
+      height: auto;
+      padding: 0;
+      opacity: 1;
+      background: transparent;
+    }
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__drawer-btn {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+    transition: $transition-default;
+    
+    @include breakpoint(large) {
+      display: none;
+    }
+
+    .active & {
+      background-color: $navy;
+
+      svg {
+        fill: $white;
+        transform: rotate(180deg);
+      }
+    }
+
+    svg {
+      pointer-events: none;
+      fill: $navy;
+      width: 10px;
+      transition: $transition-default;
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(large) {
+      display: none;
+    }
+
+    .header__search-btn {
+      font-size: 0;
+    }
+  }
+
+  &__search-btn + &__hamburger {
+    margin-left: 24px;
+  }
+
+  &__hamburger {
+    display: flex;
+    align-items: center;
+    width: 17px;
+    height: 14px;
+    padding-right: 0;
+    appearance: none;
+    border: 0;
+    background-color: transparent;
+
+    &[aria-expanded='true'] {
+      span {
+        background-color: transparent;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+  
+        &::after {
+          top: 0;
+          width: 100%;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      display: block;
+      width: 17px;
+      height: 2px;
+      background-color: $navy;
+      border-radius: 10px;
+      transition: $transition-default;
+
+      &::before,
+      &::after {
+        position: absolute;
+        left: 0;
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+        background-color: $navy;
+        transform-origin: center;
+        transition: inherit;
+        content: '';
+      }
+
+      &::before {
+        top: -6px;
+      }
+
+      &::after {
+        top: 6px;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotateY(0deg)
+  }
+
+  to {
+      transform: rotateY(-1turn)
+  }
+}
+
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px 0;
+  background-color: $navy;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: $transition-default;
+
+  @include breakpoint(medium) {
+    padding: 48px 0;
+  }
+
+  &--active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  &__top,
+  &__main,
+  &__secondary {
+    grid-column: span 12 / span 12;
+  }
+
+  &__top {
+    justify-content: flex-end;
+  }
+
+  &__close-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+    padding: 6px 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    @include breakpoint(medium) {
+      padding: 6px;
+    }
+
+    &:hover {
+      svg {
+        fill: $neon;
+      }
+    }
+
+    svg {
+      width: 18px;
+      fill: $white;
+      transition: $transition-default;
+
+      @include breakpoint(medium) {
+        width: 20px;
+      }
+    }
+  }
+
+  &__inner + &__inner {
+    margin-top: 64px;
+  }
+
+  &__main,
+  &__secondary {
+    @include breakpoint(medium) {
+      grid-column: span 10 / span 10;
+      grid-column-start: 2;
+    }
+  }
+
+  &__secondary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__input-wrap {
+    position: relative;
+    width: 100%;
+
+    input {
+      font-family: $font-primary;
+      font-size: rem-calc(24px);
+      font-weight: 500;
+      line-height: 125%;
+      letter-spacing: -0.4px;
+      color: $white;
+      width: 100%;
+      padding-right: 32px;
+      padding-bottom: 16px;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid $sky-blue;
+      outline: 0;
+
+      &::placeholder {
+        color: $white;
+      }
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(36px);
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+
+      &:hover {
+        svg {
+          fill: $neon;
+        }
+      }
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: $white;
+      transition: $transition-default;
+
+      @include breakpoint(medium) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__top-searched {
+    grid-column: span 1 / span 1;
+
+    @include breakpoint(medium) {
+      grid-column: span 2 / span 2;
+    }
+
+    ul {
+      @include breakpoint(medium) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  &__helpful-links {
+    grid-column: span 1 / span 1;
+  }
+
+  &__heading {
+    font-family: $font-secondary;
+    font-size: rem-calc(12px);
+    font-weight: 1000;
+    font-style: oblique;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: $neon;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(14px);
+    }
+  }
+
+  &__heading + ul {
+    margin-top: 24px;
+  }
+
+  ul {
+    display: grid;
+    gap: 16px;
+  }
+
+  li {
+    font-family: $font-primary;
+    font-size: rem-calc(14px);
+    font-weight: 500;
+    line-height: 160%;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(16px);
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      transition: $transition-default;
+
+      &:hover {
+        color: $sky-blue;
+      }
+    }
+  }
+}
