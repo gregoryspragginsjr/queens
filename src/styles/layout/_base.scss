@@ -1,24 +1,32 @@
 body {
-    @include paragraph-style-3();
-    color: $navy; 
-  }
+  @include paragraph-style-3();
+  color: $navy; 
+}
   
-  p {
-    a {
-      color: inherit;
-      text-decoration: underline;
-  
-      &:hover {
-        text-decoration: none;
-      }
+p {
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
     }
   }
+}
   
-  address {
-    font-style: normal;
-    line-height: 120%;
-  
-    a {
-      display: inline-block;
-    }
+address {
+  font-style: normal;
+  line-height: 120%;
+
+  a {
+    display: inline-block;
   }
+}
+
+.page {
+  padding-top: 72px;
+
+  @include breakpoint(large) {
+    padding-top: 130px;
+  }
+}

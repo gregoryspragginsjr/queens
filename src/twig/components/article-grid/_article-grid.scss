@@ -1,4 +1,10 @@
 .article-grid {
+  padding: 60px 0;
+
+  @include breakpoint(large) {
+    padding: 100px 0;
+  }
+
   &--blue {
     background-color: $sky-blue;
   }

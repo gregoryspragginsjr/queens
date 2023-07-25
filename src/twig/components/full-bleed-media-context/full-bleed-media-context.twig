@@ -19,6 +19,8 @@
         {% if buttons %}
           {% if type == 'gold' %}
             {% set type = 'dark' %}
+          {% elseif type == 'dark' %}
+            {% set type = 'light' %}
           {% endif %}
           {% include buttonGroup with {
             type: type|default('light'),
@@ -29,6 +31,6 @@
       </div>
     </div>
 
-    <div class="full-bleed-media-context__image">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Square, image.sizes.Square, image.alt, in_component_library) }}</div>
+    <div class="full-bleed-media-context__image">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Square, image.sizes.Square_mobile, image.alt, in_component_library) }}</div>
   </div>
 </div>

@@ -8,11 +8,18 @@
 
   <body>
     <div id="app">
+      {% include 'header.twig' with {
+        utility: utility_menu.items,
+        main: main_menu.items
+      } %}
       <main id="main" class="page">
         {% block content %}
           Sorry, no content
         {% endblock %}
       </main>
+      {% include 'footer.twig' with {
+        
+      } %}
       {% block footer %}
         {{ function('wp_footer') }}
       {% endblock %}

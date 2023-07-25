@@ -4,9 +4,19 @@
   @include breakpoint(large) {
     padding: 100px 0;
   }
+  
+  &--light {
+    + .media-context--light {
+      padding-top: 0;
+    }
+  }
 
   &--dark {
-    background-color: $navy; 
+    background-color: $navy;
+
+    + .media-context--dark {
+      padding-top: 0;
+    }
   }
 
   &__context,

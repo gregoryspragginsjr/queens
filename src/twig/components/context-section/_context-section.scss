@@ -1,10 +1,24 @@
 .context-section {
+  &--light {
+    + .article-grid--default {
+      padding-top: 0;
+    }
+  }
+
   &--blue {
     background-color: $sky-blue;
+
+    + .article-grid--blue {
+      padding-top: 0;
+    }
   }
 
   &--dark {
-    background-color: $navy; 
+    background-color: $navy;
+
+    + .article-grid--dark {
+      padding-top: 0;
+    }
   }
 
   &--gradient {

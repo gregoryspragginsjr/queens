@@ -24,6 +24,6 @@
     </div>
   </div>
   {% if image is defined and image %}
-    <div class="page-header__media">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.large, image.sizes.large, image.alt, in_component_library) }}</div>
+    <div class="page-header__media">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Hero, image.sizes.Hero_mobile, image.alt, in_component_library) }}</div>
   {% endif %}
 </div>

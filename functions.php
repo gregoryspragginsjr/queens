@@ -97,7 +97,7 @@ class StarterSite extends Timber\Site {
 		// check function exists
 		if( function_exists('acf_register_block') ) {
 		
-			// register a accordion block
+			// register the accordion block
 			acf_register_block(array(
 				'name'				=> 'accordion',
 				'title'				=> __('Accordion'),
@@ -106,6 +106,83 @@ class StarterSite extends Timber\Site {
 				'category'			=> 'layout',
 				'icon'				=> 'block-default',
 				'keywords'			=> array( 'accordion', 'panels' ),
+			));
+
+			// register the page header block
+			acf_register_block(array(
+				'name'				=> 'page-header',
+				'title'				=> __('Page Header'),
+				'description'		=> __('Hero for first level landing pages.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'			=> array( 'hero', 'page', 'header' ),
+			));
+
+			// register the media context block
+			acf_register_block(array(
+				'name'				=> 'media-context',
+				'title'				=> __('Media Context'),
+				'description'		=> __('Traditional side-by-side layout for any style of media with cooresponding context.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'image', 'context', 'layout' ),
+			));
+
+			// register the full bleed media context block
+			acf_register_block(array(
+				'name'				=> 'full-bleed-media-context',
+				'title'				=> __('Full Bleed Media Context'),
+				'description'		=> __('Full bleed variation of the media context component featuring gradient text.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'image', 'context', 'layout', 'full', 'bleed', 'gradient' ),
+			));
+
+			// register the context section block
+			acf_register_block(array(
+				'name'				=> 'context-section',
+				'title'				=> __('Context Section'),
+				'description'		=> __('Section dedicated to full bleed context featuring varying backgrounds and options.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'context', 'section', 'layout', 'squiggle' ),
+			));
+
+			// register the video block
+			acf_register_block(array(
+				'name'				=> 'video',
+				'title'				=> __('Video'),
+				'description'		=> __('Full-width video component for standalone instances.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'video' ),
+			));
+
+			// register the article grid
+			acf_register_block(array(
+				'name'				=> 'article-grid',
+				'title'				=> __('Article Grid'),
+				'description'		=> __('Layout dedicated to article display. Features several column layout styles and supports varying image sizes.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'article', 'grid', 'image' ),
+			));
+
+			// register the context callout
+			acf_register_block(array(
+				'name'				=> 'context-callout',
+				'title'				=> __('Context Callout'),
+				'description'		=> __('Bordered, inset, interstitial styled component featuring a thumbnail.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'context', 'callout', 'image', 'border' ),
 			));
 		}
 	}
@@ -119,6 +196,8 @@ class StarterSite extends Timber\Site {
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
+		$context['main_menu']      = new Timber\Menu( 'Main Menu' );
+		$context['utility_menu']   = new Timber\Menu( 'Utility Menu' );
 		$context['site']  = $this;
 		return $context;
 	}
@@ -176,7 +255,12 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 
-		add_image_size( 'Square', 600, 600, true );
+		add_image_size( 'Square', 900, 900, true );
+		add_image_size( 'Square_mobile', 600, 600, true );
+		add_image_size( 'Rectangle', 990, 705, true );
+		add_image_size( 'Rectangle_mobile', 660, 470, true );
+		add_image_size( 'Hero', 2400, 1320, true );
+		add_image_size( 'Hero_mobile', 800, 440, true );
 
 		if ( function_exists( 'acf_add_options_page' ) ) {
 			acf_add_options_page(
