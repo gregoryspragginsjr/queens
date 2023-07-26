@@ -9,6 +9,8 @@
 
   > h5 { @extend .heading-style-5; }
 
+  > h6 { @extend .heading-style-6; }
+
   > p,
   > ul {
     @extend .paragraph-style-2;
@@ -25,6 +27,42 @@
 
     li + li {
       margin-top: 10px;
+    }
+  }
+
+  > ol {
+    @extend .paragraph-style-4;
+
+    a {
+      padding-right: 26px;
+      color: $navy;
+      text-decoration: none;
+      transition: $transition-default;
+      background: url('../images/svgs/icon-arrow.svg') no-repeat;
+      background-size: 16px;
+      background-position: right center;
+
+      &:hover {
+        padding-right: 32px;
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      margin-left: 33px;
+      list-style-type: decimal-leading-zero;
+
+      @include breakpoint(large) {
+        margin-left: 43px;
+      }
+
+      &::marker {
+        color: #6c6c6c;
+      }
+    }
+
+    li + li {
+      margin-top: 16px;
     }
   }
 }

@@ -184,6 +184,17 @@ class StarterSite extends Timber\Site {
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'context', 'callout', 'image', 'border' ),
 			));
+
+			// register the miscellaneous section
+			acf_register_block(array(
+				'name'				=> 'miscellaneous-section',
+				'title'				=> __('Miscellaneous Section'),
+				'description'		=> __('Bordered, inset, interstitial styled component featuring a thumbnail.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'context', 'miscellaneous', 'image', 'article', 'list' ),
+			));
 		}
 	}
 
