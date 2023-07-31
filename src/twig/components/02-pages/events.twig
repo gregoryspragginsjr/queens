@@ -76,7 +76,9 @@
         <div class="events__listing-item">
           <article class="event-post">
             <div class="event-post__text">
-              <h3 class="event-post__heading"><a href="{{ item.link }}">{{ item.title }}</a></h3>
+              <h3 class="event-post__heading">
+                <a href="{{ item.link }}">{{ item.title }}</a>
+              </h3>
 
               <div class="event-post__details">
                 <div class="event-post__date event-post__info">
@@ -98,7 +100,8 @@
                 {% if item.location %}
                   <div class="event-post__location event-post__info">
                     <div class="icon-text">{{ icons.icon('map-pin', 'fill-current icon icon--sm') }}
-                      {{ item.location }}</div>
+                      {{ item.location }}
+                    </div>
                   </div>
                 {% endif %}
               </div>
