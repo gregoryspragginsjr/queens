@@ -16,7 +16,6 @@ module.exports = {
         end_time: "12pm",
         location: "Ketner Auditorium, Sykes Building",
         address: "1900 Selwyn Ave. Charlotte NC 28274",
-        description: "Description est no dicta delicatissimi. Ad per nulla mollis, sed aliquip intellegebat at, vim no dico facer minim. Nihil maiestatis ex vis. Ubique vituperatoribus et eos. Vis eu persecuti referrentur contentiones.",
         link: "#",
       },
       {
@@ -31,7 +30,6 @@ module.exports = {
         end_time: "",
         location: "Ketner Auditorium, Sykes Building",
         address: "1900 Selwyn Ave. Charlotte NC 28274",
-        description: "Description est no dicta delicatissimi. Ad per nulla mollis, sed aliquip intellegebat at, vim no dico facer minim. Nihil maiestatis ex vis. Ubique vituperatoribus et eos. Vis eu persecuti referrentur contentiones.",
         link: "#",
       },
       {
@@ -46,7 +44,6 @@ module.exports = {
         end_time: "",
         location: "Ketner Auditorium, Sykes Building",
         address: "1900 Selwyn Ave. Charlotte NC 28274",
-        description: "Description est no dicta delicatissimi. Ad per nulla mollis, sed aliquip intellegebat at, vim no dico facer minim. Nihil maiestatis ex vis. Ubique vituperatoribus et eos. Vis eu persecuti referrentur contentiones.",
         link: "#",
       },
       {
@@ -61,7 +58,6 @@ module.exports = {
         end_time: "",
         location: "Ketner Auditorium, Sykes Building",
         address: "1900 Selwyn Ave. Charlotte NC 28274",
-        description: "Description est no dicta delicatissimi. Ad per nulla mollis, sed aliquip intellegebat at, vim no dico facer minim. Nihil maiestatis ex vis. Ubique vituperatoribus et eos. Vis eu persecuti referrentur contentiones.",
         link: "#",
       },
       {
@@ -76,7 +72,6 @@ module.exports = {
         end_time: "",
         location: "Ketner Auditorium, Sykes Building",
         address: "1900 Selwyn Ave. Charlotte NC 28274",
-        description: "Description est no dicta delicatissimi. Ad per nulla mollis, sed aliquip intellegebat at, vim no dico facer minim. Nihil maiestatis ex vis. Ubique vituperatoribus et eos. Vis eu persecuti referrentur contentiones.",
         link: "#",
       },
     ],
