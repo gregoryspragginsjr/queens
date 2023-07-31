@@ -8,7 +8,7 @@
   {% set articleComponent = 'article.twig' %}
 {% endif %}
 
-<div class="miscellaneous-section">
+<div class="miscellaneous-section miscellaneous-section--{{ type|default('default') }}">
   <div class="miscellaneous-section__inner grid">
     <div class="miscellaneous-section__intro">
       {% include context with {
@@ -28,6 +28,7 @@
       {% include articleComponent with {
         size: 'small',
         squiggle: true,
+        type: 'dark',
         image: article.image,
         heading: article.heading,
         paragraphs: article.paragraphs,

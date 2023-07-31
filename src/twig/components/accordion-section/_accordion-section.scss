@@ -1,4 +1,10 @@
 .accordion-section {
+  padding: 60px 0;
+
+  @include breakpoint(large) {
+    padding: 100px 0;
+  }
+
   &__context,
   &__main {
     grid-column: span 12 / span 12;

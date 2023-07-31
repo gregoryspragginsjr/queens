@@ -101,11 +101,22 @@ class StarterSite extends Timber\Site {
 			acf_register_block(array(
 				'name'				=> 'accordion',
 				'title'				=> __('Accordion'),
-				'description'		=> __('A custom accordion block.'),
+				'description'		=> __('A custom accordion block with toggleable panels.'),
 				'render_callback'	=> 'my_acf_block_render_callback',
 				'category'			=> 'layout',
 				'icon'				=> 'block-default',
 				'keywords'			=> array( 'accordion', 'panels' ),
+			));
+
+			// register the accordion section block
+			acf_register_block(array(
+				'name'				=> 'accordion-section',
+				'title'				=> __('Accordion Section'),
+				'description'		=> __('Full-bleed section dedicated to accordion display with accomodating context.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'			=> array( 'accordion', 'layout', 'section', 'panels' ),
 			));
 
 			// register the page header block
@@ -189,11 +200,55 @@ class StarterSite extends Timber\Site {
 			acf_register_block(array(
 				'name'				=> 'miscellaneous-section',
 				'title'				=> __('Miscellaneous Section'),
-				'description'		=> __('Bordered, inset, interstitial styled component featuring a thumbnail.'),
+				'description'		=> __('Section featuring varying subcomponents for multiple use cases.'),
 				'render_callback'	=> 'my_acf_block_render_callback',
 				'category'			=> 'layout',
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'context', 'miscellaneous', 'image', 'article', 'list' ),
+			));
+
+			// register the staggered card slider
+			acf_register_block(array(
+				'name'				=> 'staggered-card-slider',
+				'title'				=> __('Staggered Card Slider'),
+				'description'		=> __('Section dedicated to horizontally scrolling articles, currated in varying sizes and margins.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'staggered', 'card', 'image', 'article', 'carousel', 'slider' ),
+			));
+
+			// register the staggered media context grid
+			acf_register_block(array(
+				'name'				=> 'staggered-media-context-grid',
+				'title'				=> __('Staggered Media Context Grid'),
+				'description'		=> __('Grid featuring a staggered, condensed layout of media context components.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'staggered', 'image', 'media', 'context', 'grid' ),
+			));
+
+			// register the hero
+			acf_register_block(array(
+				'name'				=> 'hero',
+				'title'				=> __('Hero'),
+				'description'		=> __('Homepage exclusive hero with dynamic text and HTML5 video loop.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'hero', 'loop', 'media', 'video', 'heading' ),
+			));
+
+			// register the display media context
+			acf_register_block(array(
+				'name'				=> 'display-media-context',
+				'title'				=> __('Display Media Context'),
+				'description'		=> __('Media context variant featuring larger, treated images.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'media', 'context', 'display', 'image' ),
 			));
 		}
 	}
@@ -272,6 +327,11 @@ class StarterSite extends Timber\Site {
 		add_image_size( 'Rectangle_mobile', 660, 470, true );
 		add_image_size( 'Hero', 2400, 1320, true );
 		add_image_size( 'Hero_mobile', 800, 440, true );
+		add_image_size( 'Portrait', 630, 900, true );
+		add_image_size( 'Portrait_mobile', 420, 600, true );
+		add_image_size( 'Portrait2_mobile', 320, 400, true );
+		add_image_size( 'Collage_rectangle', 764, 548, true );
+		add_image_size( 'Collage_portrait', 490, 690, true );
 
 		if ( function_exists( 'acf_add_options_page' ) ) {
 			acf_add_options_page(

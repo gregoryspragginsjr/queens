@@ -10,15 +10,16 @@
     <div id="app">
       {% include 'header.twig' with {
         utility: utility_menu.items,
-        main: main_menu.items
+        main: main_menu.items,
+        active: fn('is_front_page')
       } %}
-      <main id="main" class="page">
+      <main id="main">
         {% block content %}
           Sorry, no content
         {% endblock %}
       </main>
       {% include 'footer.twig' with {
-        
+
       } %}
       {% block footer %}
         {{ function('wp_footer') }}

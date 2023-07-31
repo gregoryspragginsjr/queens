@@ -8,7 +8,7 @@
   <div class="article-grid__inner grid">
     {% for item in items %}
       <div class="article-grid__item">
-        {% if type == 'blue' or type == 'default' %}
+        {% if type == 'blue' or type == 'default' or type == 'gradient' %}
           {% set type = 'dark' %}
         {% endif %}
         {% include article with item %}

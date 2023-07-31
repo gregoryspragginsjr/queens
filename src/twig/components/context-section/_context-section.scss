@@ -1,6 +1,7 @@
 .context-section {
   &--light {
-    + .article-grid--default {
+    + .article-grid--default,
+    + .staggered-media-context-grid {
       padding-top: 0;
     }
   }
@@ -16,7 +17,7 @@
   &--dark {
     background-color: $navy;
 
-    + .article-grid--dark {
+    + .article-grid--primary {
       padding-top: 0;
     }
   }

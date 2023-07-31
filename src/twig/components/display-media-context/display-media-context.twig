@@ -23,12 +23,11 @@
     </div>
   </div>
   <div class="display-media-context__image">
-    {{ macros.picture(
+    {{ macros.treatmentPictureBlue(
       'object-cover',
       image.srcset,
-      image.src,
       image.sizes.Square,
-      image.sizes.Square,
+      '900 900',
       image.alt,
       in_component_library
     ) }}

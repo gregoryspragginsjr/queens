@@ -29,4 +29,8 @@ address {
   @include breakpoint(large) {
     padding-top: 130px;
   }
+
+  &--home {
+    padding-top: 0;
+  }
 }

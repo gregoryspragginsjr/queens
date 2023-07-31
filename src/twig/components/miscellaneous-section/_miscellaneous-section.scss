@@ -1,4 +1,13 @@
 .miscellaneous-section {
+  padding: 60px 0;
+
+  @include breakpoint(large) {
+    padding: 100px 0;
+  }
+
+  &--blue {
+    background-color: $sky-blue;
+  }
 
   &__inner + &__inner {
     margin-top: 16px;

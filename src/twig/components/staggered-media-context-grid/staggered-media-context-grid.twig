@@ -9,22 +9,38 @@
 <div class="staggered-media-context-grid">
   <div class="staggered-media-context-grid__inner grid">
     {% for item in items %}
+      {% set widthHeight = '660 470' %}
+      {% set imageDesktop = item.image.sizes.Rectangle %}
+
       {% if loop.index % 4 == 2 or loop.index % 4 == 3 %}
         {% set size = 'sm' %}
+        {% set widthHeight = '160 200' %}
+        {% set imageDesktop = item.image.sizes.Portrait2_mobile %}
+      {% else %}
+        {% set size = 'lg' %}
       {% endif %}
       {% if loop.index % 4 == 1 or loop.index % 4 == 2 %}
         {% set direction = 'reversed' %}
+      {% else %}
+        {% set direction = 'normal' %}
       {% endif %}
 
       <div class="staggered-media-context-grid__item media-context media-context--{{ size|default('lg') }} media-context--{{ direction|default('normal') }}">
         {% if item.image %}
           <div class="media-context__image">
-            {{ macros.picture(
-              'w-full object-cover',
+            {{ macros.treatmentPictureBlue(
+              'staggered-media-context-grid__img--desktop',
               item.image.srcset,
+              imageDesktop,
+              widthHeight,
+              item.image.alt,
+              in_component_library
+            ) }}
+            {{ macros.treatmentPictureBlue(
+              'staggered-media-context-grid__img--mobile',
               item.image.src,
-              item.image.sizes.desktop,
-              item.image.sizes.mobile,
+              item.image.sizes.Square_mobile,
+              '600 600',
               item.image.alt,
               in_component_library
             ) }}
