@@ -103,6 +103,19 @@
   }
 }
 
+@mixin subheading-style-2() {
+  font-family: $font-secondary;
+  font-size: rem-calc(12px);
+  font-weight: 1000;
+  font-style: oblique;
+  line-height: 120%;
+  text-transform: uppercase;
+
+  @include breakpoint(large) {
+    font-size: rem-calc(14px);
+  }
+}
+
 @mixin paragraph-style-1() {
   font-family: $font-primary;
   font-size: rem-calc(16px);

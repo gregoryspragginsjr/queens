@@ -1,0 +1,172 @@
+{% import 'macros.twig' as macros %}
+{% import 'icons.twig' as icons %}
+
+<div class="events">
+  <div class="events__inner grid">
+    <div class="events__search-filter">
+      <form class="events__search search-form">
+        <label for="search-input" class="sr-only">Search Upcoming Events, Groups</label>
+        <input type="search" id="search-input" class="search-form__input" name="search-input" placeholder="Search Upcoming Events, Groups" />
+        <button type="submit" class="search-form__submit">
+          {{ icons.icon('search', 'fill-current icon icon--sm') }}
+          <span class="sr-only">Search</span>
+        </button>
+      </form>
+
+      <div class="events__cat-filters">
+        <div class="filter-select-wrap">
+          <select name="type" class="filter-select" id="select-type">
+            <option disabled selected value="">Experience</option>
+            <option value="lorem">Option A</option>
+            <option value="ipsum">Option B</option>
+            <option value="dolor">Option C</option>
+          </select>
+        </div>
+
+        <div class="filter-select-wrap">
+          <select name="type" class="filter-select" id="select-type">
+            <option disabled selected value="">Event Type</option>
+            <option value="lorem">Option A</option>
+            <option value="ipsum">Option B</option>
+            <option value="dolor">Option C</option>
+          </select>
+        </div>
+
+        <div class="filter-select-wrap">
+          <select name="type" class="filter-select" id="select-type">
+            <option disabled selected value="">Target Audience</option>
+            <option value="lorem">Option A</option>
+            <option value="ipsum">Option B</option>
+            <option value="dolor">Option C</option>
+          </select>
+        </div>
+
+        <div class="filter-select-wrap">
+          <select name="type" class="filter-select" id="select-type">
+            <option disabled selected value="">Other Calendars</option>
+            <option value="lorem">Option A</option>
+            <option value="ipsum">Option B</option>
+            <option value="dolor">Option C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="events__tool-bar">
+      <p class="events__search-results-heading">16 Places Match Your Selections</p>
+
+      <div class="events__tool-bar-actions">
+        <button type="button" class="form-clear-btn">Clear Selections</button>
+
+        <div class="filter-select-wrap">
+          <select name="type" class="filter-select filter-select--yellow" id="select-type">
+            <option disabled selected value="">Sort by</option>
+            <option value="lorem">Option A</option>
+            <option value="ipsum">Option B</option>
+            <option value="dolor">Option C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="events__inner grid">
+    <div class="events__listing">
+      {% for item in items %}
+        <div class="events__listing-item">
+          <article class="event-post">
+            <div class="event-post__text">
+              <h3 class="event-post__heading"><a href="{{ item.link }}">{{ item.title }}</a></h3>
+
+              <div class="event-post__details">
+                <div class="event-post__date event-post__info">
+                  <span class="icon-text">
+                    {{ icons.icon('clock', 'fill-current icon icon--sm') }}
+
+                    <span>{{ item.date|date('F d, Y') }}</span>
+                    {% if item.start_time %}
+                      <span>|</span>
+                      {{ item.start_time }}
+                    {% endif %}
+                    {% if item.end_time %}
+                      -
+                      {{ item.end_time }}
+                    {% endif %}
+                  </span>
+                </div>
+
+                {% if item.location %}
+                  <div class="event-post__location event-post__info">
+                    <div class="icon-text">{{ icons.icon('map-pin', 'fill-current icon icon--sm') }}
+                      {{ item.location }}</div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="event-post__image">
+              {{ macros.picture(
+                'w-full object-cover',
+                item.image.srcset,
+                item.image.src,
+                item.image.sizes.desktop,
+                item.image.sizes.mobile,
+                item.image.alt,
+                in_component_library
+              ) }}
+            </div>
+          </article>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="events__sidebar">
+      <div>
+        <a href="#" class="btn btn--dark">Submit an Event</a>
+      </div>
+
+      <div class="events__sidebar-group">
+        <ul class="events__sidebar-nav">
+          {% for item in categories %}
+            <li>
+              <a href="{{ item.url }}" class="icon-text icon-text--center">
+                {{ icons.icon(item.title, 'fill-current icon icon--sm') }}
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="events__sidebar-group">
+        <h4 class="events__sidebar-heading">
+          <span class="icon-text icon-text--center">
+            {{ icons.icon('clipboard', 'fill-current icon icon--sm') }}
+            Calendar Picker
+          </span>
+        </h4>
+        <div>[DATE PICKER]</div>
+      </div>
+
+      <div class="events__sidebar-group">
+        <h4 class="events__sidebar-heading">
+          <span class="icon-text icon-text--center">
+            {{ icons.icon('clipboard', 'fill-current icon icon--sm') }}
+            Subscribe to these results
+          </span>
+        </h4>
+
+        <ul class="events__sidebar-nav">
+          {% for item in subscribe %}
+            <li>
+              <a href="{{ item.url }}" class="icon-text icon-text--center">
+                {{ icons.icon(item.title, 'fill-current icon icon--sm') }}
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

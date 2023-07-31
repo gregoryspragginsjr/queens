@@ -209,3 +209,93 @@ button, input, optgroup, select, textarea {
     margin-bottom: 8px;
   }
 }
+
+.search-form {
+  position: relative;
+
+  &__input {
+    @extend .heading-style-4;
+    font-size: rem-calc(24px);
+    appearance: none;
+    background-color: $white;
+    border: 0;
+    border-bottom: 1px solid $sky-blue;
+    padding: 12px 40px 12px 0;
+    max-width: none;
+    width: 100%;
+    line-height: 120%;
+    transition: background-color $transition-default, border-color $transition-default;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(36px);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border-bottom-color: $navy;
+      outline: none;
+      outline-offset: 0;
+    }
+
+    &::placeholder {
+      opacity: 100;
+      color: $navy;
+    }
+  }
+  &__submit {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+}
+
+.filter-select {
+  @extend .subheading-style-2;
+  appearance: none;
+  background-color: $white;
+  border: 1px solid #7e9ad1;
+  border-radius: 4px;
+  padding: 12px 40px 12px 12px;
+  width: 100%;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300205b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  transition: background-color $transition-default, border-color $transition-default;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border-color: $navy;
+  }
+
+  &--yellow {
+    background-color: $yellow-light;
+    border-color: $yellow-brown;
+
+    &:hover,
+    &:focus {
+      background-color: $yellow-light;
+    }
+  }
+}
+
+.form-clear-btn {
+  @extend .subheading-style-2;
+  appearance: none;
+  background-color: $yellow-light;
+  border: 1px solid $yellow-brown;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 12px 40px 12px 12px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%2300205b"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.70712 3.29289C8.09765 3.68342 8.09765 4.31658 7.70712 4.70711L5.41422 7H11C14.866 7 18 10.134 18 14V16C18 16.5523 17.5523 17 17 17C16.4478 17 16 16.5523 16 16V14C16 11.2386 13.7615 9 11 9H5.41422L7.70712 11.2929C8.09765 11.6834 8.09765 12.3166 7.70712 12.7071C7.3166 13.0976 6.68343 13.0976 6.29291 12.7071L2.29289 8.70711C1.90237 8.31658 1.90237 7.68342 2.29289 7.29289L6.29291 3.29289C6.68343 2.90237 7.3166 2.90237 7.70712 3.29289Z" /></svg>');
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  transition: background-color $transition-default, border-color $transition-default;
+}

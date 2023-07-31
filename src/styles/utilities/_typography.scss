@@ -17,6 +17,8 @@
 // Subheadings
 .subheading-style-1 { @include subheading-style-1() }
 
+.subheading-style-2 { @include subheading-style-2() }
+
 // Display Headings
 .display-heading-style-1 { @include display-heading-style-1() }
 

@@ -1,0 +1,172 @@
+.events {
+  padding: 60px 0;
+
+  @include breakpoint(medium) {
+    padding: 100px 0;
+  }
+
+  &__search-filter {
+    grid-column: span 12 / span 12;
+    margin-bottom: 32px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__search {
+    margin-bottom: 40px;
+  }
+
+  &__cat-filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+
+    .filter-select-wrap {
+      flex: 1 1 auto;
+      margin: 8px 0;
+      padding: 0 8px;
+      width: 100%;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+      @include breakpoint(large) {
+        width: 25%;
+      }
+    }
+  }
+
+  &__search-results-heading {
+    @extend .heading-style-4;
+    margin-bottom: 32px;
+  }
+
+  &__listing {
+    grid-column: span 12 / span 12;
+    margin-bottom: 36px;
+
+    @include breakpoint(medium) {
+      grid-column: span 8;
+    }
+
+    &-item {
+      margin-bottom: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid $navy-light;
+
+      &:not(:first-child) {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &__tool-bar {
+    grid-column: span 8 / span 8;
+    margin-bottom: 32px;
+
+    &-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+
+  &__sidebar {
+    grid-column: span 12 / span 12;
+
+    @include breakpoint(medium) {
+      grid-column: 9 / span 4;
+    }
+
+    @include breakpoint(large) {
+      grid-column: 10 / span 3;
+    }
+
+    &-group {
+      margin-top: 48px;
+    }
+
+    &-heading {
+      @extend .subheading-style-2;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $navy-light;
+    }
+
+    &-nav {
+      li {
+        position: relative;
+        margin: 16px 0;
+        font-family: $font-primary;
+        font-size: rem-calc(16px);
+        font-weight: 500;
+        font-style: normal;
+        line-height: 160%;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      a {
+        position: relative;
+        color: $navy;
+        text-decoration: none;
+        transition: $transition-default;
+
+        &:hover {
+          color: $mid-blue;
+        }
+      }
+    }
+  }
+
+  .event-post {
+    display: flex;
+
+    &__heading {
+      @extend .heading-style-4;
+
+      a {
+        color: currentColor;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__details {
+      margin-top: 16px;
+
+      @include breakpoint(medium) {
+        margin-top: 24px;
+      }
+    }
+
+    &__info {
+      margin: 8px 0;
+    }
+
+    &__text {
+      flex-grow: 1;
+    }
+
+    &__image {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      margin-left: 20px;
+      font-size: 0;
+      line-height: 0;
+
+      @include breakpoint(large) {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+}
