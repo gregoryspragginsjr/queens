@@ -1,4 +1,9 @@
 .header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   &__utility {
     z-index: 2;
@@ -108,10 +113,31 @@
     height: 72px;
     background-color: $white;
     border-bottom: 1px solid $navy-light;
+    transition: $transition-default;
+
+    .header--active & {
+      background-color: transparent;
+    }
 
     @include breakpoint(large) {
       height: 98px;
       border-bottom: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: calc($grid-max-width - 40px);
+      height: 1px;
+      transform: $transition-default;
+      transform: translateX(-50%);
+      margin: 0 auto;
+
+      .header--active & {
+        background-color: $white;
+      }
     }
 
     li {
@@ -147,6 +173,10 @@
 
             svg {
               stroke: #3e65ad;
+
+              .header--active & {
+                stroke: $neon;
+              }
             }
           }
         }
@@ -199,6 +229,18 @@
         text-transform: none;
         letter-spacing: 0;
       }
+
+      > a {
+        .header--active & {
+          color: $white;
+        }
+  
+        &:hover {
+          .header--active & {
+            color: $neon;
+          }
+        }
+      }
     }
 
     > li + li {
@@ -238,10 +280,18 @@
 
     &:hover svg {
       fill: #3e65ad;
+
+      .header--active & {
+        fill: $neon;
+      }
     }
 
     svg {
       transition: $transition-default;
+
+      .header--active & {
+        fill: $white;
+      }
     }
   }
 

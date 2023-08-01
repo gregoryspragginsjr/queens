@@ -40,5 +40,35 @@ module.exports = {
         },
       }
     },
+    {
+      name: 'Collage',
+      context: {
+        collage: true,
+        image_treatment: true,
+        images: [
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/382x274',
+              src: 'https://via.placeholder.com/382x274',
+              alt: 'Test alt',
+            },
+          },
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/382x274',
+              src: 'https://via.placeholder.com/382x274',
+              alt: 'Test alt',
+            },
+          },
+          {
+            image: {
+              srcset: 'https://via.placeholder.com/245x345',
+              src: 'https://via.placeholder.com/245x345',
+              alt: 'Test alt',
+            },
+          },
+        ]
+      }
+    },
   ]
 }

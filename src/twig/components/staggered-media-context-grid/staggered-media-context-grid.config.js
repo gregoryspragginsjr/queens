@@ -6,7 +6,7 @@ module.exports = {
       {
         image: {
           srcset: 'https://via.placeholder.com/660x470',
-          src: 'https://via.placeholder.com/660x470',
+          src: 'https://via.placeholder.com/600x600',
           alt: 'Test alt',
         },
         heading: 'Gambrell Center',
@@ -23,7 +23,7 @@ module.exports = {
       {
         image: {
           srcset: 'https://via.placeholder.com/160x200',
-          src: 'https://via.placeholder.com/160x200',
+          src: 'https://via.placeholder.com/600x600',
           alt: 'Test alt',
         },
         heading: 'Learning Society',
@@ -40,7 +40,7 @@ module.exports = {
       {
         image: {
           srcset: 'https://via.placeholder.com/160x200',
-          src: 'https://via.placeholder.com/160x200',
+          src: 'https://via.placeholder.com/600x600',
           alt: 'Test alt',
         },
         heading: 'Friends of the Library',
@@ -57,7 +57,7 @@ module.exports = {
       {
         image: {
           srcset: 'https://via.placeholder.com/660x470',
-          src: 'https://via.placeholder.com/660x470',
+          src: 'https://via.placeholder.com/600x600',
           alt: 'Test alt',
         },
         heading: 'Entrepreneurial Leadership Circle',

@@ -12,4 +12,8 @@
   @include breakpoint(medium) {
     column-gap: map.get($grid-column-gutter, large);
   }
+
+  .page--with-sidebar .page__main & {
+    padding: 0;
+  }
 }

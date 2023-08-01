@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="page page--with-sidebar">
+    {% include 'page-header.twig' with {
+      heading: post.title
+    } %}
+    <div class="page__inner grid">
+      <div class="page__secondary">
+
+      </div>
+      <div class="page__main">
+        <div class="wysiwyg">
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

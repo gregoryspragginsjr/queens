@@ -97,15 +97,169 @@ class StarterSite extends Timber\Site {
 		// check function exists
 		if( function_exists('acf_register_block') ) {
 		
-			// register a accordion block
+			// register the accordion block
 			acf_register_block(array(
 				'name'				=> 'accordion',
 				'title'				=> __('Accordion'),
-				'description'		=> __('A custom accordion block.'),
+				'description'		=> __('A custom accordion block with toggleable panels.'),
 				'render_callback'	=> 'my_acf_block_render_callback',
 				'category'			=> 'layout',
 				'icon'				=> 'block-default',
 				'keywords'			=> array( 'accordion', 'panels' ),
+			));
+
+			// register the accordion section block
+			acf_register_block(array(
+				'name'				=> 'accordion-section',
+				'title'				=> __('Accordion Section'),
+				'description'		=> __('Full-bleed section dedicated to accordion display with accomodating context.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'			=> array( 'accordion', 'layout', 'section', 'panels' ),
+			));
+
+			// register the page header block
+			acf_register_block(array(
+				'name'				=> 'page-header',
+				'title'				=> __('Page Header'),
+				'description'		=> __('Hero for first level landing pages.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'			=> array( 'hero', 'page', 'header' ),
+			));
+
+			// register the subheading block
+			acf_register_block(array(
+				'name'				=> 'subheading',
+				'title'				=> __('Subheading'),
+				'description'		=> __('Micro block for adding semantic subheadings in Gutenberg.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'formatting',
+				'icon'				=> 'dashicons-editor-textcolor',
+				'keywords'			=> array( 'subheading', 'heading' ),
+			));
+
+			// register the media context block
+			acf_register_block(array(
+				'name'				=> 'media-context',
+				'title'				=> __('Media Context'),
+				'description'		=> __('Traditional side-by-side layout for any style of media with cooresponding context.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'image', 'context', 'layout' ),
+			));
+
+			// register the full bleed media context block
+			acf_register_block(array(
+				'name'				=> 'full-bleed-media-context',
+				'title'				=> __('Full Bleed Media Context'),
+				'description'		=> __('Full bleed variation of the media context component featuring gradient text.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'image', 'context', 'layout', 'full', 'bleed', 'gradient' ),
+			));
+
+			// register the context section block
+			acf_register_block(array(
+				'name'				=> 'context-section',
+				'title'				=> __('Context Section'),
+				'description'		=> __('Section dedicated to full bleed context featuring varying backgrounds and options.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'context', 'section', 'layout', 'squiggle' ),
+			));
+
+			// register the video block
+			acf_register_block(array(
+				'name'				=> 'video',
+				'title'				=> __('Video'),
+				'description'		=> __('Full-width video component for standalone instances.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'media', 'video' ),
+			));
+
+			// register the article grid
+			acf_register_block(array(
+				'name'				=> 'article-grid',
+				'title'				=> __('Article Grid'),
+				'description'		=> __('Layout dedicated to article display. Features several column layout styles and supports varying image sizes.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'article', 'grid', 'image' ),
+			));
+
+			// register the context callout
+			acf_register_block(array(
+				'name'				=> 'context-callout',
+				'title'				=> __('Context Callout'),
+				'description'		=> __('Bordered, inset, interstitial styled component featuring a thumbnail.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'context', 'callout', 'image', 'border' ),
+			));
+
+			// register the miscellaneous section
+			acf_register_block(array(
+				'name'				=> 'miscellaneous-section',
+				'title'				=> __('Miscellaneous Section'),
+				'description'		=> __('Section featuring varying subcomponents for multiple use cases.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'context', 'miscellaneous', 'image', 'article', 'list' ),
+			));
+
+			// register the staggered card slider
+			acf_register_block(array(
+				'name'				=> 'staggered-card-slider',
+				'title'				=> __('Staggered Card Slider'),
+				'description'		=> __('Section dedicated to horizontally scrolling articles, currated in varying sizes and margins.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'staggered', 'card', 'image', 'article', 'carousel', 'slider' ),
+			));
+
+			// register the staggered media context grid
+			acf_register_block(array(
+				'name'				=> 'staggered-media-context-grid',
+				'title'				=> __('Staggered Media Context Grid'),
+				'description'		=> __('Grid featuring a staggered, condensed layout of media context components.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'staggered', 'image', 'media', 'context', 'grid' ),
+			));
+
+			// register the hero
+			acf_register_block(array(
+				'name'				=> 'hero',
+				'title'				=> __('Hero'),
+				'description'		=> __('Homepage exclusive hero with dynamic text and HTML5 video loop.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'hero', 'loop', 'media', 'video', 'heading' ),
+			));
+
+			// register the display media context
+			acf_register_block(array(
+				'name'				=> 'display-media-context',
+				'title'				=> __('Display Media Context'),
+				'description'		=> __('Media context variant featuring larger, treated images.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'media', 'context', 'display', 'image' ),
 			));
 		}
 	}
@@ -115,10 +269,38 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		$context['post'] = Timber::get_post();
+		global $wp;
+	
+		if ( ! is_404() ) {
+			$crumbs = get_post_ancestors( $context['post']->ID );
+
+			if ( $crumbs ) {
+				$breadcrumbs_menu = array();
+
+				foreach ( $crumbs as $ancestor ) {
+					array_push(
+						$breadcrumbs_menu,
+						array(
+							'id'    => $ancestor,
+							'title' => get_the_title( $ancestor ),
+							'url'   => get_permalink( $ancestor ),
+						)
+					);
+				}
+			}
+
+			if ( isset( $breadcrumbs_menu ) ) {
+				$context['breadcrumbs_menu'] = array_reverse( $breadcrumbs_menu );
+			}
+		}
+
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
+		$context['main_menu']      = new Timber\Menu( 'Main Menu' );
+		$context['utility_menu']   = new Timber\Menu( 'Utility Menu' );
 		$context['site']  = $this;
 		return $context;
 	}
@@ -176,7 +358,17 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 
-		add_image_size( 'Square', 600, 600, true );
+		add_image_size( 'Square', 900, 900, true );
+		add_image_size( 'Square_mobile', 600, 600, true );
+		add_image_size( 'Rectangle', 990, 705, true );
+		add_image_size( 'Rectangle_mobile', 660, 470, true );
+		add_image_size( 'Hero', 2400, 1320, true );
+		add_image_size( 'Hero_mobile', 800, 440, true );
+		add_image_size( 'Portrait', 630, 900, true );
+		add_image_size( 'Portrait_mobile', 420, 600, true );
+		add_image_size( 'Portrait2_mobile', 320, 400, true );
+		add_image_size( 'Collage_rectangle', 764, 548, true );
+		add_image_size( 'Collage_portrait', 490, 690, true );
 
 		if ( function_exists( 'acf_add_options_page' ) ) {
 			acf_add_options_page(

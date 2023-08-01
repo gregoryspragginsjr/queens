@@ -1,0 +1,39 @@
+{% if in_component_library %}
+  {% set context = '@context' %}
+  {% set wysiwygComponent = '@wysiwyg' %}
+  {% set articleComponent = '@article' %}
+{% else %}
+  {% set context = 'context.twig' %}
+  {% set wysiwygComponent = 'wysiwyg.twig' %}
+  {% set articleComponent = 'article.twig' %}
+{% endif %}
+
+<div class="miscellaneous-section miscellaneous-section--{{ type|default('default') }}">
+  <div class="miscellaneous-section__inner grid">
+    <div class="miscellaneous-section__intro">
+      {% include context with {
+        type: 'dark',
+        subheading: subheading,
+        heading: heading,
+        paragraphs: paragraphs,
+        buttons: buttons,
+      } %}
+    </div>
+  </div>
+  <div class="miscellaneous-section__inner grid">
+    <div class="miscellaneous-section__main">
+      {% include wysiwygComponent with wysiwyg %}
+    </div>
+    <div class="miscellaneous-section__secondary">
+      {% include articleComponent with {
+        size: 'small',
+        squiggle: true,
+        type: 'dark',
+        image: article.image,
+        heading: article.heading,
+        paragraphs: article.paragraphs,
+        buttons: article.buttons
+      } %}
+    </div>
+  </div>
+</div>

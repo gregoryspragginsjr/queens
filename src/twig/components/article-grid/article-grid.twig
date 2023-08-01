@@ -2,13 +2,13 @@
   {% set article = '@article' %}
 {% else %}
   {% set article = 'article.twig' %}
-{% endfor %}
+{% endif %}
 
 <div class="article-grid article-grid--{{ type|default('default') }} article-grid--{{ columns|default(3) }}-column {% if border %}article-grid--bordered{% endif %}{% if reverse %} article-grid--reverse{% endif %}">
   <div class="article-grid__inner grid">
     {% for item in items %}
       <div class="article-grid__item">
-        {% if type == 'blue' %}
+        {% if type == 'blue' or type == 'default' or type == 'gradient' %}
           {% set type = 'dark' %}
         {% endif %}
         {% include article with item %}

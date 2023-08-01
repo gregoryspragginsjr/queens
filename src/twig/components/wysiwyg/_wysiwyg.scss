@@ -1,4 +1,11 @@
 .wysiwyg {
+  // The reason why we target DIRECT CHILDREN in the wysiwyg is
+  // to better harmonize these styles with independent block styles
+  // coming from the Gutenberg editor while they share the same div
+  // on the front-end and allows us to retain the seamnless
+  // out-of-the-box editor experience that comes from Wordpress
+  // ~ Greg
+
   > h1 { @extend .heading-style-1; }
 
   > h2 { @extend .heading-style-2; }
@@ -8,6 +15,8 @@
   > h4 { @extend .heading-style-4; }
 
   > h5 { @extend .heading-style-5; }
+
+  > h6 { @extend .heading-style-6; }
 
   > p,
   > ul {
@@ -25,6 +34,58 @@
 
     li + li {
       margin-top: 10px;
+    }
+
+    + figure {
+      margin-top: 32px;
+
+      @include breakpoint(medium) {
+        margin-top: 48px;
+      }
+    }
+  }
+
+  > ol {
+    @extend .paragraph-style-4;
+
+    a {
+      padding-right: 26px;
+      color: $navy;
+      text-decoration: none;
+      transition: $transition-default;
+      background: url('../images/svgs/icon-arrow.svg') no-repeat;
+      background-size: 16px;
+      background-position: right center;
+
+      &:hover {
+        padding-right: 32px;
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      margin-left: 33px;
+      list-style-type: decimal-leading-zero;
+
+      @include breakpoint(large) {
+        margin-left: 43px;
+      }
+
+      &::marker {
+        color: #6c6c6c;
+      }
+    }
+
+    li + li {
+      margin-top: 16px;
+    }
+  }
+
+  > figure {
+    margin-bottom: 48px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 80px;
     }
   }
 }

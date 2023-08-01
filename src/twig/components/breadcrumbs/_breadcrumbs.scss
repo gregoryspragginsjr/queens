@@ -1,0 +1,46 @@
+.breadcrumbs {
+  display: none;
+  align-items: center;
+  height: 40px;
+  background-color: $gold;
+
+  @include breakpoint(medium) {
+    display: flex;
+  }
+
+  ul {
+    grid-column: span 12 / span 12;
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    font-family: $font-primary;
+    font-size: rem-calc(14px);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 160%;
+  }
+
+  li + li {
+    margin-left: 12px;
+  }
+
+  a {
+    color: $navy;
+    text-decoration: none;
+    transition: $transition-default;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    width: 8px;
+    margin-right: 12px;
+    fill: $gold-dark;
+  }
+}

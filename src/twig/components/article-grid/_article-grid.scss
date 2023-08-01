@@ -1,4 +1,14 @@
 .article-grid {
+  padding: 60px 0;
+
+  @include breakpoint(large) {
+    padding: 100px 0;
+  }
+
+  .page--with-sidebar & {
+    padding: 48px 0;
+  }
+
   &--blue {
     background-color: $sky-blue;
   }
@@ -6,6 +16,23 @@
   &--primary,
   &--dark {
     background-color: $navy;
+  }
+
+  &--gradient {
+    background:
+      linear-gradient(
+        180deg,
+        $white 35.42%,
+        #eceda3 100%
+      );
+  }
+
+  &--staggered-column + &--staggered-column {
+    padding: 0 0 60px;
+
+    @include breakpoint(large) {
+      padding: 0 0 100px;
+    }
   }
 
   &__item {
