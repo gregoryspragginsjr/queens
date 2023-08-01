@@ -33,4 +33,32 @@ address {
   &--home {
     padding-top: 0;
   }
+
+  &__inner.grid {
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    @include breakpoint(medium) {
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__secondary,
+  &__main {
+    grid-column: span 12 / span 12;
+  }
+
+  &__secondary {
+    @include breakpoint(medium) {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  &__main {
+    @include breakpoint(medium) {
+      grid-column: span 8 / span 8;
+      grid-column-start: 5;
+    }
+  }
 }

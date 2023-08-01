@@ -1,4 +1,11 @@
 .wysiwyg {
+  // The reason why we target DIRECT CHILDREN in the wysiwyg is
+  // to better harmonize these styles with independent block styles
+  // coming from the Gutenberg editor while they share the same div
+  // on the front-end and allows us to retain the seamnless
+  // out-of-the-box editor experience that comes from Wordpress
+  // ~ Greg
+
   > h1 { @extend .heading-style-1; }
 
   > h2 { @extend .heading-style-2; }
@@ -27,6 +34,14 @@
 
     li + li {
       margin-top: 10px;
+    }
+
+    + figure {
+      margin-top: 32px;
+
+      @include breakpoint(medium) {
+        margin-top: 48px;
+      }
     }
   }
 
@@ -63,6 +78,14 @@
 
     li + li {
       margin-top: 16px;
+    }
+  }
+
+  > figure {
+    margin-bottom: 48px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 80px;
     }
   }
 }

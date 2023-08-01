@@ -4,6 +4,10 @@
   @include breakpoint(large) {
     padding: 100px 0;
   }
+
+  .page--with-sidebar & {
+    padding: 48px 0;
+  }
   
   &--light,
   &--gradient {

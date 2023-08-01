@@ -1,0 +1,17 @@
+{% import "icons.twig" as icons %}
+
+<nav aria-label="Breadcrumbs" class="breadcrumbs">
+  <div class="breadcrumbs__inner grid">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      {% for item in items %}
+        <li>
+          {{ icons.icon('prism', '') }}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

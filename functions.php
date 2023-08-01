@@ -130,6 +130,17 @@ class StarterSite extends Timber\Site {
 				'keywords'			=> array( 'hero', 'page', 'header' ),
 			));
 
+			// register the subheading block
+			acf_register_block(array(
+				'name'				=> 'subheading',
+				'title'				=> __('Subheading'),
+				'description'		=> __('Micro block for adding semantic subheadings in Gutenberg.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'formatting',
+				'icon'				=> 'dashicons-editor-textcolor',
+				'keywords'			=> array( 'subheading', 'heading' ),
+			));
+
 			// register the media context block
 			acf_register_block(array(
 				'name'				=> 'media-context',
@@ -258,6 +269,32 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		$context['post'] = Timber::get_post();
+		global $wp;
+	
+		if ( ! is_404() ) {
+			$crumbs = get_post_ancestors( $context['post']->ID );
+
+			if ( $crumbs ) {
+				$breadcrumbs_menu = array();
+
+				foreach ( $crumbs as $ancestor ) {
+					array_push(
+						$breadcrumbs_menu,
+						array(
+							'id'    => $ancestor,
+							'title' => get_the_title( $ancestor ),
+							'url'   => get_permalink( $ancestor ),
+						)
+					);
+				}
+			}
+
+			if ( isset( $breadcrumbs_menu ) ) {
+				$context['breadcrumbs_menu'] = array_reverse( $breadcrumbs_menu );
+			}
+		}
+
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';

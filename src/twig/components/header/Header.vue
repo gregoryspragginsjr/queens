@@ -37,11 +37,11 @@
     mounted() {
       if (this.active) {
         this.lightMode = true;
-      }
 
-      setTimeout(() => {
-        this.animate();
-      }, 1000);
+        setTimeout(() => {
+          this.animate();
+        }, 1000);
+      }
     },
     methods: {
       toggleDrawer() {
