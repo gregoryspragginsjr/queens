@@ -38,7 +38,7 @@ address {
     padding-top: 48px;
     padding-bottom: 48px;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       padding-top: 80px;
       padding-bottom: 100px;
     }
@@ -50,13 +50,13 @@ address {
   }
 
   &__secondary {
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       grid-column: span 3 / span 3;
     }
   }
 
   &__main {
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       grid-column: span 8 / span 8;
       grid-column-start: 5;
     }

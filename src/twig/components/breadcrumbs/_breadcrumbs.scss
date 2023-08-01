@@ -1,12 +1,8 @@
 .breadcrumbs {
-  display: none;
+  display: flex;
   align-items: center;
   height: 40px;
   background-color: $gold;
-
-  @include breakpoint(medium) {
-    display: flex;
-  }
 
   ul {
     grid-column: span 12 / span 12;

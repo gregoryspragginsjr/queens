@@ -4,7 +4,7 @@
   border-radius: 24px;
   border: 1px solid #8fb7ff;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     display: block;
   }
 

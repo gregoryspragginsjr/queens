@@ -11,6 +11,7 @@
       {% include 'header.twig' with {
         utility: utility_menu.items,
         main: main_menu.items,
+        helpfulLinks: utility_menu.items,
         active: fn('is_front_page')
       } %}
       <main id="main">
