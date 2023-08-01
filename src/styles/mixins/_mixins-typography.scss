@@ -163,3 +163,11 @@
     font-size: rem-calc(24px);
   }
 }
+
+@mixin nav-style-1() {
+  font-family: $font-primary;
+  font-size: rem-calc(14px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 160%;
+}

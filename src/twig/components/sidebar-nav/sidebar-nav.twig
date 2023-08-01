@@ -1,0 +1,31 @@
+{% if not in_component_library %}
+  {% set newItems = [] %}
+
+  {% for item in items %}
+    {% if post.id == item.ID or item.guid == (current_url ~ '\/') or item.url == (current_url ~ '\/') %}
+      {% set a = true %}
+    {% else %}
+      {% set a = false %}
+    {% endif %}
+
+    {% set newItem = [{
+      title: item.post_title,
+      url: function('get_page_link', item.ID),
+      active: a,
+    }] %}
+
+    {% set newItems = newItems|merge(newItem) %}
+  {% endfor %}
+
+  {% set items = newItems %}
+{% endif %}
+<nav class="sidebar-nav">
+  <h2 class="sidebar-nav__heading subheading-style-2 text-dark">{{ heading }}</h2>
+  <ul>
+    {% for item in items %}
+      <li class="sidebar-nav__item{% if item.active %} sidebar-nav__item--active{% endif %}">
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
