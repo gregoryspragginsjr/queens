@@ -5,7 +5,7 @@
   line-height: 1;
 
   &--sm {
-    width: 16px;
+    width: 20px;
   }
 
   &--md {
@@ -21,6 +21,10 @@
   display: flex;
   align-items: flex-start;
   gap: rem-calc(8px);
+
+  &--center {
+    align-items: center;
+  }
 
   .icon {
     flex: 0 0 auto;
