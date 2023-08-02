@@ -1,0 +1,170 @@
+{% import 'macros.twig' as macros %}
+{% import 'icons.twig' as icons %}
+
+<div class="event-detail">
+  <div class="event-detail__main">
+    <div class="event-detail__inner grid">
+      <div class="event-detail__text event-detail__block">
+        <h1 class="event-detail__heading">{{ title }}</h1>
+
+        <div class="event-detail__details">
+          <div class="event-detail__date">
+            <span class="icon-text">
+              {{ icons.icon('clock', 'fill-current icon icon--sm') }}
+
+              <span>{{ date|date('F d, Y') }}</span>
+              {% if start_time %}
+                <span>|</span>
+                {{ start_time }}
+              {% endif %}
+              {% if end_time %}
+                -
+                {{ end_time }}
+              {% endif %}
+            </span>
+          </div>
+
+          {% if location %}
+            <div class="event-detail__location">
+              <div class="icon-text">{{ icons.icon('map-pin', 'fill-current icon icon--sm') }}
+                {{ location }}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if image %}
+        <div class="event-detail__image">
+          {{ macros.picture(
+            'w-full',
+            image.srcset,
+            image.src,
+            image.sizes.desktop,
+            image.sizes.mobile,
+            image.alt,
+            in_component_library
+          ) }}
+        </div>
+      {% endif %}
+
+      {% if description %}
+        <div class="event-detail__description event-detail__block">
+          {{ description|raw }}
+        </div>
+      {% endif %}
+
+      {% if tickets_link %}
+        <div class="event-detail__tickets-link event-detail__block">
+          <a href="{{ tickets_link }}" class="btn btn--dark">Buy Tickets</a>
+        </div>
+      {% endif %}
+
+      <div class="event-detail__share event-detail__block social-share">
+        <span class="social-share__label">Social Share</span>
+        <a href="#" class="social-share__link" target="_blank" rel="noopener noreferrer">
+          {{ icons.icon('facebook', 'fill-current icon icon--md') }}
+          <span class="sr-only">Share on Facebook</span>
+        </a>
+
+        <a href="#" class="social-share__link" target="_blank" rel="noopener noreferrer">
+          {{ icons.icon('twitter', 'fill-current icon icon--md') }}
+          <span class="sr-only">Share on Twitter</span>
+        </a>
+
+        <a href="#" class="social-share__link" target="_blank" rel="noopener noreferrer">
+          {{ icons.icon('linkedin', 'fill-current icon icon--md') }}
+          <span class="sr-only">Share on LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-detail__secondary">
+    <div class="event-detail__inner grid">
+      <div class="event-detail__meta event-detail__block">
+        {% if event_type %}
+          <div class="event-detail__meta-item">
+            <div class="event-detail__meta-heading">Event Type</div>
+            <ul>
+              {% for item in event_type %}
+                <li>
+                  <a href="{{ item.link }}">{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if cost %}
+          <div class="event-detail__meta-item">
+            <div class="event-detail__meta-heading">Cost</div>
+            <div>{{ cost }}</div>
+          </div>
+        {% endif %}
+
+        {% if audience %}
+          <div class="event-detail__meta-item">
+            <div class="event-detail__meta-heading">Target Audience</div>
+            <ul>
+              {% for item in audience %}
+                <li>
+                  <a href="{{ item.link }}">{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if website %}
+          <div class="event-detail__meta-item">
+            <div class="event-detail__meta-heading">Website</div>
+            <div>
+              <a href="{{ website }}">{{ website }}</a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if department %}
+          <div class="event-detail__meta-item">
+            <div class="event-detail__meta-heading">Department</div>
+            <ul>
+              {% for item in department %}
+                <li>
+                  <a href="{{ item.link }}">{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <div class="event-detail__meta-item">
+          <div class="event-detail__meta-heading">Subscribe</div>
+          <div class="social-share">
+            <a href="#" class="icon-text icon-text--center social-share__link">
+              {{ icons.icon('google', 'fill-current icon icon--sm') }}
+              <span class="sr-only">Save to Google Calendar</span>
+            </a>
+
+            <a href="#" class="icon-text icon-text--center social-share__link">
+              {{ icons.icon('calendar', 'fill-current icon icon--sm') }}
+              <span class="sr-only">Save to Google iCal</span>
+            </a>
+
+            <a href="#" class="icon-text icon-text--center social-share__link">
+              {{ icons.icon('clock', 'fill-current icon icon--sm') }}
+              <span class="sr-only">Save to Outlook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-detail__map event-detail__block">
+        <h2 class="event-detail__map-heading">Getting There</h2>
+        <div class="responsive-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38205.339296285456!2d-80.85095457210134!3d35.15968796088914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88569fb8f3266cb9%3A0x631e99fdcbb77b9d!2sQueens%20University%20of%20Charlotte!5e0!3m2!1sen!2sus!4v1690985618703!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

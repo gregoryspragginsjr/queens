@@ -1,0 +1,165 @@
+.event-detail {
+  padding: 60px 0;
+
+  @include breakpoint(medium) {
+    padding: 100px 0;
+  }
+
+  &__main + &__secondary {
+    margin-top: 48px;
+
+    @include breakpoint(medium) {
+      margin-top: 60px;
+    }
+  }
+
+  &__block,
+  &__image {
+    grid-column: span 12 / span 12;
+  }
+
+  &__block {
+    &:not(:first-child) {
+      margin-top: 32px;
+    }
+
+    @include breakpoint(medium) {
+      grid-column: span 9 / span 9;
+    }
+  }
+
+  &__image {
+    @include breakpoint(medium) {
+      grid-column: span 3;
+    }
+  }
+
+  &__text + &__image {
+    margin-top: 32px;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__heading {
+    @extend .heading-style-3;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 16px;
+    margin-top: 16px;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+      margin-top: 24px;
+      max-width: 50%;
+    }
+  }
+
+  &__location {
+    width: 100%;
+  }
+
+  &__description {
+    p {
+      @extend .paragraph-style-2;
+    }
+  }
+
+  &__tickets-link {
+    justify-self: flex-start;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 32px;
+
+    @include breakpoint(large) {
+      column-gap: 40px;
+    }
+
+    &-item {
+      grid-column: span 12 / span 12;
+      width: 100%;
+
+      @include breakpoint(medium) {
+        grid-column: span 6 / span 6;
+      }
+
+      a:not([class]) {
+        color: currentColor;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      ul {
+        li {
+          display: inline;
+
+          &:not(:last-child) {            
+            &::after {
+              content: ", ";
+            }
+          }
+        }
+      }
+    }
+
+    &-heading {
+      @extend .subheading-style-2;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #c6c6c6;
+    }
+  }
+
+  &__map {
+    &:last-child {
+      margin-top: 64px;
+    }
+
+    &-heading {
+      @extend .heading-style-3;
+
+      @include breakpoint(large) {
+        font-size: rem-calc(36px);
+      }
+    }
+
+    .responsive-container {
+      margin-top: 24px;
+    }
+  }
+}
+
+.social-share {
+  display: flex;
+  gap: 12px;
+
+  &__label {
+    font-size: rem-calc(16px);
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(18px);
+    }
+  }
+
+  &__link {
+    color: #a3a3a3;
+    transition: $transition-default;
+
+    &:hover {
+      color: $navy;
+    }
+  }
+}
