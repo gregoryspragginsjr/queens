@@ -1,0 +1,17 @@
+{% import "icons.twig" as icons %}
+
+<div class="pagination grid">
+  <a class="arrow-btn arrow-btn--dark arrow-btn--reversed{% if not prev %} arrow-btn--hidden{% endif %}" href="{{ prev }}">
+    Previous
+    {{ icons.icon('arrow', 'arrow-btn__svg') }}
+  </a>
+  <ul>
+    {% for page in pages %}
+      <li class="pagination__item{% if page.active %} pagination__item--active{% endif %}"><a href="{{ page.url }}">{{ loop.index }}</a></li>
+    {% endfor %}
+  </ul>
+  <a class="arrow-btn arrow-btn--dark {% if not next %} arrow-btn--hidden{% endif %}" href="{{ next }}">
+    Next
+    {{ icons.icon('arrow', 'arrow-btn__svg') }}
+  </a>
+</div>

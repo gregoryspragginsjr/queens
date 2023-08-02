@@ -3,7 +3,8 @@
 {% block content %}
   <div class="page page--with-sidebar">
     {% include 'page-header.twig' with {
-      heading: post.title
+      heading: post.title,
+      breadcrumbs: true
     } %}
     <div class="page__inner grid">
       <div class="page__secondary">

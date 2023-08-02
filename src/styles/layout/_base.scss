@@ -34,6 +34,35 @@ address {
     padding-top: 0;
   }
 
+  &--archive {
+    padding-bottom: 60px;
+
+    @include breakpoint(large) {
+      padding-bottom: 100px;
+    }
+
+    > .media-context {
+      padding-bottom: 0;
+
+      .context {
+        @include breakpoint(large) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+        }
+      }
+
+      + .article-grid {
+        padding-top: 40px;
+      }
+    }
+
+    > .article-grid {
+      padding-bottom: 0;
+    }
+  }
+
   &__inner.grid {
     padding-top: 48px;
     padding-bottom: 48px;

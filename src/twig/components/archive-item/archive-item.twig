@@ -1,0 +1,34 @@
+{% import "macros.twig" as macros %}
+
+{% if in_component_library %}
+  {% set context = '@context' %}
+{% else %}
+  {% set context = 'context.twig' %}
+{% endif %}
+
+<div class="archive-item">
+  <div class="grid">
+    <div class="archive-item__content">
+      {% include context with {
+        type: 'dark',
+        align: 'left',
+        size: 'xsmall',
+        subheading: subheading,
+        heading: heading,
+        paragraphs: paragraphs,
+        buttons: buttons,
+      } %}
+    </div>
+    <div class="archive-item__image">
+      {{ macros.picture(
+        'w-full',
+        image.srcset,
+        image.src,
+        image.sizes.desktop,
+        image.sizes.mobile,
+        image.alt,
+        in_component_library
+      ) }}
+    </div>
+  </div>
+</div>

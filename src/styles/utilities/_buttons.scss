@@ -21,6 +21,26 @@
   &--light {
     @include arrow-btn($white, $white);
   }
+
+  &--reversed {
+    flex-direction: row-reverse;
+
+    &:hover svg {
+      margin-left: 0;
+      margin-right: 16px;
+    }
+
+    svg {
+      margin-left: 0;
+      margin-right: 10px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--hidden {
+    width: 0;
+    visibility: hidden;
+  }
 }
 
 

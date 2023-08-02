@@ -27,7 +27,7 @@
     <div class="page-header__media">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Hero, image.sizes.Hero_mobile, image.alt, in_component_library) }}</div>
   {% endif %}
 </div>
-{% if not image %}
+{% if not image and breadcrumbs %}
   {% include 'breadcrumbs.twig' with {
     items: breadcrumbs_menu,
   } %}

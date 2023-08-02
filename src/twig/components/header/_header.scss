@@ -98,6 +98,11 @@
       height: 16px;
       fill: $navy;
       margin-right: 4px;
+      transition: $transition-default;
+
+      .header--active & {
+        fill: $white;
+      }
 
       @include breakpoint(large) {
         width: 14px;
@@ -478,7 +483,7 @@
 
     &[aria-expanded='true'] {
       span {
-        background-color: transparent;
+        background-color: transparent !important;
 
         &::before {
           top: 0;
@@ -502,6 +507,10 @@
       border-radius: 10px;
       transition: $transition-default;
 
+      .header--active & {
+        background-color: $white;
+      }
+
       &::before,
       &::after {
         position: absolute;
@@ -513,6 +522,10 @@
         transform-origin: center;
         transition: inherit;
         content: '';
+
+        .header--active & {
+          background-color: $white;
+        }
       }
 
       &::before {

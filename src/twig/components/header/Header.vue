@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'header--active' : lightMode}" ref="header">
+  <header :class="{'header--active' : lightMode && drawerActive == false}" ref="header">
     <slot
       :active="active"
       :drawerActive="drawerActive"

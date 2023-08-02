@@ -2,6 +2,83 @@
 
 {% block content %}
   <div class="page page--archive">
-  
+    {% include 'page-header.twig' with {
+      heading: title,
+    } %}
+
+    {% set featured = fn('Timber::get_posts', {
+      post_type: 'post',
+      post_per_page: 4,
+      tax_query: [
+        {
+          taxonomy: 'category',
+          field: 'slug',
+          terms: 'featured'
+        }
+      ]
+    })|map(i => {
+      image: {
+        sizes: {
+          Rectangle: fn( 'get_the_post_thumbnail_url', i.ID, 'Rectangle' ),
+          Rectangle_mobile: fn( 'get_the_post_thumbnail_url', i.ID, 'Rectangle_mobile' ),
+        }
+      },
+      heading: i.post_title,
+      subheading: i.post_date|date("M d, Y"),
+      paragraphs: '<p>' ~ (i.preview ? i.preview.length(20).read_more('') : i.post_excerpt) ~ '</p>',
+      buttons: [
+        {
+          button: {
+            title: 'Read More',
+            url: function('get_permalink', item.ID),
+          }
+        }
+      ]
+    }) %}
+
+    {% include 'media-context.twig' with {
+      image: featured[0].image,
+      subheading: featured[0].subheading,
+      heading: featured[0].heading,
+      paragraphs: featured[0].paragraphs,
+      buttons: featured[0].buttons
+    } %}
+
+    {% include 'article-grid.twig' with {
+      size: 'xsmall',
+      break: 'condensed',
+      items: featured|slice(1),
+    } %}
+    {% for item in posts %}
+      {% set excerpt = item.preview ? item.preview.length(20).read_more('') : item.post_excerpt %}
+      {% include 'archive-item.twig' with {
+        image: {
+          sizes: {
+            desktop: fn( 'get_the_post_thumbnail_url', item.ID, 'Collage_rectangle' ),
+            mobile: fn( 'get_the_post_thumbnail_url', item.ID, 'Square_mobile' ),
+          }
+        },
+        subheading: item.post_date|date("M d, Y"),
+        heading: item.post_title,
+        paragraphs: '<p>' ~ excerpt ~ '</p>',
+        buttons: [
+          {
+            button: {
+              title: 'Read More',
+              url: function('get_permalink', item.ID),
+            }
+          }
+        ]
+      } %}
+    {% endfor %}
+
+    {% include 'pagination.twig' with {
+      pages: posts.pagination.pages|map(p => {
+        active: p.current,
+        url: p.link
+      }),
+      prev: posts.pagination.prev.link,
+      next: posts.pagination.next.link
+    } %}
   </div>
 {% endblock %}
