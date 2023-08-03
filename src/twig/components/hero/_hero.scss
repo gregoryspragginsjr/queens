@@ -4,15 +4,16 @@
   background-color: $black;
   color: $neon;
 
-  &__inner {
-  }
-
   &__main {
     position: relative;
     align-items: center;
     grid-column: span 12 / span 12;
-    padding-top: 96px;
+    padding-top: 72px;
     padding-bottom: 24px;
+
+    @include breakpoint(large) {
+      padding-top: 130px;
+    }
   }
 
   &__lockup {
