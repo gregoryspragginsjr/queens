@@ -20,17 +20,44 @@
   }
 
   &__headline {
+    &-c {
+      line-height: 0;
+      font-family: $font-decor-script;
+      font-size: rem-calc(78px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(140px);
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(200px);
+      }
+    }
+
+    &-r {
+      line-height: 0;
+      font-family: $font-decor-display;
+      font-size: rem-calc(77px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(126px);
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(184px);
+      }
+    }
+
     > span {
       display: block;
     }
+
     .offset-l {
-      margin-left: 78px;
+      margin-left: 65px;
 
       @include breakpoint(medium) {
-        margin-left: 120px;
+        margin-left: 142px;
       }
       @include breakpoint(large) {
-        margin-left: 155px;
+        margin-left: 205px;
       }
     }
   }
