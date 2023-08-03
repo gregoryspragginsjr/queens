@@ -22,3 +22,8 @@ address {
     display: inline-block;
   }
 }
+
+::selection {
+  color: $navy;
+  background: $neon;
+}
