@@ -35,17 +35,22 @@
 
   &__small-text {
     position: absolute;
-    bottom: -36px;
+    bottom: -32px;
     left: 0;
     display: flex;
     justify-content: space-between;
     column-gap: 16px;
     width: 100%;
     text-transform: uppercase;
+    line-height: 100%;
+    font-family: $font-screen;
     font-size: rem-calc(10px);
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @include breakpoint(medium) {
-      bottom: -46px;
+      bottom: -40px;
       font-size: rem-calc(12px);
     }
   }
