@@ -36,19 +36,21 @@
       ]
     }) %}
 
-    {% include 'media-context.twig' with {
-      image: featured[0].image,
-      subheading: featured[0].subheading,
-      heading: featured[0].heading,
-      paragraphs: featured[0].paragraphs,
-      buttons: featured[0].buttons
-    } %}
+    {% if posts.pagination.current == 1 and title == 'News' %}
+      {% include 'media-context.twig' with {
+        image: featured[0].image,
+        subheading: featured[0].subheading,
+        heading: featured[0].heading,
+        paragraphs: featured[0].paragraphs,
+        buttons: featured[0].buttons
+      } %}
 
-    {% include 'article-grid.twig' with {
-      size: 'xsmall',
-      break: 'condensed',
-      items: featured|slice(1),
-    } %}
+      {% include 'article-grid.twig' with {
+        size: 'xsmall',
+        break: 'condensed',
+        items: featured|slice(1),
+      } %}
+    {% endif %}
     {% for item in posts %}
       {% set excerpt = item.preview ? item.preview.length(20).read_more('') : item.post_excerpt %}
       {% include 'archive-item.twig' with {

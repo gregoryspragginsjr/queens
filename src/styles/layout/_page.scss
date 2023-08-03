@@ -1,0 +1,75 @@
+.page {
+  padding-top: 72px;
+
+  @include breakpoint(large) {
+    padding-top: 130px;
+  }
+
+  &--home {
+    padding-top: 0;
+  }
+
+  &--archive {
+    padding-bottom: 60px;
+
+    @include breakpoint(large) {
+      padding-bottom: 100px;
+    }
+
+    > .media-context {
+      padding-bottom: 0;
+
+      .context {
+        @include breakpoint(large) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+        }
+      }
+
+      + .article-grid {
+        padding-top: 40px;
+      }
+    }
+
+    > .article-grid {
+      padding-bottom: 0;
+    }
+  }
+
+  &__inner.grid {
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    @include breakpoint(large) {
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__secondary,
+  &__main {
+    grid-column: span 12 / span 12;
+  }
+
+  &__secondary {
+    @include breakpoint(large) {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  &__main {
+    @include breakpoint(large) {
+      grid-column: span 8 / span 8;
+      grid-column-start: 5;
+    }
+
+    .page--single-post & {
+      @include breakpoint(medium) {
+        grid-column: span 10 / span 10;
+        grid-column-start: 2;
+      }
+    }
+  }
+}

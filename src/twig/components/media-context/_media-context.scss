@@ -5,7 +5,8 @@
     padding: 100px 0;
   }
 
-  .page--with-sidebar & {
+  .page--with-sidebar &,
+  .page--single-post & {
     padding: 48px 0;
   }
   
@@ -42,6 +43,10 @@
   &__context {
     @include breakpoint(medium) {
       grid-column: span 5 / span 5;
+
+      .page--single-post & {
+        grid-column: span 7 / span 7;
+      }
     }
   }
 
@@ -59,6 +64,10 @@
 
       .media-context--reverse & {
         grid-row: 1;
+      }
+
+      .page--single-post & {
+        grid-column: span 5 / span 5;
       }
     }
   }

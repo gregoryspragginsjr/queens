@@ -1,0 +1,21 @@
+{% import 'macros.twig' as macros %}
+
+<div class="post-hero">
+  <h1 class="post-hero__heading heading-style-2 text-dark text-center">{{ heading }}</h1>
+  <div class="post-hero__details paragraph-style-2 text-dark">
+    <span>{{ date }}</span>
+    <span>By {{ author }}</span>
+  </div>
+  <div class="post-hero__image">
+    {{ macros.picture(
+      'object-cover',
+      image.srcset,
+      image.src,
+      image.sizes.Rectangle,
+      image.sizes.Rectangle_mobile,
+      image.alt,
+      in_component_library
+    ) }}
+  </div>
+  <p class="post-hero__p paragraph-style-4 text-dark">{{ paragraph }}</p>
+</div>

@@ -81,6 +81,17 @@
     }
   }
 
+  > ul {
+    li {
+      margin-left: 16px;
+      list-style-type: disc;
+
+      &::marker {
+        color: #655B3A;
+      }
+    }
+  }
+
   > figure {
     margin-bottom: 48px;
 

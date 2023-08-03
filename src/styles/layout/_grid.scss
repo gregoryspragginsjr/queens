@@ -13,7 +13,8 @@
     column-gap: map.get($grid-column-gutter, large);
   }
 
-  .page--with-sidebar .page__main & {
+  .page--with-sidebar .page__main &,
+  .page--single-post .page__main & {
     padding: 0;
   }
 }

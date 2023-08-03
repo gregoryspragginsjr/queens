@@ -12,6 +12,7 @@
 @import 'utilities/forms';
 @import 'layout/base';
 @import 'layout/grid';
+@import 'layout/page';
 @import 'layout/miscellaneous';
 
 // Components
@@ -41,4 +42,5 @@
 @import '~components/sidebar-nav/sidebar-nav';
 @import '~components/archive-item/archive-item';
 @import '~components/pagination/pagination';
+@import '~components/post-hero/post-hero';
 @import '~components/02-pages/events';

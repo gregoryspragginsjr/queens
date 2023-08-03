@@ -141,7 +141,8 @@
       <div class="search-modal__main">
         <div class="search-modal__input-wrap">
           <form role="search" method="get" action="{{ site.link }}">
-            <input type="text" placeholder="What are you looking for?" />
+            <input type="text" placeholder="What are you looking for?" value="{{ function('get_search_query') }}" name="s" id="s" />
+            {# <input type="submit" id="searchsubmit" value="Search" /> #}
           </form>
           <button>
             {{ icons.icon('search', '') }}

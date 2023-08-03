@@ -71,4 +71,12 @@
       }
     }
   }
+
+  + .archive-item {
+    margin-top: 60px;
+
+    @include breakpoint(medium) {
+      margin-top: 100px;
+    }
+  }
 }

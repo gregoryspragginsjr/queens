@@ -40,7 +40,7 @@
 
         setTimeout(() => {
           this.animate();
-        }, 1000);
+        }, 500);
       }
     },
     methods: {

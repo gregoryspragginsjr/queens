@@ -122,11 +122,11 @@
 
     .header--active & {
       background-color: transparent;
+      border-bottom: none;
     }
 
     @include breakpoint(large) {
       height: 98px;
-      border-bottom: none;
     }
 
     &::after {
