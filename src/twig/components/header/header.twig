@@ -151,11 +151,16 @@
       <div class="search-modal__secondary">
         <div class="search-modal__top-searched">
           <h2 class="search-modal__heading">Top Searched</h2>
-          <ul>
-            {% for item in topSearched %}
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}
-          </ul>
+          {% if in_component_library %}
+            <ul>
+              {% for item in topSearched %}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            {% set topSearched = fn('sm_list_popular_searches', '') %}
+            {{ topSearched|json_encode }}
+          {% endif %}
         </div>
         <div class="search-modal__helpful-links">
           <h2 class="search-modal__heading">Helpful Links</h2>
