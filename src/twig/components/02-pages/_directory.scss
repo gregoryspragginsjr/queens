@@ -1,0 +1,220 @@
+.directory {
+  padding: 60px 0;
+
+  @include breakpoint(medium) {
+    padding: 100px 0;
+  }
+
+  &__search-filter,
+  &__name-filters {
+    grid-column: span 12 / span 12;
+    margin-bottom: 32px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__search {
+    margin-bottom: 40px;
+  }
+
+  &__cat-filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+
+    .filter-select-wrap {
+      flex: 1 1 auto;
+      margin: 8px 0;
+      padding: 0 8px;
+      width: 100%;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+      @include breakpoint(large) {
+        width: 25%;
+      }
+    }
+  }
+
+  &__search-results-heading {
+    @extend .heading-style-4;
+    margin-bottom: 32px;
+  }
+
+  &__tool-bar {
+    grid-column: span 8 / span 8;
+    margin-bottom: 32px;
+
+    &-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+
+  &__listing {
+    grid-column: span 12 / span 12;
+    margin-bottom: 36px;
+
+    @include breakpoint(medium) {
+      grid-column: span 10;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 11;
+    }
+
+    &-item {
+      margin-bottom: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid $navy-light;
+
+      &:not(:first-child) {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &__section-marker {
+    grid-column: span 12 / span 12;
+    margin-bottom: 24px;
+
+    @include breakpoint(medium) {
+      grid-column: span 2 / span 2;
+      margin-bottom: 0;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 1 / span 1;
+    }
+
+    &-text {
+      @extend .paragraph-style-1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      background-color: $periwinkle;
+
+      @include breakpoint(medium) {
+        height: 60px;
+        width: 60px;
+      }
+    }
+  }
+
+  .person-post {
+    display: flex;
+
+    &__text {
+      flex-grow: 1;
+    }
+
+    &__heading {
+      @extend .heading-style-5;
+
+      a {
+        color: currentColor;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__title {
+      @extend .paragraph-style-2;
+      margin-top: 16px;
+
+      @include breakpoint(large) {
+        margin-top: 24px;
+      }
+    }
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      row-gap: 8px;
+      column-gap: 16px;
+      margin-top: 8px;
+  
+      @include breakpoint(medium) {
+        flex-direction: row;
+        max-width: 75%;
+      }
+
+      a {
+        color: currentColor;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__image {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      margin-left: 20px;
+      font-size: 0;
+      line-height: 0;
+
+      @include breakpoint(large) {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+}
+
+.name-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  border-top: 1px solid $navy-light;
+  border-bottom: 1px solid $navy-light;
+  padding: 16px 8px;
+
+  @include breakpoint(medium) {
+    padding: 24px;
+  }
+
+  &__label {
+    @extend .subheading-style-2;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      width: auto;
+    }
+  }
+  
+  button {
+    @extend .paragraph-style-1;
+    margin: 0 -1px -1px 0 !important;
+    padding: 4px;
+    border: 1px solid $mid-blue;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    line-height: 0;
+    cursor: pointer;
+    transition: $transition-default;
+
+    &:hover {
+      background-color: $sky-blue;
+    }
+  }
+}
