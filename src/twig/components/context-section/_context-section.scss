@@ -9,7 +9,8 @@
   &--blue {
     background-color: $sky-blue;
 
-    + .article-grid--blue {
+    + .article-grid--blue,
+    + .stats  {
       padding-top: 0;
     }
   }

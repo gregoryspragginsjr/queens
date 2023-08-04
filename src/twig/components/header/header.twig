@@ -158,7 +158,7 @@
               {% endfor %}
             </ul>
           {% else %}
-            {% set topSearched = fn('sm_list_popular_searches', '') %}
+            {% set topSearched = fn('sm_list_popular_searches', '', '', 10) %}
             {{ topSearched|json_encode }}
           {% endif %}
         </div>

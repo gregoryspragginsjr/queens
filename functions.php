@@ -261,6 +261,17 @@ class StarterSite extends Timber\Site {
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'media', 'context', 'display', 'image' ),
 			));
+
+			// register the display media context
+			acf_register_block(array(
+				'name'				=> 'stats',
+				'title'				=> __('Stats'),
+				'description'		=> __('Section dedicated to displaying large svgs.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'media', 'graphics', 'svgs', 'grid' ),
+			));
 		}
 	}
 

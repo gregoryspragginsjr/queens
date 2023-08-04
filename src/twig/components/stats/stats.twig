@@ -2,7 +2,11 @@
   <div class="stats__inner grid">
     {% for item in items %}
         <div class="stats__stat-block">
-          <img src="{{ item.graphic.src }}" class="stats__graphic" alt="{{ item.graphic.alt }}">
+          {% if in_component_library %}
+            <img src="{{ item.graphic.src }}" class="stats__graphic" alt="{{ item.graphic.alt }}">
+          {% else %}
+            <img src="{{ item.graphic.sizes.Square }}" class="stats__graphic" alt="{{ item.graphic.alt }}">
+          {% endif %}
 
           <div class="sr-only">
             <div>{{ item.stat.value }}</div>
