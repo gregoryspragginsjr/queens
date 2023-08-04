@@ -11,15 +11,20 @@
     <svg class="{{ class }}" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24">
       <path d="M2.4 3.6a1.2 1.2 0 0 1 1.2-1.2h2.583a1.2 1.2 0 0 1 1.184 1.003l.887 5.323a1.2 1.2 0 0 1-.647 1.27l-1.857.93a13.244 13.244 0 0 0 7.325 7.324l.929-1.857a1.2 1.2 0 0 1 1.27-.647l5.323.887a1.2 1.2 0 0 1 1.003 1.184V20.4a1.2 1.2 0 0 1-1.2 1.2H18C9.384 21.6 2.4 14.615 2.4 6V3.6Z" style="fill-rule:evenodd;clip-rule:evenodd;" />
     </svg>
+  {% elseif name == 'mail' %}
+    <svg class="{{ class }}" viewBox="0 0 21 20" style="enable-background:new 0 0 21 20">
+      <path d="M2.503 5.884L10.5 9.882L18.497 5.884C18.4674 5.37444 18.2441 4.89549 17.8728 4.54523C17.5016 4.19497 17.0104 3.99991 16.5 4H4.5C3.98958 3.99991 3.49845 4.19497 3.12718 4.54523C2.75591 4.89549 2.5326 5.37444 2.503 5.884Z" />
+      <path d="M18.5 8.118L10.5 12.118L2.5 8.118V14C2.5 14.5304 2.71071 15.0391 3.08579 15.4142C3.46086 15.7893 3.96957 16 4.5 16H16.5C17.0304 16 17.5391 15.7893 17.9142 15.4142C18.2893 15.0391 18.5 14.5304 18.5 14V8.118Z" />
+    </svg>
   {% elseif name == 'play' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 16 24" viewBox="0 0 16 24">
       <path d="M15.8 11.6c.3.2.3.7 0 .9L.8 24c-.3.3-.8 0-.8-.4V.5C0 .1.5-.2.8.1l15 11.5z" />
     </svg>
   {% elseif name == 'pause' %}
     <svg class="{{ class }}" viewBox="0 0 100 100" fill="none" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-hidden="true">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0a50 50 0 100 100A50 50 0 0050 0zm-4.4 40.1c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1zm15.4 0c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1z"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0a50 50 0 100 100A50 50 0 0050 0zm-4.4 40.1c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1zm15.4 0c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1z"></path>
     </svg>
-  {% elseif name == 'map-pin' or name == 'Schools & Colleges' or name == "Places to Go" %}
+  {% elseif name == 'map-pin' or name == 'Schools & Colleges' or name == 'Places to Go' %}
     <svg class="{{ class }}" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24">
       <path d="M17.94 4.86a8.4 8.4 0 0 1 0 11.88L12 22.68l-5.94-5.94A8.4 8.4 0 1 1 17.94 4.86ZM12 13.2a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z" style="fill-rule:evenodd;clip-rule:evenodd;" />
     </svg>
@@ -53,7 +58,7 @@
     </svg>
   {% elseif name == 'candy' or name == 'Mission, Vision, Values' or name == 'Belk Chapel' %}
     <svg class="{{ class }}" x="0" y="0" viewBox="0 0 41.1 22.4" style="enable-background:new 0 0 41.1 22.4" xml:space="preserve">
-      <path d="M20.5 22.4c6.2 0 11.2-5 11.2-11.2C31.7 5 26.7 0 20.5 0S9.3 5 9.3 11.2c0 6.2 5 11.2 11.2 11.2zM41.1 20.5l-9.3-9.3 9.3-9.3v18.6zM0 1.9l9.3 9.3L0 20.5V1.9z"/>
+      <path d="M20.5 22.4c6.2 0 11.2-5 11.2-11.2C31.7 5 26.7 0 20.5 0S9.3 5 9.3 11.2c0 6.2 5 11.2 11.2 11.2zM41.1 20.5l-9.3-9.3 9.3-9.3v18.6zM0 1.9l9.3 9.3L0 20.5V1.9z" />
     </svg>
   {% elseif name == 'crown' or name == 'History' or name == 'Centers' %}
     <svg class="{{ class }}" viewBox="0 0 24 18.6">
@@ -97,7 +102,7 @@
     </svg>
   {% elseif name == 'arrow-right' or name == 'Veterans' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 22.7 22.7" viewBox="0 0 22.7 22.7">
-      <path d="m11.4 22.7 11.4-11.4L11.4 0v22.7zM0 22.7l11.4-11.4L0 0v22.7z"/>
+      <path d="m11.4 22.7 11.4-11.4L11.4 0v22.7zM0 22.7l11.4-11.4L0 0v22.7z" />
     </svg>
   {% elseif name == 'ticket' or name == 'Programs of Study' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 24 18.7" viewBox="0 0 24 18.7">
@@ -116,7 +121,7 @@
       <path d="M19 9.5H0v10.8h19V9.5zM0 9.5 9.5 0 19 9.5" />
     </svg>
   {% elseif name == 'mountains' or name == 'Undergrad Admissions' %}
-    <svg class="{{ class }}"  style="enable-background:new 0 0 24 15" viewBox="0 0 24 15">
+    <svg class="{{ class }}" style="enable-background:new 0 0 24 15" viewBox="0 0 24 15">
       <path d="M15 0 7.1 13.1l-3-4.8L0 15h24z" />
     </svg>
   {% elseif name == 'apple' or name == 'Graduate Admissions' %}
@@ -135,7 +140,7 @@
     <svg class="{{ class }}" style="enable-background:new 0 0 20 20" viewBox="0 0 20 20">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM11 6C11 5.44772 10.5523 5 10 5C9.44772 5 9 5.44772 9 6V10C9 10.2652 9.10536 10.5196 9.29289 10.7071L12.1213 13.5355C12.5118 13.9261 13.145 13.9261 13.5355 13.5355C13.9261 13.145 13.9261 12.5118 13.5355 12.1213L11 9.58579V6Z" />
     </svg>
-  {% elseif name == 'calendar' or name == 'Events' or name == "Apple iCal" %}
+  {% elseif name == 'calendar' or name == 'Events' or name == 'Apple iCal' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 20 20" viewBox="0 0 20 20">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.44772 2 5 2.44772 5 3V4H4C2.89543 4 2 4.89543 2 6V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V6C18 4.89543 17.1046 4 16 4H15V3C15 2.44772 14.5523 2 14 2C13.4477 2 13 2.44772 13 3V4H7V3C7 2.44772 6.55228 2 6 2ZM6 7C5.44772 7 5 7.44772 5 8C5 8.55228 5.44772 9 6 9H14C14.5523 9 15 8.55228 15 8C15 7.44772 14.5523 7 14 7H6Z" />
     </svg>
@@ -151,11 +156,11 @@
       <path d="M12.9291 17C12.9758 16.6734 13 16.3395 13 16C13 14.3648 12.4393 12.8606 11.4998 11.6691C12.2352 11.2435 13.0892 11 14 11C16.7614 11 19 13.2386 19 16V17H12.9291Z" />
       <path d="M6 11C8.76142 11 11 13.2386 11 16V17H1V16C1 13.2386 3.23858 11 6 11Z" />
     </svg>
-  {% elseif name == 'google' or name == "Google Calendar" %}
+  {% elseif name == 'google' or name == 'Google Calendar' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 20 20" viewBox="0 0 20 20">
       <path d="M19.4182 8.18057H10V12.0533H15.3818C15.1455 13.2988 14.4364 14.3533 13.3727 15.0624C12.4818 15.6624 11.3455 16.026 10 16.026C7.4 16.026 5.19091 14.2715 4.4 11.9078C4.2 11.3078 4.08182 10.6715 4.08182 10.0078C4.08182 9.3442 4.2 8.70784 4.4 8.10784C5.19091 5.7442 7.4 3.98966 10 3.98966C11.4727 3.98966 12.7818 4.49875 13.8273 5.48057L16.6909 2.61693C14.9545 0.998749 12.7 0.00784 10 0.00784C6.09091 -0.00125091 2.71818 2.2442 1.07273 5.51693C0.390909 6.86239 0 8.38057 0 9.99875C0 11.6169 0.390909 13.1351 1.07273 14.4806C2.71818 17.7533 6.09091 19.9988 10 19.9988C12.7 19.9988 14.9636 19.1078 16.6182 17.5806C18.5091 15.8351 19.6 13.2715 19.6 10.226C19.6 9.51693 19.5364 8.83511 19.4182 8.18057Z" />
     </svg>
-  {% elseif name == 'rss' or name == "RSS" %}
+  {% elseif name == 'rss' or name == 'RSS' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 20 20" viewBox="0 0 20 20">
       <path d="M5 3C4.44772 3 4 3.44772 4 4C4 4.55228 4.44772 5 5 5C10.5228 5 15 9.47715 15 15C15 15.5523 15.4477 16 16 16C16.5523 16 17 15.5523 17 15C17 8.37258 11.6274 3 5 3Z" />
       <path d="M4 9C4 8.44772 4.44772 8 5 8C8.86599 8 12 11.134 12 15C12 15.5523 11.5523 16 11 16C10.4477 16 10 15.5523 10 15C10 12.2386 7.76142 10 5 10C4.44772 10 4 9.55228 4 9Z" />
@@ -178,11 +183,11 @@
     </svg>
   {% elseif name == 'chevron-arrow' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 10 6" viewBox="0 0 10 6">
-      <path d="M.3.3c.4-.4 1-.4 1.4 0L5 3.6 8.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-4 4c-.4.4-1 .4-1.4 0l-4-4C-.1 1.3-.1.7.3.3z" style="fill-rule:evenodd; clip-rule:evenodd;"/>
+      <path d="M.3.3c.4-.4 1-.4 1.4 0L5 3.6 8.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-4 4c-.4.4-1 .4-1.4 0l-4-4C-.1 1.3-.1.7.3.3z" style="fill-rule:evenodd; clip-rule:evenodd;" />
     </svg>
   {% elseif name == 'x' %}
     <svg style="enable-background:new 0 0 19.2 19.2" viewBox="0 0 19.2 19.2">
-      <path d="M.5.5c.6-.6 1.6-.6 2.3 0l6.9 6.9L16.6.5c.6-.6 1.6-.6 2.3 0 .6.6.6 1.6 0 2.3L12 9.7l6.9 6.9c.6.6.6 1.6 0 2.3-.6.6-1.6.6-2.3 0L9.7 12l-6.9 6.9c-.6.6-1.6.6-2.3 0-.6-.6-.6-1.6 0-2.3l6.9-6.9-6.9-7C-.2 2.1-.2 1.1.5.5z" style="fill-rule:evenodd; clip-rule:evenodd;"/>
+      <path d="M.5.5c.6-.6 1.6-.6 2.3 0l6.9 6.9L16.6.5c.6-.6 1.6-.6 2.3 0 .6.6.6 1.6 0 2.3L12 9.7l6.9 6.9c.6.6.6 1.6 0 2.3-.6.6-1.6.6-2.3 0L9.7 12l-6.9 6.9c-.6.6-1.6.6-2.3 0-.6-.6-.6-1.6 0-2.3l6.9-6.9-6.9-7C-.2 2.1-.2 1.1.5.5z" style="fill-rule:evenodd; clip-rule:evenodd;" />
     </svg>
   {% elseif name == 'prism' %}
     <svg style="enable-background:new 0 0 8 5" viewBox="0 0 8 5">
