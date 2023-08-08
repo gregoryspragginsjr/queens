@@ -1,6 +1,6 @@
 {% block html_head_container %}
 
-{% include 'html-header.twig' %}
+  {% include 'html-header.twig' %}
   {% block head %}
   {% endblock %}
   </head>
@@ -20,7 +20,13 @@
         {% endblock %}
       </main>
       {% include 'footer.twig' with {
-
+        main: footer_info_menu.items,
+        utility: policies_menu.items,
+        address: {
+          text: global_address,
+          url: 'https://goo.gl/maps/bMy4GoQfZjSQCppT6'
+        },
+        phone: global_phone,
       } %}
       {% block footer %}
         {{ function('wp_footer') }}

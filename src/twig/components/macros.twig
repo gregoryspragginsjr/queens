@@ -22,6 +22,39 @@
   {% endif %}
 {% endmacro %}
 
+{% macro treatmentDefs() %}
+  <svg style="display: none;">
+    <defs>
+      <filter id="blue-treatment" x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values=".33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  0 0 0 1 0" in="SourceGraphic" result="colormatrix"/>
+        <feComponentTransfer in="colormatrix" result="componentTransfer">
+          <feFuncR type="table" tableValues="0 0.66"/>
+          <feFuncG type="table" tableValues="0.13 0.84"/>
+          <feFuncB type="table" tableValues="0.36 0.98"/>
+          <feFuncA type="table" tableValues="0 1"/>
+        </feComponentTransfer>
+        <feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"/>
+      </filter>
+      <filter id="neon-treatment" x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values=".33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  .33 .33 .33 0 0
+                  0 0 0 1 0" in="SourceGraphic" result="colormatrix"/>
+        <feComponentTransfer in="colormatrix" result="componentTransfer">
+          <feFuncR type="table" tableValues="0 0.8"/>
+          <feFuncG type="table" tableValues="0.13 1"/>
+          <feFuncB type="table" tableValues="0.36 0"/>
+          <feFuncA type="table" tableValues="0 1"/>
+        </feComponentTransfer>
+        <feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"/>
+      </filter>
+    </defs>
+  </svg>
+{% endmacro %}
+
 {% macro treatmentPictureBlue(class, src, sizeDesktop, size, alt, in_component_library) %}
   <svg class="{{ class }}" viewBox="0 0 {{ size }}">
     <defs>
@@ -68,9 +101,9 @@
     </defs>
     <g>
       {% if in_component_library %}
-        <image x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xlink:href="{{ src }}" filter="url(#blue-treatment)"></image>
+        <image x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xlink:href="{{ src }}" filter="url(#neon-treatment)"></image>
       {% else %}
-        <image x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xlink:href="{{ sizeDesktop }}" filter="url(#blue-treatment)"></image>
+        <image x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xlink:href="{{ sizeDesktop }}" filter="url(#neon-treatment)"></image>
       {% endif %}
     </g>
   </svg>

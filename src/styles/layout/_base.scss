@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @include paragraph-style-3();
   color: $navy; 

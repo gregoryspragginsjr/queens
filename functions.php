@@ -312,6 +312,10 @@ class StarterSite extends Timber\Site {
 		$context['menu']  = new Timber\Menu();
 		$context['main_menu']      = new Timber\Menu( 'Main Menu' );
 		$context['utility_menu']   = new Timber\Menu( 'Utility Menu' );
+		$context['footer_info_menu']   = new Timber\Menu( 'Footer Info Menu' );
+		$context['policies_menu']   = new Timber\Menu( 'Policies Menu' );
+		$context['global_address'] = get_field( 'address', 'options' );
+		$context['global_phone']   = get_field( 'phone', 'options' );
 		$context['site']  = $this;
 		return $context;
 	}
