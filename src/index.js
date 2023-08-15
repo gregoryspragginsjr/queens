@@ -10,6 +10,7 @@ import ButtonGroup from './twig/components/button-group/ButtonGroup.vue';
 import Article from './twig/components/article/Article.vue';
 import MediaContext from './twig/components/media-context/MediaContext.vue';
 import ContextSection from './twig/components/context-section/ContextSection.vue';
+import StaggeredMediaContextGrid from './twig/components/staggered-media-context-grid/StaggeredMediaContextGrid.vue';
 
 import './styles/styles.scss';
 
@@ -22,7 +23,8 @@ const app = createApp({
     ButtonGroup,
     Article,
     MediaContext,
-    ContextSection
+    ContextSection,
+    StaggeredMediaContextGrid,
   },
 });
 

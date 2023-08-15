@@ -6,7 +6,10 @@
   {% set context = 'context.twig' %}
 {% endif %}
 
-<div class="staggered-media-context-grid">
+<component
+  is="staggered-media-context-grid"
+  class="staggered-media-context-grid"
+>
   <div class="staggered-media-context-grid__inner grid">
     {% for item in items %}
       {% set widthHeight = '660 470' %}
@@ -28,6 +31,7 @@
       <div class="staggered-media-context-grid__item media-context media-context--{{ size|default('lg') }} media-context--{{ direction|default('normal') }}">
         {% if item.image %}
           <div class="media-context__image">
+            <div class="staggered-media-context-grid__shade"></div>
             {{ macros.treatmentPictureBlue(
               'staggered-media-context-grid__img--desktop',
               item.image.srcset,
@@ -62,4 +66,4 @@
       </div>
     {% endfor %}
   </div>
-</div>
+</component>
