@@ -8,7 +8,10 @@
   {% set videoComponent = 'video.twig' %}
 {% endif %}
 
-<div class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}">
+<component
+  is="media-context"
+  class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}"
+>
   <div class="media-context__inner grid">
     <div class="media-context__context">
       {% include context with {
@@ -94,4 +97,4 @@
       {% endif %}
     </div>
   </div>
-</div>
+</component>

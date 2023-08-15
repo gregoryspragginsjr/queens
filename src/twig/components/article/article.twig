@@ -6,7 +6,10 @@
   {% set context = 'context.twig' %}
 {% endif %}
 
-<article class="article article--break-{{ break|default('default') }}">
+<component
+  is="article"
+  class="article article--break-{{ break|default('default') }}"
+>
   {% if image %}
     <div class="article__image">
       {{ macros.picture(
@@ -30,4 +33,4 @@
     paragraphs: paragraphs,
     buttons: buttons,
   }  %}
-</article>
+</component>

@@ -6,13 +6,12 @@
   {% set squiggleComponent = 'squiggle.twig' %}
 {% endif %}
 
-<div class="context context--{{ size|default('medium') }} context--{{ type|default('dark') }} {% if align == 'center' %}text-center{% endif %}">
+<component is="context" class="context context--{{ size|default('medium') }} context--{{ type|default('dark') }} {% if align == 'center' %}text-center{% endif %}">
   {% if subheading %}
     <div class="context__subheading">{{ subheading }}</div>
   {% endif %}
   {% if heading %}
-    <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}">
-      {{ heading }}
+    <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}"><div>{{ heading }}</div>
       {% if icon %}
         {{ icons.icon(icon, 'context__icon') }}
       {% elseif squiggle %}
@@ -33,4 +32,4 @@
       items: buttons,
     } %}
   {% endif %}
-</div>
+</component>
