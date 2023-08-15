@@ -57,6 +57,29 @@ export default {
         animatedWords.push(squiggle);
       }
 
+      if (icon) {
+        gsap.fromTo(
+          icon,
+          {
+            rotationY: 720,
+            y: 20,
+            opacity: 0,
+          },
+          {
+            scrollTrigger: {
+              trigger: icon,
+              toggleActions: 'restart none none reverse',
+              start: 'top 80%',
+            },
+            rotationY: 0,
+            y: 0,
+            opacity: 1,
+            ease: 'power4.easeOut',
+            duration: 2,
+          }
+        )
+      }
+
       gsap.to(
         animatedWords,
         {
