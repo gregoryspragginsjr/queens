@@ -10,6 +10,7 @@ button, input, optgroup, select, textarea {
   color: inherit;
 }
 
+body .gform_wrapper.gravity-theme form,
 .form {
   input[type="date"],
   input[type="datetime-local"],
@@ -135,7 +136,8 @@ button, input, optgroup, select, textarea {
   }
 
   label,
-  legend {
+  legend,
+  .gfield_label {
     display: block;
     margin-bottom: 4px;
     font-family: $font-primary;
@@ -201,9 +203,6 @@ button, input, optgroup, select, textarea {
     }
   }
 
-  &--select {
-
-  }
   &--choice {
     margin-top: 8px;
     margin-bottom: 8px;
@@ -298,4 +297,50 @@ button, input, optgroup, select, textarea {
   background-repeat: no-repeat;
   background-size: 20px 20px;
   transition: background-color $transition-default, border-color $transition-default;
+}
+
+// Gravity Forms
+body .gform_wrapper.gravity-theme {
+  @extend .grid;
+
+  > * {
+    grid-column: span 12 / span 12;
+  }
+
+  .gform_fields {
+    row-gap: 24px;
+  }
+
+  .gform_heading {
+    margin-bottom: 24px;
+  }
+
+  .gform_title {
+    @include heading-style-3;
+  }
+  
+  .gform_required_legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .gfield-choice-input + label {
+    margin-left: 8px;
+    margin-bottom: 0;
+    font-family: $font-tertiary;
+    font-size: rem-calc(16px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 160%;
+  }
+
+  .ginput_complex .ginput_container_date select {
+    min-width: 120px;
+  }
 }
