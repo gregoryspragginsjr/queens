@@ -1,0 +1,76 @@
+// Setups
+/* ------------------------------------- */
+
+.context {
+  p {
+    opacity: 0;
+  }
+  
+  &__heading span,
+  &__subheading {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.button-group {
+  a {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.article {
+  &__image {
+    transform: scale(0.90);
+  }
+}
+
+.media-context {
+  img,
+  image {
+    opacity: 0;
+    transform: rotateX(15deg) rotateY(-30deg) translateZ(0) scale(0.95);
+    transform-style: preserve-3d;
+  }
+
+  &.media-context--reverse img,
+  &.media-context--reverse image {
+    transform: rotateX(15deg) rotateY(30deg) translateZ(0) scale(0.95);
+  }
+
+  svg {
+    overflow: visible;
+  }
+
+  .video img {
+    opacity: 1;
+    transform: none;
+  }
+
+  &__image {
+    perspective: 100vw;
+    perspective-origin: 50% var(--perspective-origin-y);
+  }
+}
+
+.page-header {
+  h1 {
+    margin-right: auto;
+
+    span {
+      opacity: 0;
+    }
+  }
+
+  .squiggle {
+    width: 0;
+  }
+
+  &__small-text div {
+    span {
+      opacity: 0;
+    }
+  }
+}
