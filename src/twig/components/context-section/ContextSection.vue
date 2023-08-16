@@ -38,8 +38,8 @@ export default {
           rotationY: 0,
           y: 0,
           opacity: 1,
-          ease: 'power4.easeOut',
-          duration: 2,
+          ease: 'power4.easeIn',
+          duration: 1.6,
         }
       )
     }
