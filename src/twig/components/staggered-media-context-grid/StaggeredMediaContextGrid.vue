@@ -22,23 +22,21 @@ export default {
       const animationTarget = this.$refs.target;
       const shades = animationTarget.querySelectorAll('.staggered-media-context-grid__shade');
 
-      if (shades) {
-        gsap.to(
-          shades,
-          {
-            scrollTrigger: {
-              trigger: shades[0],
-              toggleActions: 'restart none none reverse',
-              start: 'top 70%',
-              end: 'top 30%',
-              scrub: 0.5,
-            },
-            width: 0,
-            ease: 'power3.easeInOut',
-            duration: 0.4,
-          }
-        )
-      }
+      gsap.to(
+        shades,
+        {
+          scrollTrigger: {
+            trigger: shades[0],
+            toggleActions: 'restart none none reverse',
+            start: 'top 70%',
+            end: 'top 30%',
+            scrub: 0.5,
+          },
+          width: 0,
+          ease: 'power3.easeInOut',
+          duration: 0.4,
+        }
+      )
     }
   }
 }

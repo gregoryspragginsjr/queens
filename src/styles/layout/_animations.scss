@@ -27,7 +27,7 @@
   }
 }
 
-.media-context {
+.media-context:not(.staggered-media-context-grid__item) {
   img,
   image {
     opacity: 0;
@@ -49,7 +49,7 @@
     transform: none;
   }
 
-  &__image {
+  .media-context__image {
     perspective: 100vw;
     perspective-origin: 50% var(--perspective-origin-y);
   }
