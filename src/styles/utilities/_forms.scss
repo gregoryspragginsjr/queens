@@ -1,7 +1,9 @@
 // Forms
 /* ------------------------------------- */
 
+// Reset common styles for form elements
 button, input, optgroup, select, textarea {
+  appearance: none;
   margin: 0;
   padding: 0;
   line-height: inherit;
@@ -10,8 +12,25 @@ button, input, optgroup, select, textarea {
   color: inherit;
 }
 
-body .gform_wrapper.gravity-theme form,
-.form {
+.gform_wrapper.gravity-theme {
+  @extend .grid;
+}
+
+// GravityForms
+body .gform_wrapper.gravity-theme {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include breakpoint(large) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
+    line-height: initial;
+    min-height: initial;
+  }
+
   input[type="date"],
   input[type="datetime-local"],
   input[type="email"],
@@ -27,13 +46,13 @@ body .gform_wrapper.gravity-theme form,
   input:not([type]),
   textarea,
   select {
-    appearance: none;
     background-color: $white;
     border: 1px solid $navy;
     border-radius: 0;
-    padding: 8px 12px;
+    padding: 8px 12px !important;
     width: 100%;
-    line-height: 120%;
+    min-height: 40px;
+    line-height: 140%;
     font-size: rem-calc(16px);
     transition: background-color $transition-default, border-color $transition-default;
 
@@ -47,13 +66,12 @@ body .gform_wrapper.gravity-theme form,
     }
 
     &::placeholder {
-      opacity: 100;
+      opacity: 0.6;
       color: $navy;
     }
 
     @include breakpoint(medium) {
-      padding: 12px 16px;
-      max-width: 460px;
+      padding: 12px 16px !important;
     }
   }
 
@@ -96,7 +114,7 @@ body .gform_wrapper.gravity-theme form,
     &:checked::before {
       border-radius: 50%;
       background: $navy;
-      margin: 4px;
+      margin: 5px;
     }
   }
 
@@ -115,11 +133,10 @@ body .gform_wrapper.gravity-theme form,
   }
 
   textarea {
-    max-width: 760px;
   }
 
   select {
-    min-width: 80px;
+    padding-right: 35px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300205b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 8px center;
     background-repeat: no-repeat;
@@ -128,6 +145,8 @@ body .gform_wrapper.gravity-theme form,
 
   input[type="submit"],
   button {
+    @include btn($navy, transparent, $white);
+
     &:focus {
       transition: none;
       outline: 1px solid;
@@ -151,64 +170,83 @@ body .gform_wrapper.gravity-theme form,
     }
   }
 
-  .input-block {
+  > * {
+    grid-column: span 12 / span 12;
+  }
+
+  .gform_fields {
+    row-gap: 24px;
+  }
+
+  .gform_heading {
     margin-bottom: 24px;
-    
-    &__inner {
-      display: flex;
-      column-gap: 16px;
+  }
+
+  .gform_title {
+    @include heading-style-3;
+  }
+  
+  .gform_validation_errors {
+    padding: 12px 8px;
+    border-radius: 0;
+    font-size: rem-calc(12px);
+  }
+
+  .gform_validation_errors,
+  .gform_required_legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .gfield {
+    @include breakpoint(medium) {
+      max-width: 66%;
     }
+  }
 
-    &__text {
-      display: block;
-      margin-top: 8px;
-      font-size: rem-calc(14px);
-      line-height: 120%;
-
-      &.validation-message {
-        color: #9f2828;
-      }
+  .gfield.gfield--width-half {
+    @include breakpoint(medium) {
+      grid-column: span 4;
+      max-width: none;
     }
+  }
 
-    &-group {
-      @include breakpoint(medium) {
-        display: flex;
-        column-gap: 16px;
-      }
-
-      .input-block {
-        @include breakpoint(medium) {
-          flex: 0 1 460px;
-        }
-      }
+  .gfield.gfield--width-third {
+    @include breakpoint(medium) {
+      max-width: none;
     }
+  }
+
+  .gfield-choice-input + label {
+    margin: 4px 0 4px 8px;
+    font-family: $font-tertiary;
+    font-size: rem-calc(16px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 160%;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(18px);
+    }
+  }
+
+  .ginput_complex .ginput_container_date select {
+    min-width: 105px;
+  }
+
+  .gfield_description {
+    padding: 4px 12px !important;
+    font-size: rem-calc(12px);
   }
 }
 
-.input-wrap {
-  position: relative;
-
-  &--inline {
-    display: flex;
-    align-items: center;
-
-    input + label {
-      margin-left: 8px;
-      margin-bottom: 0;
-      font-family: $font-tertiary;
-      font-size: rem-calc(16px);
-      font-weight: 400;
-      font-style: normal;
-      line-height: 160%;
-    }
-  }
-
-  &--choice {
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-}
-
+// Large search bar
 .search-form {
   position: relative;
 
@@ -253,6 +291,7 @@ body .gform_wrapper.gravity-theme form,
   }
 }
 
+// Filter select dropdown menus
 .filter-select {
   @extend .subheading-style-2;
   appearance: none;
@@ -284,6 +323,7 @@ body .gform_wrapper.gravity-theme form,
   }
 }
 
+// Clear filtered results button
 .form-clear-btn {
   @extend .subheading-style-2;
   appearance: none;
@@ -297,50 +337,4 @@ body .gform_wrapper.gravity-theme form,
   background-repeat: no-repeat;
   background-size: 20px 20px;
   transition: background-color $transition-default, border-color $transition-default;
-}
-
-// Gravity Forms
-body .gform_wrapper.gravity-theme {
-  @extend .grid;
-
-  > * {
-    grid-column: span 12 / span 12;
-  }
-
-  .gform_fields {
-    row-gap: 24px;
-  }
-
-  .gform_heading {
-    margin-bottom: 24px;
-  }
-
-  .gform_title {
-    @include heading-style-3;
-  }
-  
-  .gform_required_legend {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
-  .gfield-choice-input + label {
-    margin-left: 8px;
-    margin-bottom: 0;
-    font-family: $font-tertiary;
-    font-size: rem-calc(16px);
-    font-weight: 400;
-    font-style: normal;
-    line-height: 160%;
-  }
-
-  .ginput_complex .ginput_container_date select {
-    min-width: 120px;
-  }
 }
