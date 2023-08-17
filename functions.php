@@ -316,6 +316,7 @@ class StarterSite extends Timber\Site {
 		$context['policies_menu']   = new Timber\Menu( 'Policies Menu' );
 		$context['global_address'] = get_field( 'address', 'options' );
 		$context['global_phone']   = get_field( 'phone', 'options' );
+		$context['global_banner']   = get_field( 'banner', 'options' );
 		$context['site']  = $this;
 		return $context;
 	}

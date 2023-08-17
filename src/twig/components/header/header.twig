@@ -3,9 +3,11 @@
 {% if in_component_library %}
   {% set logo = '@logo' %}
   {% set squiggleComponent = '@squiggle' %}
+  {% set bannerComponent = '@banner' %}
 {% else %}
   {% set logo = 'logo.twig' %}
   {% set squiggleComponent = 'squiggle.twig' %}
+  {% set bannerComponent = 'banner.twig' %}
 {% endif %}
 
 <component
@@ -14,6 +16,14 @@
   class="header"
   :active="{{ active|json_encode }}"
 >
+  <div
+    class="header__banner"
+    :class="{'header__banner--active': header.drawerActive}"
+  >
+    {% if banner.text %}
+      {% include bannerComponent with banner %}
+    {% endif %}
+  </div>
   <div
     class="header__utility"
     :class="{'header__utility--active': header.drawerActive}"
