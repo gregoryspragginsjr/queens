@@ -179,29 +179,18 @@ body .gform_wrapper.gravity-theme {
   }
 
   .gform_heading {
-    margin-bottom: 24px;
+    margin-bottom: 48px;
   }
 
   .gform_title {
     @include heading-style-3;
-  }
-  
-  .gform_validation_errors {
-    padding: 12px 8px;
-    border-radius: 0;
-    font-size: rem-calc(12px);
-  }
 
-  .gform_validation_errors,
-  .gform_required_legend {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    & + {
+      .gform_description {
+        @extend .paragraph-style-2;
+        margin-top: 16px;
+      }
+    }
   }
 
   .gfield {
@@ -240,9 +229,41 @@ body .gform_wrapper.gravity-theme {
     min-width: 105px;
   }
 
-  .gfield_description {
-    padding: 4px 12px !important;
+  .gform_validation_errors,
+  .gform_required_legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .gform_validation_errors {
+    border-radius: 0;
     font-size: rem-calc(12px);
+  }
+
+  .gfield_description {
+    border: 0;
+    padding: 0 !important;
+    background: none;
+    font-size: rem-calc(12px);
+  }
+}
+
+.gravity-theme {
+  .gform_confirmation_message {
+    @include heading-style-4;
+    padding: 60px 20px;
+    text-align: center;
+
+    @include breakpoint(medium) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
   }
 }
 
