@@ -266,7 +266,8 @@
       }
     }
 
-    li:hover .header__dropdown {
+    li:hover .header__dropdown,
+    li:focus-within .header__dropdown {
       @include breakpoint(large) {
         visibility: visible;
         opacity: 1;
