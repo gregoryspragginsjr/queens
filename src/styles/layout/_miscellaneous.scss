@@ -33,3 +33,20 @@ img {
     height: 100%;
   }
 }
+
+.skip-to-content-btn {
+  z-index: 101;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  background-color: $navy;
+
+  &:focus {
+    width: auto;
+    height: auto;
+    opacity: 1;
+  }
+}

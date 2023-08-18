@@ -11,6 +11,7 @@
       {% if global_alert.heading or global_alert.paragraph %}
         {% include 'alert.twig' with global_alert %}
       {% endif %}
+      <a class="skip-to-content-btn btn btn--light" href="#main">Skip to Main Content</a>
       {% include 'header.twig' with {
         utility: utility_menu.items,
         main: main_menu.items,
