@@ -12,11 +12,11 @@ button, input, optgroup, select, textarea {
   color: inherit;
 }
 
+// GravityForms
 .gform_wrapper.gravity-theme {
   @extend .grid;
 }
 
-// GravityForms
 body .gform_wrapper.gravity-theme {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -251,6 +251,10 @@ body .gform_wrapper.gravity-theme {
     padding: 0 !important;
     background: none;
     font-size: rem-calc(12px);
+  }
+
+  .grecaptcha-badge {
+    display: none;
   }
 }
 
