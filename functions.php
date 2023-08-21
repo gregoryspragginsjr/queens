@@ -272,6 +272,17 @@ class StarterSite extends Timber\Site {
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'media', 'graphics', 'svgs', 'grid' ),
 			));
+
+			// register the logo grid
+			acf_register_block(array(
+				'name'				=> 'logo-grid',
+				'title'				=> __('Logo Grid'),
+				'description'		=> __('Section dedicated to displaying medium sized logos.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'logo', 'graphics', 'svgs', 'grid' ),
+			));
 		}
 	}
 
