@@ -1,7 +1,9 @@
 // Forms
 /* ------------------------------------- */
 
+// Reset common styles for form elements
 button, input, optgroup, select, textarea {
+  appearance: none;
   margin: 0;
   padding: 0;
   line-height: inherit;
@@ -10,7 +12,25 @@ button, input, optgroup, select, textarea {
   color: inherit;
 }
 
-.form {
+// GravityForms
+.gform_wrapper.gravity-theme {
+  @extend .grid;
+}
+
+body .gform_wrapper.gravity-theme {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include breakpoint(large) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
+    line-height: initial;
+    min-height: initial;
+  }
+
   input[type="date"],
   input[type="datetime-local"],
   input[type="email"],
@@ -26,13 +46,13 @@ button, input, optgroup, select, textarea {
   input:not([type]),
   textarea,
   select {
-    appearance: none;
     background-color: $white;
     border: 1px solid $navy;
     border-radius: 0;
-    padding: 8px 12px;
+    padding: 8px 12px !important;
     width: 100%;
-    line-height: 120%;
+    min-height: 40px;
+    line-height: 140%;
     font-size: rem-calc(16px);
     transition: background-color $transition-default, border-color $transition-default;
 
@@ -46,13 +66,12 @@ button, input, optgroup, select, textarea {
     }
 
     &::placeholder {
-      opacity: 100;
+      opacity: 0.6;
       color: $navy;
     }
 
     @include breakpoint(medium) {
-      padding: 12px 16px;
-      max-width: 460px;
+      padding: 12px 16px !important;
     }
   }
 
@@ -95,7 +114,7 @@ button, input, optgroup, select, textarea {
     &:checked::before {
       border-radius: 50%;
       background: $navy;
-      margin: 4px;
+      margin: 5px;
     }
   }
 
@@ -114,11 +133,10 @@ button, input, optgroup, select, textarea {
   }
 
   textarea {
-    max-width: 760px;
   }
 
   select {
-    min-width: 80px;
+    padding-right: 35px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300205b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 8px center;
     background-repeat: no-repeat;
@@ -127,6 +145,8 @@ button, input, optgroup, select, textarea {
 
   input[type="submit"],
   button {
+    @include btn($navy, transparent, $white);
+
     &:focus {
       transition: none;
       outline: 1px solid;
@@ -135,7 +155,8 @@ button, input, optgroup, select, textarea {
   }
 
   label,
-  legend {
+  legend,
+  .gfield_label {
     display: block;
     margin-bottom: 4px;
     font-family: $font-primary;
@@ -149,67 +170,108 @@ button, input, optgroup, select, textarea {
     }
   }
 
-  .input-block {
-    margin-bottom: 24px;
-    
-    &__inner {
-      display: flex;
-      column-gap: 16px;
-    }
+  > * {
+    grid-column: span 12 / span 12;
+  }
 
-    &__text {
-      display: block;
-      margin-top: 8px;
-      font-size: rem-calc(14px);
-      line-height: 120%;
+  .gform_fields {
+    row-gap: 24px;
+  }
 
-      &.validation-message {
-        color: #9f2828;
+  .gform_heading {
+    margin-bottom: 48px;
+  }
+
+  .gform_title {
+    @include heading-style-3;
+
+    & + {
+      .gform_description {
+        @extend .paragraph-style-2;
+        margin-top: 16px;
       }
     }
+  }
 
-    &-group {
-      @include breakpoint(medium) {
-        display: flex;
-        column-gap: 16px;
-      }
+  .gfield {
+    @include breakpoint(medium) {
+      max-width: 66%;
+    }
+  }
 
-      .input-block {
-        @include breakpoint(medium) {
-          flex: 0 1 460px;
-        }
-      }
+  .gfield.gfield--width-half {
+    @include breakpoint(medium) {
+      grid-column: span 4;
+      max-width: none;
+    }
+  }
+
+  .gfield.gfield--width-third {
+    @include breakpoint(medium) {
+      max-width: none;
+    }
+  }
+
+  .gfield-choice-input + label {
+    margin: 4px 0 4px 8px;
+    font-family: $font-tertiary;
+    font-size: rem-calc(16px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 160%;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(18px);
+    }
+  }
+
+  .ginput_complex .ginput_container_date select {
+    min-width: 105px;
+  }
+
+  .gform_validation_errors,
+  .gform_required_legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .gform_validation_errors {
+    border-radius: 0;
+    font-size: rem-calc(12px);
+  }
+
+  .gfield_description {
+    border: 0;
+    padding: 0 !important;
+    background: none;
+    font-size: rem-calc(12px);
+  }
+
+  .grecaptcha-badge {
+    display: none;
+  }
+}
+
+.gravity-theme {
+  .gform_confirmation_message {
+    @include heading-style-4;
+    padding: 60px 20px;
+    text-align: center;
+
+    @include breakpoint(medium) {
+      padding-top: 100px;
+      padding-bottom: 100px;
     }
   }
 }
 
-.input-wrap {
-  position: relative;
-
-  &--inline {
-    display: flex;
-    align-items: center;
-
-    input + label {
-      margin-left: 8px;
-      margin-bottom: 0;
-      font-family: $font-tertiary;
-      font-size: rem-calc(16px);
-      font-weight: 400;
-      font-style: normal;
-      line-height: 160%;
-    }
-  }
-
-  &--select {
-
-  }
-  &--choice {
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-}
-
+// Large search bar
 .search-form {
   position: relative;
 
@@ -254,6 +316,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
+// Filter select dropdown menus
 .filter-select {
   @extend .subheading-style-2;
   appearance: none;
@@ -285,6 +348,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
+// Clear filtered results button
 .form-clear-btn {
   @extend .subheading-style-2;
   appearance: none;
