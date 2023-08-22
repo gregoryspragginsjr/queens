@@ -1,0 +1,28 @@
+{% import "icons.twig" as icons %}
+
+<component
+  is="alert"
+  v-slot="alert"
+  class="alert"
+>
+  <button
+    class="alert__close-btn"
+    @click="alert.toggleActive()"
+  >
+    {{ icons.icon('x-btn', '') }}
+    <span class="sr-only">Dismiss</span>
+  </button>
+  <div class="alert__main">
+    <h2 class="alert__heading">{{ heading }}</h2>
+    <p class="alert__p">{{ paragraph }}</p>
+    <div class="alert__buttons">
+      {% if button %}
+        <a class="alert__btn" href="{{ button.url }}">{{ button.title }}</a>
+      {% endif %}
+      <button
+        class="alert__btn"
+        @click="alert.toggleActive()"
+      >Dismiss</button>
+    </div>
+  </div>
+</component>

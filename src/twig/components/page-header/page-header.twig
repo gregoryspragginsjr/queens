@@ -10,10 +10,10 @@
   {% set type = 'page-header--image' %}
 {% endif %}
 
-<div class="page-header {{ type|default('page-header--default') }}">
+<component is="page-header" class="page-header {{ type|default('page-header--default') }}">
   <div class="page-header__inner grid">
     <div class="page-header__main">
-      <h1 class="heading-style-1">{{ heading }}</h1>
+      <h1 class="heading-style-1"><div class="page-header__shade"></div><span>{{ heading }}</span></h1>
       {% include squiggleComponent with { type: 'light' } %}
       {% if image is defined and image %}
         <div class="page-header__small-text">
@@ -26,7 +26,7 @@
   {% if image is defined and image %}
     <div class="page-header__media">{{ macros.picture('object-cover', image.srcset, image.src, image.sizes.Hero, image.sizes.Hero_mobile, image.alt, in_component_library) }}</div>
   {% endif %}
-</div>
+</component>
 {% if not image and breadcrumbs %}
   {% include 'breadcrumbs.twig' with {
     items: breadcrumbs_menu,

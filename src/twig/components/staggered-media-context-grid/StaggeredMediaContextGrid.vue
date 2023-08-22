@@ -22,8 +22,6 @@ export default {
       const animationTarget = this.$refs.target;
       const shades = animationTarget.querySelectorAll('.staggered-media-context-grid__shade');
 
-      console.log(shades);
-
       gsap.to(
         shades,
         {

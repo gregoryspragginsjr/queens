@@ -33,3 +33,26 @@ img {
     height: 100%;
   }
 }
+
+.skip-to-content-btn {
+  z-index: 101;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  font-size: 0;
+  background-color: $navy;
+
+  &:focus {
+    width: auto;
+    height: auto;
+    padding: 16px 20px;
+    font-size: rem-calc(14px);
+    border: 1px solid;
+    opacity: 1;
+  }
+}

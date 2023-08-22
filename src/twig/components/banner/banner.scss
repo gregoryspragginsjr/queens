@@ -1,0 +1,20 @@
+.banner {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  background-color: $neon;
+
+  &__main {
+    grid-column: span 12 / span 12;
+  }
+
+  p {
+    @include nav-style-1;
+
+    color: $navy;
+
+    @include breakpoint(medium) {
+      text-align: center;
+    }
+  }
+}

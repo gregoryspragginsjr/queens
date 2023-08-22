@@ -1,0 +1,80 @@
+.alert {
+  z-index: 100;
+  position: fixed;
+  visibility: hidden;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 960px;
+  padding: 24px;
+  color: #9f2828;
+  background-color: #fef2f2;
+  border: 1px solid #9f2828;
+  box-shadow: 0px 10px 24px 0px rgba(22, 22, 22, 0.10);
+  opacity: 0;
+  transform: translateY(-50%) translateX(-50%);
+  transition: $transition-default;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close-btn {
+    display: inline-flex;
+    align-self: flex-start;
+    flex-shrink: 0;
+    padding: 4px 4px 4px 0;
+    font-size: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      fill: #9f2828;
+    }
+  }
+
+  &__close-btn + &__main {
+    margin-left: 16px;
+  }
+
+  &__heading {
+    @include nav-style-1;
+  }
+
+  &__heading + &__p {
+    margin-top: 10px;
+  }
+
+  &__p {
+    @include paragraph-style-3;
+
+    font-size: rem-calc(14px) !important;
+  }
+
+  &__p + &__buttons {
+    margin-top: 20px;
+  }
+
+  &__btn {
+    @include subheading-style-2;
+
+    appearance: none;
+    color: #9f2828;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__btn + &__btn {
+    margin-left: 24px;
+  }
+}

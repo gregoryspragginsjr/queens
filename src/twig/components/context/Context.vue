@@ -10,7 +10,6 @@
 <script>
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Letterize from 'letterizejs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +53,22 @@ export default {
       }
 
       if (squiggle) {
-        animatedWords.push(squiggle);
+        gsap.fromTo(
+          squiggle,
+          {
+            width: 0,
+          },
+          {
+            scrollTrigger: {
+              trigger: squiggle,
+              toggleActions: 'restart none none reverse',
+              start: 'top 80%',
+            },
+            width: '120px',
+            ease: 'power4.easeIn',
+            duration: 1,
+          }
+        )
       }
 
       if (icon) {
@@ -116,28 +130,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.context {
-  &--animated {
-    p {
-      opacity: 0;
-    }
-
-    .squiggle {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-  
-  &__heading span,
-  &__subheading {
-    .context--animated & {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-}
-</style>

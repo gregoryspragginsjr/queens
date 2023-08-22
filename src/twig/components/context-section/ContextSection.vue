@@ -22,26 +22,28 @@ export default {
       const animationTarget = this.$refs.target;
       const icons = animationTarget.querySelectorAll('.context-section__icons svg');
 
-      gsap.fromTo(
-        icons,
-        {
-          rotationY: 720,
-          y: 30,
-          opacity: 0,
-        },
-        {
-          scrollTrigger: {
-            trigger: icons[0],
-            toggleActions: 'restart none none reverse',
-            start: 'top 80%',
+      if (icons) {
+        gsap.fromTo(
+          icons,
+          {
+            rotationY: 720,
+            y: 30,
+            opacity: 0,
           },
-          rotationY: 0,
-          y: 0,
-          opacity: 1,
-          ease: 'power4.easeIn',
-          duration: 1.6,
-        }
-      )
+          {
+            scrollTrigger: {
+              trigger: icons[0],
+              toggleActions: 'restart none none reverse',
+              start: 'top 80%',
+            },
+            rotationY: 0,
+            y: 0,
+            opacity: 1,
+            ease: 'power4.easeIn',
+            duration: 1.6,
+          }
+        )
+      }
     }
   }
 }

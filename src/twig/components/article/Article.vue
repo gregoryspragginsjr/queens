@@ -41,13 +41,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.article {
-  &__image {
-    .article--animated & {
-      transform: scale(0.90);
-    }
-  }
-}
-</style>

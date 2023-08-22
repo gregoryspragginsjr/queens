@@ -44,37 +44,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.media-context {
-  &--animated {
-    img,
-    image {
-      opacity: 0;
-      transform: rotateX(15deg) rotateY(-30deg) translateZ(0) scale(0.95);
-      transform-style: preserve-3d;
-    }
-
-    &.media-context--reverse img,
-    &.media-context--reverse image {
-      transform: rotateX(15deg) rotateY(30deg) translateZ(0) scale(0.95);
-    }
-
-    svg {
-      overflow: visible;
-    }
-
-    .video img {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  &__image {
-    .media-context--animated & {
-      perspective: 100vw;
-      perspective-origin: 50% var(--perspective-origin-y);
-    }
-  }
-}
-</style>

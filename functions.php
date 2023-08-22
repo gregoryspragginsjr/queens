@@ -272,6 +272,17 @@ class StarterSite extends Timber\Site {
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'media', 'graphics', 'svgs', 'grid' ),
 			));
+
+			// register the logo grid
+			acf_register_block(array(
+				'name'				=> 'logo-grid',
+				'title'				=> __('Logo Grid'),
+				'description'		=> __('Section dedicated to displaying medium sized logos.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'logo', 'graphics', 'svgs', 'grid' ),
+			));
 		}
 	}
 
@@ -316,6 +327,8 @@ class StarterSite extends Timber\Site {
 		$context['policies_menu']   = new Timber\Menu( 'Policies Menu' );
 		$context['global_address'] = get_field( 'address', 'options' );
 		$context['global_phone']   = get_field( 'phone', 'options' );
+		$context['global_banner']   = get_field( 'banner', 'options' );
+		$context['global_alert']   = get_field( 'alert', 'options' );
 		$context['site']  = $this;
 		return $context;
 	}
