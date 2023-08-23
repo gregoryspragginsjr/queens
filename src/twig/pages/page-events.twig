@@ -1,0 +1,11 @@
+{% extends "no-vue.twig" %}
+
+{% import 'macros.twig' as macros %}
+{% import 'icons.twig' as icons %}
+
+{% block content %}
+  <div class="page">
+    {% include 'breadcrumbs.twig' %}
+    {{ tribe_markup }}
+  </div>
+{% endblock %}
