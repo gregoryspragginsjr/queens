@@ -443,6 +443,7 @@ function theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
+
 /**
  *  This is the callback that displays the block.
  *
@@ -467,3 +468,35 @@ function my_acf_block_render_callback( $block, $content = '', $is_preview = fals
 	// Render the block.
 	Timber::render( 'src/twig/components/'. $context['block_name'] . '/' . $context['block_name'] . '.twig', $context['fields'] );
 }
+
+
+/**
+ * Customize The Events Calendar breakpoints to match our design
+ */
+add_filter( 'tribe_events_views_v2_view_breakpoints', function( $breakpoints ) {
+  $breakpoints = [
+		'xsmall' => 480,
+    'medium' => 640,
+    'full'   => 1200,
+  ];
+ 
+  return $breakpoints;
+} );
+
+
+/**
+ * Customize The Events Calendar block editor template
+ */
+add_filter( 'tribe_events_editor_default_template', function( $template ) {
+	$template = [
+		[ 'tribe/event-datetime' ],
+    [ 'core/paragraph', [
+      'placeholder' => __( 'Add Description...', 'the-events-calendar' ),
+    ], ],
+		[ 'tribe/event-price' ],
+    [ 'tribe/event-venue' ],
+		[ 'tribe/event-website' ],
+		[ 'tribe/event-links' ],
+  ];
+  return $template;
+}, 11, 1 );
