@@ -494,9 +494,9 @@ add_filter( 'tribe_events_editor_default_template', function( $template ) {
       'placeholder' => __( 'Add Description...', 'the-events-calendar' ),
     ], ],
 		[ 'tribe/event-price' ],
+		[ 'tribe/event-links' ],
     [ 'tribe/event-venue' ],
 		[ 'tribe/event-website' ],
-		[ 'tribe/event-links' ],
   ];
   return $template;
 }, 11, 1 );
