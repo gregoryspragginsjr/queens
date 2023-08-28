@@ -15,21 +15,16 @@
 
         <div class="directory__cat-filters">
           <div class="filter-select-wrap">
-            <select v-model="selectedPersonnelType" class="filter-select" id="select-type">
+            <select v-model="selectedGroup" class="filter-select" id="select-type">
               <option value="">Personnel Type</option>
-              <option value="All">All</option>
-              <option value="Faculty">Faculty</option>
-              <option value="Staff">Staff</option>
+              <option v-for="group in groupOptions" :key="group" :value="group">{{ group }}</option>
             </select>
           </div>
 
           <div class="filter-select-wrap">
             <select v-model="selectedDepartment" class="filter-select" id="select-department">
               <option value="">Department</option>
-              <option value="All">All</option>
-              <option value="lorem">Option A</option>
-              <option value="ipsum">Option B</option>
-              <option value="dolor">Option C</option>
+              <option v-for="department in departmentOptions" :key="department" :value="department">{{ department }}</option>
             </select>
           </div>
         </div>
@@ -58,35 +53,38 @@
       </div>
 
       <div class="directory__listing">
-        <div v-for="item in filteredItems" :key="item.id" class="directory__listing-item">
+        <div v-for="(item, index) in filteredItems" :key="index" class="directory__listing-item">
           <article class="person-post">
             <div class="person-post__text">
-              <h3 class="person-post__heading">{{ item.last_name + ', ' + item.first_name }}</h3>
-              <div v-if="item.title" class="person-post__title">{{ item.title }}</div>
-
+              <h3 class="person-post__heading">{{ item.first_name && item.last_name ? item.last_name + ', ' + item.first_name : item.last_name }}</h3>
               <div class="person-post__details">
-                <div v-if="item.phone" class="person-post__phone">
-                  <div class="icon-text icon-text--center">
-                    <svg class="fill-current icon icon--sm" viewBox="0 0 24 24">
-                      <path d="M2.4 3.6a1.2 1.2 0 0 1 1.2-1.2h2.583a1.2 1.2 0 0 1 1.184 1.003l.887 5.323a1.2 1.2 0 0 1-.647 1.27l-1.857.93a13.244 13.244 0 0 0 7.325 7.324l.929-1.857a1.2 1.2 0 0 1 1.27-.647l5.323.887a1.2 1.2 0 0 1 1.003 1.184V20.4a1.2 1.2 0 0 1-1.2 1.2H18C9.384 21.6 2.4 14.615 2.4 6V3.6Z" />
-                    </svg>
-                    <a href="tel:{{ item.phone }}">{{ item.phone }}</a>
-                  </div>
-                </div>
+                <div v-if="item.title" class="person-post__title">{{ item.title }}</div>
+                <div v-if="item.dept" class="person-post__dept">{{ item.dept }}</div>
 
-                <div v-if="item.email" class="person-post__email">
-                  <div class="icon-text icon-text--center">
-                    <svg class="fill-current icon icon--sm" viewBox="0 0 21 20">
-                      <path d="M2.503 5.884L10.5 9.882L18.497 5.884C18.4674 5.37444 18.2441 4.89549 17.8728 4.54523C17.5016 4.19497 17.0104 3.99991 16.5 4H4.5C3.98958 3.99991 3.49845 4.19497 3.12718 4.54523C2.75591 4.89549 2.5326 5.37444 2.503 5.884Z" />
-                      <path d="M18.5 8.118L10.5 12.118L2.5 8.118V14C2.5 14.5304 2.71071 15.0391 3.08579 15.4142C3.46086 15.7893 3.96957 16 4.5 16H16.5C17.0304 16 17.5391 15.7893 17.9142 15.4142C18.2893 15.0391 18.5 14.5304 18.5 14V8.118Z" />
-                    </svg>
-                    <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                <div class="person-post__contact">
+                  <div v-if="item.phone" class="person-post__phone">
+                    <div class="icon-text icon-text--center">
+                      <svg class="fill-current icon icon--sm" viewBox="0 0 24 24">
+                        <path d="M2.4 3.6a1.2 1.2 0 0 1 1.2-1.2h2.583a1.2 1.2 0 0 1 1.184 1.003l.887 5.323a1.2 1.2 0 0 1-.647 1.27l-1.857.93a13.244 13.244 0 0 0 7.325 7.324l.929-1.857a1.2 1.2 0 0 1 1.27-.647l5.323.887a1.2 1.2 0 0 1 1.003 1.184V20.4a1.2 1.2 0 0 1-1.2 1.2H18C9.384 21.6 2.4 14.615 2.4 6V3.6Z" />
+                      </svg>
+                      <a href="tel:{{ item.phone }}">{{ item.phone }}</a>
+                    </div>
+                  </div>
+
+                  <div v-if="item.email" class="person-post__email">
+                    <div class="icon-text icon-text--center">
+                      <svg class="fill-current icon icon--sm" viewBox="0 0 21 20">
+                        <path d="M2.503 5.884L10.5 9.882L18.497 5.884C18.4674 5.37444 18.2441 4.89549 17.8728 4.54523C17.5016 4.19497 17.0104 3.99991 16.5 4H4.5C3.98958 3.99991 3.49845 4.19497 3.12718 4.54523C2.75591 4.89549 2.5326 5.37444 2.503 5.884Z" />
+                        <path d="M18.5 8.118L10.5 12.118L2.5 8.118V14C2.5 14.5304 2.71071 15.0391 3.08579 15.4142C3.46086 15.7893 3.96957 16 4.5 16H16.5C17.0304 16 17.5391 15.7893 17.9142 15.4142C18.2893 15.0391 18.5 14.5304 18.5 14V8.118Z" />
+                      </svg>
+                      <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div v-if="item.image" class="person-post__image">
+            <div v-if="item.image.src" class="person-post__image">
               <img :src="item.image.src" class="w-full object-cover" :alt="item.image.alt">
             </div>
           </article>
@@ -98,86 +96,18 @@
 
 <script>
 import Fuse from 'fuse.js';
+import { XMLParser } from 'fast-xml-parser';
 
 export default {
   data() {
     return {
       alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-      items: [
-        {
-          id: 1,
-          first_name: 'John',
-          last_name: 'Doe',
-          title: 'Director of Something',
-          department: 'Athletics',
-          type: 'Faculty',
-          phone: '(555) 555-5555',
-          email: 'john.doe@queens.edu',
-          image: {
-            src: 'https://via.placeholder.com/600x600',
-            alt: 'John Doe',
-          }
-        },
-        {
-          id: 2,
-          first_name: 'Chris',
-          last_name: 'Smith',
-          title: 'Director of Something',
-          department: 'Human Resources',
-          type: 'Faculty',
-          phone: '(555) 555-5555',
-          email: 'chris.smith@queens.edu',
-          image: {
-            src: 'https://via.placeholder.com/600x600',
-            alt: '',
-          }
-        },
-        {
-          id: 3,
-          first_name: 'Connor',
-          last_name: 'Roy',
-          title: 'Professor',
-          department: 'English',
-          type: 'Faculty',
-          phone: '(555) 555-5555',
-          email: 'connor.roy@queens.edu',
-          image: {
-            src: 'https://via.placeholder.com/600x600',
-            alt: '',
-          }
-        },
-        {
-          id: 4,
-          first_name: 'Kendall',
-          last_name: 'Roy',
-          title: 'Professor',
-          department: 'Marketing',
-          type: 'Faculty',
-          phone: '(555) 555-5555',
-          email: 'ken.roy@queens.edu',
-          image: {
-            src: 'https://via.placeholder.com/600x600',
-            alt: '',
-          }
-        },
-        {
-          id: 5,
-          first_name: 'Dan',
-          last_name: 'Abrahams',
-          title: 'Controller',
-          department: 'Finance & Business Office',
-          type: 'Staff',
-          phone: '(555) 555-5555',
-          email: 'dan.abrams@queens.edu',
-          image: {
-            src: 'https://via.placeholder.com/600x600',
-            alt: '',
-          }
-        },
-      ],
+      items: [],
+      departmentOptions: [],
+      groupOptions: [],
       fuse: null,
       searchInput: '',
-      selectedPersonnelType: '',
+      selectedGroup: '',
       selectedDepartment: '',
       selectedLetter: '',
     };
@@ -187,17 +117,16 @@ export default {
       let filtered = this.items;
 
       if (this.searchInput) {
-        // Perform fuzzy search using Fuse.js
         const results = this.fuse.search(this.searchInput);
         filtered = results.map((result) => result.item);
       }
 
-      if (this.selectedPersonnelType !== '' && this.selectedPersonnelType !== 'All') {
-        filtered = filtered.filter(item => item.type === this.selectedPersonnelType);
+      if (this.selectedGroup !== '' && this.selectedGroup !== 'All') {
+        filtered = filtered.filter(item => item.group === this.selectedGroup);
       }
 
       if (this.selectedDepartment !== '' && this.selectedDepartment !== 'All') {
-        filtered = filtered.filter(item => item.department === this.selectedDepartment);
+        filtered = filtered.filter(item => item.dept === this.selectedDepartment);
       }
 
       if (this.selectedLetter) {
@@ -211,23 +140,67 @@ export default {
     },
   },
   created() {
-    // Uncomment if we want to sort items by last name
-    // this.items.sort((a, b) => a.last_name.localeCompare(b.last_name));
-
-    // Initialize Fuse instance with items and options
-    this.fuse = new Fuse(this.items, {
-      keys: ['first_name', 'last_name', 'title', 'department'],
-      threshold: 0.5,
-      minMatchCharLength: 1,
+    this.fetchXMLData()
+    .then(() => {
+      this.initializeFuse();
     });
   },
   methods: {
+    async fetchXMLData() {
+      try {
+        const response = await fetch('https://web02.queens.edu/campusDir2/campusdirectory.xml');
+        const xmlData = await response.text();
+        const options = {
+          ignoreAttributes: false,
+          attributeNamePrefix: "_"
+        };
+        const parser = new XMLParser(options);
+        const jObj = parser.parse(xmlData);
+
+        if (jObj.members) {
+          const members = jObj.members.member;
+          const items = members.map(member => ({
+            id: member._id,
+            first_name: member.first_name,
+            last_name: member.last_name,
+            title: member.title,
+            dept: member.dept,
+            group: member.group,
+            phone: member.phone,
+            email: member.email,
+            image: {
+              src: '',
+              alt: '',
+            },
+          }));
+
+          const uniqueDepartments = new Set(items.map(item => item.dept).filter(dept => dept.trim() !== ''));
+          this.departmentOptions = ['All', ...uniqueDepartments];
+
+          const uniqueGroups = new Set(items.map(item => item.group));
+          this.groupOptions = ['All', ...uniqueGroups];
+
+          this.items = items;
+        } else {
+          console.warn('No member data found in XML.');
+        }
+      } catch (error) {
+        console.error('Error fetching XML data:', error);
+      }
+    },
+    initializeFuse() {
+      this.fuse = new Fuse(this.items, {
+        keys: ['first_name', 'last_name', 'dept'],
+        threshold: 0.3,
+        minMatchCharLength: 2,
+      });
+    },
     filterByLetter(letter) {
       this.selectedLetter = letter;
     },
     clearSelections() {
       this.searchInput = '';
-      this.selectedPersonnelType = '';
+      this.selectedGroup = '';
       this.selectedDepartment = '';
       this.selectedLetter = '';
     },
