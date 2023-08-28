@@ -267,6 +267,7 @@ button, input, optgroup, select, textarea {
   background-repeat: no-repeat;
   background-size: 24px 24px;
   transition: background-color $transition-default, border-color $transition-default;
+  text-transform: initial;
 
   &:hover,
   &:focus {
