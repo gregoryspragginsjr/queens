@@ -4,6 +4,7 @@ import Header from './twig/components/header/Header.vue';
 import Alert from './twig/components/alert/Alert.vue';
 import Video from './twig/components/video/Video.vue';
 import Accordion from './twig/components/accordion/Accordion.vue';
+import Directory from './twig/components/01-pages/Directory.vue';
 
 // Animated
 import Context from './twig/components/context/Context.vue';
@@ -26,6 +27,7 @@ const app = createApp({
     ButtonGroup,
     Article,
     MediaContext,
+    Directory,
     ContextSection,
     StaggeredMediaContextGrid,
     PageHeader
