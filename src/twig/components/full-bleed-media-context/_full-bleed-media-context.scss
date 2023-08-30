@@ -76,6 +76,8 @@
       p {
         @extend .paragraph-style-4;
 
+        opacity: 1;
+
         .full-bleed-media-context--dark & {
           color: $gold-dark;
         }

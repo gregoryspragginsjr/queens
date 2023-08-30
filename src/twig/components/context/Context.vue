@@ -10,7 +10,6 @@
 <script>
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Letterize from 'letterizejs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +53,45 @@ export default {
       }
 
       if (squiggle) {
-        animatedWords.push(squiggle);
+        gsap.fromTo(
+          squiggle,
+          {
+            width: 0,
+          },
+          {
+            scrollTrigger: {
+              trigger: squiggle,
+              toggleActions: 'restart none none reverse',
+              start: 'top 90%',
+            },
+            width: '120px',
+            ease: 'power4.easeIn',
+            duration: 1,
+          }
+        )
+      }
+
+      if (icon) {
+        gsap.fromTo(
+          icon,
+          {
+            rotationY: 720,
+            y: 20,
+            opacity: 0,
+          },
+          {
+            scrollTrigger: {
+              trigger: icon,
+              toggleActions: 'restart none none reverse',
+              start: 'top 90%',
+            },
+            rotationY: 0,
+            y: 0,
+            opacity: 1,
+            ease: 'power4.easeOut',
+            duration: 2,
+          }
+        )
       }
 
       gsap.to(
@@ -63,7 +100,7 @@ export default {
           scrollTrigger: {
             trigger: heading,
             toggleActions: 'restart none none reverse',
-            start: 'top 80%',
+            start: 'top 100%',
           },
           opacity: 1,
           y: 0,
@@ -80,7 +117,7 @@ export default {
             scrollTrigger: {
               trigger: paragraphs[0],
               toggleActions: 'restart none none reverse',
-              start: 'top 75%',
+              start: 'top 85%',
             },
             opacity: 1,
             ease: 'power3.easeOut',
@@ -93,28 +130,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.context {
-  &--animated {
-    p {
-      opacity: 0;
-    }
-
-    .squiggle {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-  
-  &__heading span,
-  &__subheading {
-    .context--animated & {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-}
-</style>

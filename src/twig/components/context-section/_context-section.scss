@@ -1,7 +1,8 @@
 .context-section {
   &--light {
     + .article-grid--default,
-    + .staggered-media-context-grid {
+    + .staggered-media-context-grid,
+    + .logo-grid {
       padding-top: 0;
     }
   }

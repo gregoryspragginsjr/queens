@@ -1,5 +1,10 @@
 {% import "icons.twig" as icons %}
 
+{% if not in_component_library %}
+  {% set p = fn('Timber::get_context') %}
+  {% set items = p.breadcrumbs_menu %}
+{% endif %}
+
 <nav aria-label="Breadcrumbs" class="breadcrumbs">
   <div class="breadcrumbs__inner grid">
     <ul>

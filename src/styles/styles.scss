@@ -14,11 +14,14 @@
 @import 'layout/grid';
 @import 'layout/page';
 @import 'layout/miscellaneous';
+@import 'layout/animations';
 
 // Components
 @import '~components/context/context';
 @import '~components/button-group/button-group';
 @import '~components/page-header/page-header';
+@import '~components/banner/banner';
+@import '~components/alert/alert';
 @import '~components/header/header';
 @import '~components/hero/hero';
 @import '~components/footer/footer';
@@ -43,6 +46,8 @@
 @import '~components/archive-item/archive-item';
 @import '~components/pagination/pagination';
 @import '~components/post-hero/post-hero';
-@import '~components/02-pages/events';
-@import '~components/02-pages/event-detail';
-@import '~components/02-pages/directory';
+@import '~components/logo-grid/logo-grid';
+@import '~components/01-pages/events';
+@import '~components/01-pages/event-detail';
+@import '~components/01-pages/events-calendar';
+@import '~components/01-pages/directory';

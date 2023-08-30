@@ -1,7 +1,7 @@
 <template>
   <div
     ref="target"
-    class="media-context--animated"
+    class="context-section--animated"
   >
     <slot />
   </div>
@@ -20,23 +20,27 @@ export default {
   methods: {
     animate() {
       const animationTarget = this.$refs.target;
-      const image = animationTarget.querySelectorAll('img, image');
+      const icons = animationTarget.querySelectorAll('.context-section__icons svg');
 
-      if (image) {
-        gsap.to(
-          image,
+      if (icons) {
+        gsap.fromTo(
+          icons,
+          {
+            rotationY: 720,
+            y: 30,
+            opacity: 0,
+          },
           {
             scrollTrigger: {
-              trigger: animationTarget,
+              trigger: icons[0],
               toggleActions: 'restart none none reverse',
-              start: 'top 70%',
-              end: 'bottom 90%',
-              scrub: 1,
+              start: 'top 80%',
             },
-            transform: 'rotateX(0deg) rotateY(0deg) translateZ(0) scale(1)',
+            rotationY: 0,
+            y: 0,
             opacity: 1,
-            ease: 'power4.easeOut',
-            duration: 0.6,
+            ease: 'power4.easeIn',
+            duration: 1.6,
           }
         )
       }

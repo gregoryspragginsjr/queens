@@ -272,6 +272,17 @@ class StarterSite extends Timber\Site {
 				'icon'				=> 'block-default',
 				'keywords'        => array( 'layout', 'media', 'graphics', 'svgs', 'grid' ),
 			));
+
+			// register the logo grid
+			acf_register_block(array(
+				'name'				=> 'logo-grid',
+				'title'				=> __('Logo Grid'),
+				'description'		=> __('Section dedicated to displaying medium sized logos.'),
+				'render_callback'	=> 'my_acf_block_render_callback',
+				'category'			=> 'layout',
+				'icon'				=> 'block-default',
+				'keywords'        => array( 'layout', 'logo', 'graphics', 'svgs', 'grid' ),
+			));
 		}
 	}
 
@@ -316,6 +327,8 @@ class StarterSite extends Timber\Site {
 		$context['policies_menu']   = new Timber\Menu( 'Policies Menu' );
 		$context['global_address'] = get_field( 'address', 'options' );
 		$context['global_phone']   = get_field( 'phone', 'options' );
+		$context['global_banner']   = get_field( 'banner', 'options' );
+		$context['global_alert']   = get_field( 'alert', 'options' );
 		$context['site']  = $this;
 		return $context;
 	}
@@ -430,6 +443,7 @@ function theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
+
 /**
  *  This is the callback that displays the block.
  *
@@ -454,3 +468,35 @@ function my_acf_block_render_callback( $block, $content = '', $is_preview = fals
 	// Render the block.
 	Timber::render( 'src/twig/components/'. $context['block_name'] . '/' . $context['block_name'] . '.twig', $context['fields'] );
 }
+
+
+/**
+ * Customize The Events Calendar breakpoints to match our design
+ */
+add_filter( 'tribe_events_views_v2_view_breakpoints', function( $breakpoints ) {
+  $breakpoints = [
+		'xsmall' => 480,
+    'medium' => 640,
+    'full'   => 1200,
+  ];
+ 
+  return $breakpoints;
+} );
+
+
+/**
+ * Customize The Events Calendar block editor template
+ */
+add_filter( 'tribe_events_editor_default_template', function( $template ) {
+	$template = [
+		[ 'tribe/event-datetime' ],
+    [ 'core/paragraph', [
+      'placeholder' => __( 'Add Description...', 'the-events-calendar' ),
+    ], ],
+		[ 'tribe/event-price' ],
+		[ 'tribe/event-links' ],
+    [ 'tribe/event-venue' ],
+		[ 'tribe/event-website' ],
+  ];
+  return $template;
+}, 11, 1 );

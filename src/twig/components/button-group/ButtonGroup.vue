@@ -44,14 +44,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.button-group {
-  &--animated {
-    a {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-  }
-}
-</style>

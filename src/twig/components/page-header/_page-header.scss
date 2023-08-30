@@ -33,6 +33,19 @@
     }
   }
 
+  h1 {
+    position: relative;
+  }
+
+  &__shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $neon;
+    width: 0;
+    height: 100%;
+  }
+
   &__small-text {
     position: absolute;
     bottom: -32px;

@@ -8,7 +8,10 @@
   {% set buttonGroup = 'button-group.twig' %}
 {% endif %}
 
-<div class="context-section context-section--{{ type|default('light') }} context-section--align-{{ align|default('left') }} context-section--{{ size|default('medium') }}">
+<component
+  is="context-section"
+  class="context-section context-section--{{ type|default('light') }} context-section--align-{{ align|default('left') }} context-section--{{ size|default('medium') }}"
+>
   <div class="context-section__main">
     <div class="context-section__inner grid">
       {% if icons and align == 'center' %}
@@ -40,4 +43,4 @@
       {% endif %}
     </div>
   </div>
-</div>
+</component>
