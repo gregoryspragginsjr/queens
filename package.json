@@ -53,6 +53,7 @@
         "@frctl/twig": "^1.2.12",
         "@glidejs/glide": "^3.5.2",
         "axios": "^0.27.2",
+        "fast-xml-parser": "^4.2.7",
         "fuse.js": "^6.6.2",
         "gsap": "^3.10.0",
         "letterizejs": "^2.0.1",
