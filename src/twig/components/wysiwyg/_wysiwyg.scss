@@ -27,7 +27,8 @@
   > h4,
   > h5,
   > h6 {
-    + figure {
+    + figure,
+    + .wp-block-image {
       margin-top: 32px;
 
       @include breakpoint(medium) {
@@ -54,7 +55,8 @@
       margin-top: 10px;
     }
 
-    + figure {
+    + figure,
+    + .wp-block-image {
       margin-top: 32px;
 
       @include breakpoint(medium) {
@@ -110,7 +112,8 @@
     }
   }
 
-  > figure {
+  > figure,
+  > .wp-block-image {
     margin-bottom: 48px;
 
     @include breakpoint(medium) {
