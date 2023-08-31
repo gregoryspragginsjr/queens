@@ -4,19 +4,37 @@
   // coming from the Gutenberg editor while they share the same div
   // on the front-end and allows us to retain the seamnless
   // out-of-the-box editor experience that comes from Wordpress
+  // Additionally, we have forced h1 and h2 elements to inherit
+  // smaller styles as to not compete aesthetically with the
+  // actual page header
   // ~ Greg
 
-  > h1 { @extend .heading-style-1; }
+  > h1 { @extend .heading-style-2; }
 
-  > h2 { @extend .heading-style-2; }
+  > h2 { @extend .heading-style-3; }
 
-  > h3 { @extend .heading-style-3; }
+  > h3 { @extend .heading-style-4; }
 
-  > h4 { @extend .heading-style-4; }
+  > h4 { @extend .heading-style-5; }
 
-  > h5 { @extend .heading-style-5; }
+  > h5 { @extend .heading-style-6; }
 
   > h6 { @extend .heading-style-6; }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    + figure {
+      margin-top: 32px;
+
+      @include breakpoint(medium) {
+        margin-top: 48px;
+      }
+    }
+  }
 
   > p,
   > ul {
