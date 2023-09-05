@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+  <div class="page">
+    {% include 'page-header.twig' with {
+      heading: post.title,
+      breadcrumbs: true
+    } %}
+    {% include '01-pages/directory.twig' %}
+  </div>
+{% endblock %}

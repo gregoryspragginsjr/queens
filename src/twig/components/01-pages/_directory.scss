@@ -131,16 +131,19 @@
       }
     }
 
-    &__title {
-      @extend .paragraph-style-2;
+    &__details {
       margin-top: 16px;
-
-      @include breakpoint(large) {
-        margin-top: 24px;
-      }
     }
 
-    &__details {
+    &__title {
+      @extend .paragraph-style-2;
+    }
+
+    &__dept {
+      @extend .paragraph-style-3;
+    }
+
+    &__contact {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;

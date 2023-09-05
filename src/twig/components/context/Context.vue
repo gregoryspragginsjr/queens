@@ -62,7 +62,7 @@ export default {
             scrollTrigger: {
               trigger: squiggle,
               toggleActions: 'restart none none reverse',
-              start: 'top 80%',
+              start: 'top 90%',
             },
             width: '120px',
             ease: 'power4.easeIn',
@@ -83,7 +83,7 @@ export default {
             scrollTrigger: {
               trigger: icon,
               toggleActions: 'restart none none reverse',
-              start: 'top 80%',
+              start: 'top 90%',
             },
             rotationY: 0,
             y: 0,
@@ -100,7 +100,7 @@ export default {
           scrollTrigger: {
             trigger: heading,
             toggleActions: 'restart none none reverse',
-            start: 'top 80%',
+            start: 'top 100%',
           },
           opacity: 1,
           y: 0,
@@ -117,7 +117,7 @@ export default {
             scrollTrigger: {
               trigger: paragraphs[0],
               toggleActions: 'restart none none reverse',
-              start: 'top 75%',
+              start: 'top 85%',
             },
             opacity: 1,
             ease: 'power3.easeOut',
