@@ -321,6 +321,7 @@ class StarterSite extends Timber\Site {
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
+		if (is_multisite()) { switch_to_blog(1); }
 		$context['main_menu']      = new Timber\Menu( 'Main Menu' );
 		$context['utility_menu']   = new Timber\Menu( 'Utility Menu' );
 		$context['footer_info_menu']   = new Timber\Menu( 'Footer Info Menu' );
@@ -329,6 +330,7 @@ class StarterSite extends Timber\Site {
 		$context['global_phone']   = get_field( 'phone', 'options' );
 		$context['global_banner']   = get_field( 'banner', 'options' );
 		$context['global_alert']   = get_field( 'alert', 'options' );
+		if (is_multisite()) {  restore_current_blog(); }
 		$context['site']  = $this;
 		return $context;
 	}

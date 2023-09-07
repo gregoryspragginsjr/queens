@@ -112,6 +112,40 @@
     }
   }
 
+  > blockquote {
+    position: relative;
+    padding-top: 50px;
+    margin: 48px 0;
+    background: url('../images/svgs/icon-quote.svg') no-repeat;
+    background-size: 32px;
+    background-position: top left;
+
+    &::before {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      content: '';
+      display: block;
+      height: 1px;
+      width: calc(100% - 50px);
+      margin-right: 0;
+      background-color: #c6bc9c;
+    }
+
+    p {
+      @extend .paragraph-style-4;
+    }
+
+    cite {
+      @include paragraph-style-1;
+
+      display: inline-block;
+      margin-top: 16px;
+      text-transform: uppercase;
+      color: #655b3a;
+    }
+  }
+
   > figure,
   > .wp-block-image {
     margin-bottom: 48px;
