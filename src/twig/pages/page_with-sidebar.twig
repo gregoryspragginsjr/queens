@@ -1,5 +1,14 @@
 {% extends "base.twig" %}
 
+{% if (post.meta('menu') != null) and (post.meta('menu') != 'Automatic') %}
+  {% set menu_items = fn('wp_get_nav_menu_items', post.meta('menu'))|map(i => {
+    title: i.title,
+    url: i.url,
+  }) %}
+{% else %}
+  {% set menu_items = alpha_parent.children %}
+{% endif %}
+
 {% block content %}
   <div class="page page--with-sidebar">
     {% include 'page-header.twig' with {
@@ -10,7 +19,7 @@
       <div class="page__secondary">
         {% include 'sidebar-nav.twig' with {
           heading: alpha_parent.title,
-          items: alpha_parent.children,
+          items: menu_items,
         } %}
       </div>
       <div class="page__main">

@@ -9,8 +9,8 @@
     {% endif %}
 
     {% set newItem = [{
-      title: item.post_title,
-      url: function('get_page_link', item.ID),
+      title: item.post_title ? item.post_title : item.title,
+      url: item.url ? item.url : function('get_page_link', item.ID),
       active: a,
     }] %}
 
