@@ -68,6 +68,11 @@
   > ol {
     @extend .paragraph-style-4;
 
+    .page--with-sidebar & {
+      @extend .paragraph-style-2;
+    }
+
+
     a {
       padding-right: 26px;
       color: $navy;
@@ -89,10 +94,18 @@
 
       @include breakpoint(large) {
         margin-left: 43px;
+
+        .page--with-sidebar & {
+          margin-left: 33px;
+        }
       }
 
       &::marker {
         color: #6c6c6c;
+
+        .page--with-sidebar & {
+          color: #655b3a;
+        }
       }
     }
 
@@ -107,7 +120,7 @@
       list-style-type: disc;
 
       &::marker {
-        color: #655B3A;
+        color: #655b3a;
       }
     }
   }
@@ -156,6 +169,10 @@
   }
 
   > .accordion {
+    margin: 48px 0;
+  }
+
+  > .wp-block-buttons {
     margin: 48px 0;
   }
 }
