@@ -172,7 +172,16 @@
     margin: 48px 0;
   }
 
-  > .wp-block-buttons {
+  > .wp-block-buttons,
+  > .wp-block-columns {
     margin: 48px 0;
+  }
+
+  > .wp-block-columns {
+    h3 { @extend .heading-style-4; }
+
+    p {
+      @extend .paragraph-style-2;
+    }
   }
 }

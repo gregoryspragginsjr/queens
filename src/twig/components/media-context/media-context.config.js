@@ -70,5 +70,16 @@ module.exports = {
         ]
       }
     },
+    {
+      name: 'Portrait',
+      context: {
+        image_type: 'portrait',
+        image: {
+          srcset: 'https://via.placeholder.com/630x900',
+          src: 'https://via.placeholder.com/630x900',
+          alt: 'Test alt',
+        },
+      }
+    }
   ]
 }

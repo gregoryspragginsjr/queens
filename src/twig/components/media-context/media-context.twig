@@ -10,7 +10,7 @@
 
 <component
   is="media-context"
-  class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}"
+  class="media-context media-context--{{ type|default('light') }} {{ reverse ? 'media-context--reverse' }}{{ image_type == 'portrait' ? ' media-context--image-portrait' }}"
 >
   <div class="media-context__inner grid">
     <div class="media-context__context">
@@ -85,15 +85,27 @@
           </div>
         </div>
       {% else %}
-        {{ macros.picture(
-          'media-context__img',
-          image.srcset,
-          image.src,
-          image.sizes.Rectangle,
-          image.sizes.Rectangle_mobile,
-          image.alt,
-          in_component_library
-        ) }}
+        {% if image_type == 'portrait' %}
+          {{ macros.picture(
+            'media-context__img',
+            image.srcset,
+            image.src,
+            image.sizes.Portrait,
+            image.sizes.Portrait_mobile,
+            image.alt,
+            in_component_library
+          ) }}
+        {% else %}
+          {{ macros.picture(
+            'media-context__img',
+            image.srcset,
+            image.src,
+            image.sizes.Rectangle,
+            image.sizes.Rectangle_mobile,
+            image.alt,
+            in_component_library
+          ) }}
+        {% endif %}
       {% endif %}
     </div>
   </div>
