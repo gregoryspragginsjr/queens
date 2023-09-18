@@ -24,7 +24,7 @@
     <svg class="{{ class }}" viewBox="0 0 100 100" fill="none" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-hidden="true">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0a50 50 0 100 100A50 50 0 0050 0zm-4.4 40.1c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1zm15.4 0c0-.6-.5-1.1-1.1-1.1h-4.4c-.6 0-1.1.5-1.1 1.1v19.8c0 .6.5 1.1 1.1 1.1h4.4c.6 0 1.1-.5 1.1-1.1V40.1z"></path>
     </svg>
-  {% elseif name == 'map-pin' or name == 'Schools & Colleges' or name == 'Places to Go' %}
+  {% elseif name == 'map-pin' or name == 'Places to Go' or name == 'General Education' %}
     <svg class="{{ class }}" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24">
       <path d="M17.94 4.86a8.4 8.4 0 0 1 0 11.88L12 22.68l-5.94-5.94A8.4 8.4 0 1 1 17.94 4.86ZM12 13.2a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z" style="fill-rule:evenodd;clip-rule:evenodd;" />
     </svg>
@@ -56,19 +56,19 @@
     <svg class="{{ class }}" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24" xml:space="preserve">
       <path d="M17.5 16.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM6.5 16.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z" />
     </svg>
-  {% elseif name == 'candy' or name == 'Mission, Vision, Values' or name == 'Belk Chapel' %}
+  {% elseif name == 'candy' or name == 'Mission, Vision, Values' or name == 'Belk Chapel' or name == 'Learning Society' %}
     <svg class="{{ class }}" x="0" y="0" viewBox="0 0 41.1 22.4" style="enable-background:new 0 0 41.1 22.4" xml:space="preserve">
       <path d="M20.5 22.4c6.2 0 11.2-5 11.2-11.2C31.7 5 26.7 0 20.5 0S9.3 5 9.3 11.2c0 6.2 5 11.2 11.2 11.2zM41.1 20.5l-9.3-9.3 9.3-9.3v18.6zM0 1.9l9.3 9.3L0 20.5V1.9z" />
     </svg>
-  {% elseif name == 'crown' or name == 'History' or name == 'Centers' %}
+  {% elseif name == 'crown' or name == 'History' or name == 'Centers' or name == 'Host an Event' %}
     <svg class="{{ class }}" viewBox="0 0 24 18.6">
       <path d="M12 0 6 8.6 0 0v18.6h24V0l-6 8.6L12 0z" />
     </svg>
-  {% elseif name == 'arrow-up' or name == 'Leadership' or name == 'Conferences & Events' %}
+  {% elseif name == 'arrow-up' or name == 'Leadership' or name == 'Conferences & Events' or name == 'University Programs' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 24.3 21.3" viewBox="0 0 24.3 21.3">
       <path d="M21.3 9.2 12.1 0 2.9 9.2h18.4zM24.3 21.3 12.1 9.2 0 21.3h24.3z" />
     </svg>
-  {% elseif name == 'donut' or name == 'Diversity & Inclusion' or name == 'Continuing Education' %}
+  {% elseif name == 'donut' or name == 'Diversity & Inclusion' or name == 'Continuing Education' or name == 'Affiliated Centers' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 23.2 23.2" viewBox="0 0 23.2 23.2">
       <path d="M11.6 8.2c1.8 0 3.3 1.5 3.3 3.3s-1.5 3.3-3.3 3.3-3.3-1.5-3.3-3.3 1.5-3.3 3.3-3.3zm0-8.2C5.2 0 0 5.2 0 11.6 0 18 5.2 23.2 11.6 23.2S23.2 18 23.2 11.6C23.2 5.2 18 0 11.6 0z" />
     </svg>
@@ -76,7 +76,7 @@
     <svg class="{{ class }}" style="enable-background:new 0 0 20.6 20.4" viewBox="0 0 20.6 20.4">
       <path d="M0 8.8c0 2.3 1 4.4 2.7 5.9L0 20.4l5.9-3.7c1.3.5 2.8.9 4.4.9 5.7 0 10.3-3.9 10.3-8.8S16 0 10.3 0 0 3.9 0 8.8z" />
     </svg>
-  {% elseif name == 'plus' or name == 'Careers' %}
+  {% elseif name == 'plus' or name == 'Careers @ Queens' %}
     <svg style="enable-background:new 0 0 19.4 19.4" viewBox="0 0 19.4 19.4">
       <path d="M19.4 6.3h-6.3V0H6.2v6.3H0v6.8h6.2v6.3h6.9v-6.3h6.3z" />
     </svg>
@@ -104,27 +104,27 @@
     <svg class="{{ class }}" style="enable-background:new 0 0 22.7 22.7" viewBox="0 0 22.7 22.7">
       <path d="m11.4 22.7 11.4-11.4L11.4 0v22.7zM0 22.7l11.4-11.4L0 0v22.7z" />
     </svg>
-  {% elseif name == 'ticket' or name == 'Programs of Study' %}
+  {% elseif name == 'ticket' or name == 'Academic Affairs' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 24 18.7" viewBox="0 0 24 18.7">
       <path d="M19.9 9.4c0-2.3 1.8-4.2 4.1-4.2V0H0v5.2c2.2 0 4.1 1.9 4.1 4.2 0 2.3-1.8 4.2-4.1 4.2v5.2h24v-5.2c-2.2-.1-4.1-1.9-4.1-4.2z" />
     </svg>
-  {% elseif name == 'pencil' or name == 'Internships & Careers' %}
+  {% elseif name == 'pencil' or name == 'Internships & Careers' or name == 'Programs of Study' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 18 18" viewBox="0 0 18 18">
       <path d="M17.4 5.9c.8-.8.8-2.1 0-2.8L14.9.6c-.8-.8-2.1-.8-2.9 0l-1.6 1.6 5.3 5.3 1.7-1.6zM5.3 18l9.6-9.6-5.3-5.3L0 12.6V18h5.3z" />
     </svg>
-  {% elseif name == 'flag' or name == 'Study Abroad' %}
+  {% elseif name == 'flag' or name == 'Schools & Colleges' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 19 14.6" viewBox="0 0 19 14.6">
       <path d="M19 14.6H0V0h19l-5.8 7.3 5.8 7.3z" />
     </svg>
-  {% elseif name == 'barn' or name == 'Honors Program' %}
+  {% elseif name == 'barn' or name == 'Internships & Careers' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 19 20.3" viewBox="0 0 19 20.3">
       <path d="M19 9.5H0v10.8h19V9.5zM0 9.5 9.5 0 19 9.5" />
     </svg>
-  {% elseif name == 'mountains' or name == 'Undergrad Admissions' %}
+  {% elseif name == 'mountains' or name == 'Undergraduate Admissions' or name == 'Study Abroad' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 24 15" viewBox="0 0 24 15">
       <path d="M15 0 7.1 13.1l-3-4.8L0 15h24z" />
     </svg>
-  {% elseif name == 'apple' or name == 'Graduate Admissions' %}
+  {% elseif name == 'apple' or name == 'Graduate Admissions' or name == 'Honors Program' %}
     <svg class="{{ class }}" style="enable-background:new 0 0 18 22.2" viewBox="0 0 18 22.2">
       <path d="M5.7 22.1C7 21.7 7.3 21 9 21s1.9.7 3.3 1.1c4.6 1.4 5.7-6.8 5.7-9.8 0-.8-.1-1.7-.2-2.5-.3-1.6-1.2-2.6-2.8-3.1-.8-.3-1.7-.2-2.6 0-1.2.2-2.3.6-3.4.6s-2.2-.4-3.4-.6c-.8-.2-1.7-.2-2.6 0C1.4 7.2.6 8.2.2 9.8c-.1.8-.2 1.7-.2 2.5 0 2.9 1.1 11.1 5.7 9.8zM9.4 5.8c.1-1.7-.4-3.2-1.5-4.3C6.8.4 5.3 0 3.6 0c-.1 1.7.4 3.2 1.5 4.3s2.6 1.6 4.3 1.5z" />
     </svg>
