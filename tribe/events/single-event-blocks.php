@@ -25,13 +25,13 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
-	<?php // $this->template( 'single-event/back-link' ); ?>
 	<?php // $this->template( 'single-event/notices' ); ?>
 	<?php $this->template( 'single-event/title' ); ?>
 	<?php if ( $is_recurring ) { ?>
 		<?php $this->template( 'single-event/recurring-description' ); ?>
 	<?php } ?>
 	<?php $this->template( 'single-event/content' ); ?>
+	<?php $this->template( 'single-event/back-link' ); ?>
 	<?php // $this->template( 'single-event/comments' ); ?>
 	<?php // $this->template( 'single-event/footer' ); ?>
 </div>

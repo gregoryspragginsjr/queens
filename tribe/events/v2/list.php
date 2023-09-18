@@ -58,20 +58,33 @@ if ( empty( $disable_event_search ) ) {
 
 		<div class="tribe-events-calendar-list">
 
-			<?php foreach ( $events as $event ) : ?>
-				<?php $this->setup_postdata( $event ); ?>
+			<div class="tribe-events-calendar-list__events">
 
-				<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
+				<?php foreach ( $events as $event ) : ?>
 
-				<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
+					<?php $this->setup_postdata( $event ); ?>
 
-			<?php endforeach; ?>
+					<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
+
+					<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
+
+				<?php endforeach; ?>
+
+			</div>
+
+			<div class="tribe-events-calendar-list__sidebar">
+
+				<div class="tribe-events-calendar-list__sidebar-group">
+					<a href="#" class="btn">Submit an Event</a>
+				</div>
+	
+				<?php $this->template( 'components/ical-link' ); ?>
+
+			</div>
 
 		</div>
 
 		<?php $this->template( 'list/nav' ); ?>
-
-		<?php $this->template( 'components/ical-link' ); ?>
 
 		<?php $this->template( 'components/after' ); ?>
 

@@ -490,13 +490,13 @@ add_filter( 'tribe_events_views_v2_view_breakpoints', function( $breakpoints ) {
 add_filter( 'tribe_events_editor_default_template', function( $template ) {
 	$template = [
 		[ 'tribe/event-datetime' ],
+		[ 'tribe/event-price' ],
     [ 'core/paragraph', [
       'placeholder' => __( 'Add Description...', 'the-events-calendar' ),
     ], ],
-		[ 'tribe/event-price' ],
-		[ 'tribe/event-links' ],
-    [ 'tribe/event-venue' ],
 		[ 'tribe/event-website' ],
+    [ 'tribe/event-venue' ],
+		[ 'tribe/event-links' ],
   ];
   return $template;
 }, 11, 1 );
