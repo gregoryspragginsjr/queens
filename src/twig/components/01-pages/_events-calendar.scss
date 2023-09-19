@@ -1,6 +1,6 @@
 // The Events Calendar Plugin
 :root {
-  --tec-color-text-primary: #00205b;
+  --tec-color-text-primary: #00205b !important;
   --tec-color-text-primary-light: #ccc;
   --tec-color-border-default: #ececec;
 	--tec-grid-gutter-page: 20px;
@@ -16,12 +16,26 @@
     &--breakpoint-medium {
       &.tribe-events {
         .tribe-events-l-container {
-          padding-bottom: var(--tec-spacer-10);
+          padding-bottom: var(--tec-spacer-12);
           padding-top: var(--tec-spacer-10);
         }
 
         .tribe-events-header__top-bar {
           margin-bottom: var(--tec-spacer-10);
+        }
+      }
+
+      .tribe-events-calendar-list {
+        display: flex;
+        justify-content: space-between;
+
+        &__events {
+          width: 70%;
+        }
+
+        &__sidebar {
+          padding-left: 2.5%;
+          width: 22.5%;
         }
       }
     }
@@ -82,6 +96,10 @@
     .datepicker {
       --tec-color-background-secondary-datepicker: #f7f7f7;
 
+      table {
+        width: 100%;
+      }
+
       .day {
         &.current {
           color: #fff;
@@ -115,6 +133,10 @@
               @include heading-style-4;
               margin: 0 0 var(--tec-spacer-5);
             }
+
+            &-datetime {
+              line-height: 120%;
+            }
           }
 
           &__event-featured-image-link {
@@ -137,11 +159,68 @@
           }
 
           &-nav {
-            button {
+            a.tribe-events-c-nav__prev,
+            a.tribe-events-c-nav__next {
+              color: inherit;
+
+              svg path {
+                fill: $navy;
+              }
+            }
+            .tribe-events-c-nav__prev-label,
+            .tribe-events-c-nav__next-label {
               @include subheading-style-2;
             }
           }
         }
+
+        .tribe-events-calendar-list {
+          &__sidebar {
+            margin-bottom: 48px;
+
+            &-group {
+              .btn {
+                @include btn($navy, transparent, $white);
+              }
+
+              &:not(:first-child) {
+                margin-top: 48px;
+              }
+                
+            }
+        
+            &-heading {
+              @extend .subheading-style-2;
+              margin-bottom: 16px;
+              padding-bottom: 16px;
+              border-bottom: 1px solid var(--tec-color-border-default);
+            }
+        
+            &-nav {
+              li {
+                position: relative;
+                margin: 8px 0;
+                font-family: $font-primary;
+                font-weight: 500;
+                font-style: normal;
+                line-height: 160%;
+                letter-spacing: 0;
+                text-transform: none;
+              }
+        
+              a {
+                position: relative;
+                color: $navy;
+                text-decoration: none;
+                transition: $transition-default;
+        
+                &:hover {
+                  color: $mid-blue;
+                }
+              }
+            }
+          }
+        }        
       }
     }
   }
@@ -167,6 +246,20 @@
     > * + * {
       margin-top: 32px;
     }
+
+    > p:not(:first-of-type) {
+      margin-top: 16px;
+    }
+  }
+
+  .tribe-events-back {
+    border-top: 1px solid var(--tec-color-border-default);
+    padding-top: 12px;
+    margin-top: 48px;
+
+    a {
+      @include paragraph-style-2;
+    }
   }
 
   .tribe-events-single-event-title {
@@ -186,16 +279,21 @@
       margin-left: 8px;
       text-transform: none;
     }
+
+    & + .tribe-block__event-price {
+      margin-top: 0;
+    }
   }
 
   p {
-    @include paragraph-style-2;
+    @include paragraph-style-3;
   }
 
   .tribe-block {
     &__event-price {
       > span {
-        font-size: initial;
+        @include paragraph-style-2;
+        color: $navy;
       }
     }
 
@@ -268,6 +366,266 @@
     .tribe-events-nav-next {
       a {
         @include subheading-style-2;
+      }
+    }
+  }
+}
+
+// The Events Calendar Community Events form page
+#tribe-community-events {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  border: none;
+
+  &.tribe-community-events {
+    * {
+      margin: unset;
+      padding: unset;
+      font-style: unset;
+      font-size: unset;
+      font-weight: 400;
+      text-transform: unset;
+      color: $navy;
+      box-shadow: unset;
+      @include paragraph-style-2;
+    }
+
+    input[type="text"],
+    textarea {
+      @include paragraph-style-3;
+      appearance: none;
+      height: unset;
+      background-color: $white;
+      border: 1px solid $navy;
+      border-radius: 0;
+      padding: 8px 12px;
+      min-height: 40px;
+      line-height: 140%;
+      font-size: rem-calc(16px);
+      transition: background-color $transition-default, border-color $transition-default;
+  
+      &:focus {
+        outline: 1px solid $navy;
+        outline-offset: 0;
+      }
+  
+      &:hover {
+        background-color: $navy-light;
+      }
+  
+      &::placeholder {
+        opacity: 0.6;
+        color: $navy;
+      }
+  
+      @include breakpoint(medium) {
+        padding: 12px 16px;
+      }
+    }
+
+    input[type="text"].tribe-datepicker,
+    input[type="text"].tribe-timepicker {
+      margin: 2px 0;
+      padding: 4px 8px;
+    }
+
+    header h2 {
+      @include heading-style-3;
+      margin: 0;
+    }
+
+    form {
+      > * + * {
+        margin-top: 48px;
+      }
+    }
+
+    .tribe-community-notice {
+      margin: 10px 0 16px;
+      padding: 10px;
+    }
+
+    .tribe-section {
+      border-radius: 0;
+      padding: 0;
+
+      &-header {
+        padding: 16px 16px;
+        margin-bottom: 0;
+
+        h3,
+        label {
+          @include subheading-style-2;
+        }
+      }
+
+      &-content {
+        display: block;
+        padding: 48px 24px;
+      
+        @include breakpoint(medium) {
+          padding: 48px;
+        }
+
+        &-label {
+          margin-bottom: 8px;
+        }
+
+        &-field {
+          label:not(:last-child) {
+            display: block;
+            margin-bottom: 8px;
+          }
+
+          #allDayCheckbox {
+            appearance: checkbox;
+          }
+        }
+
+        > label {
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+
+      &-image-uploader {
+        .note {
+          padding-top: 80px;
+
+          p {
+            padding: 12px 0;
+          }
+        }
+
+        .form-controls {
+          margin: auto;
+
+          .choose-file {
+            @include subheading-style-2;
+            background: $navy-light;
+            padding: 24px;
+          }
+        }
+
+        .tribe-community-events-preview-image {
+          img {
+            width: auto;
+          }
+        }
+      }
+
+      &-cost {
+        .cost-text {
+          margin-top: 8px;
+          font-size: 0.8rem;
+        }
+      }
+
+      &-organizer {
+        .tribe-add-post {
+          display: none;
+        }
+      }
+
+      &-website {
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+    }
+
+    .tribe-events-community-footer {
+      margin-top: 0;
+
+      .events-community-submit {
+        all: unset;
+        @include btn($navy, transparent, $white);
+        cursor: pointer;
+        margin: 0 auto;
+      }
+    }
+
+    .tribe-dropdown {
+      &.select2-container {
+        display: block;
+        margin-bottom: 0;
+
+        .select2-selection {
+          appearance: none;
+          background-color: $white;
+          border: 1px solid #7e9ad1;
+          border-radius: 0;
+
+          &:hover,
+          &:focus {
+            background-color: transparent;
+            border-color: $navy;
+          }
+
+          &__rendered {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+            padding: 12px;
+          }
+
+          &__clear {
+            order: 2;
+            margin-left: 6px;
+          }
+
+          &__choice {
+            font-size: rem-calc(14px);
+            letter-spacing: unset;
+            padding: 4px 8px;
+            background-color: #eee;
+          }
+
+          &__arrow {
+            display: none;
+          }
+        }
+
+        .select2-search__field {
+          background: transparent;
+          border: none;
+          outline: none;
+          padding: 0;
+          
+          &:focus {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+body {
+  .tribe-dropdown {
+    &.select2-container {
+      &--open {
+        .select2-dropdown--below {
+          border-top: 1px solid #7e9ad1;
+        }
+      }
+    }
+  }
+
+  .select2-dropdown {
+    border-radius: 0;
+    border-color: #7e9ad1;
+    
+    .select2-results {
+      &__option {
+        outline: none;
+
+        &--highlighted[data-selected] {
+          background-color: $navy-light !important;
+          color: $navy !important;
+        }
       }
     }
   }
