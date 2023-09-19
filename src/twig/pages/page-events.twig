@@ -1,11 +1,17 @@
-{% extends "no-vue.twig" %}
-
-{% import 'macros.twig' as macros %}
-{% import 'icons.twig' as icons %}
+{% extends 'no-vue.twig' %}
 
 {% block content %}
   <div class="page">
     {% include 'breadcrumbs.twig' %}
     {{ tribe_markup }}
+
+    {% set event_form_page = function('tribe_is_community_edit_event_page') %}
+    {% if event_form_page %}
+      <div class="event-submission">
+        {% filter shortcodes %}
+          [tribe_community_events view="submission_form"]
+        {% endfilter %}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
