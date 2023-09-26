@@ -7,11 +7,7 @@
 
     {% set event_form_page = function('tribe_is_community_edit_event_page') %}
     {% if event_form_page %}
-      <div class="event-submission">
-        {% filter shortcodes %}
-          [tribe_community_events view="submission_form"]
-        {% endfilter %}
-      </div>
+      {{ content }}
     {% endif %}
   </div>
 {% endblock %}
