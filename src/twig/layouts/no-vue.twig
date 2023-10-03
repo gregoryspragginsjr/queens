@@ -8,14 +8,16 @@
 
   <body>
     <div>
-      <a class="skip-to-content-btn btn btn--light" href="#main">Skip to Main Content</a>
-      {% include 'header.twig' with {
-        utility: utility_menu.items,
-        main: main_menu.items,
-        helpfulLinks: utility_menu.items,
-        active: fn('is_front_page'),
-        banner: global_banner,
-      } %}
+      <div id="app">
+        <a class="skip-to-content-btn btn btn--light" href="#main">Skip to Main Content</a>
+        {% include 'header.twig' with {
+          utility: utility_menu.items,
+          main: main_menu.items,
+          helpfulLinks: utility_menu.items,
+          active: fn('is_front_page'),
+          banner: global_banner,
+        } %}
+      </div>
       <main id="main">
         {% block content %}
           Sorry, no content
