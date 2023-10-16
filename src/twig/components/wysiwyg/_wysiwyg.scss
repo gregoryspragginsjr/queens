@@ -113,6 +113,10 @@
           color: #655b3a;
         }
       }
+
+      > ul li {
+        list-style-type: disc;
+      } 
     }
 
     li + li {

@@ -15,9 +15,11 @@
   &__item {
     @include nav-style-1;
 
+    line-height: 140%;
     margin-left: 10px;
 
     a {
+      display: block;
       padding: 2px 0 2px;
       color: $navy;
       text-decoration: none;
@@ -37,6 +39,6 @@
   }
 
   li + li {
-    margin-top: 6px;
+    margin-top: 10px;
   }
 }
