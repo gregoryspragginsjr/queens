@@ -24,7 +24,7 @@
           <div class="filter-select-wrap">
             <select v-model="selectedDepartment" class="filter-select" id="select-department">
               <option value="">Department</option>
-              <option v-for="department in departmentOptions" :key="department" :value="department">{{ department }}</option>
+              <option v-for="department in departmentOptions.sort()" :key="department" :value="department">{{ department }}</option>
             </select>
           </div>
         </div>
@@ -77,7 +77,7 @@
                         <path d="M2.503 5.884L10.5 9.882L18.497 5.884C18.4674 5.37444 18.2441 4.89549 17.8728 4.54523C17.5016 4.19497 17.0104 3.99991 16.5 4H4.5C3.98958 3.99991 3.49845 4.19497 3.12718 4.54523C2.75591 4.89549 2.5326 5.37444 2.503 5.884Z" />
                         <path d="M18.5 8.118L10.5 12.118L2.5 8.118V14C2.5 14.5304 2.71071 15.0391 3.08579 15.4142C3.46086 15.7893 3.96957 16 4.5 16H16.5C17.0304 16 17.5391 15.7893 17.9142 15.4142C18.2893 15.0391 18.5 14.5304 18.5 14V8.118Z" />
                       </svg>
-                      <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                      <a :href="`mailto:${item.email}`">{{ item.email }}</a>
                     </div>
                   </div>
                 </div>
