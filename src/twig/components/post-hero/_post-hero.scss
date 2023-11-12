@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
 
+    &--biography {
+      flex-direction: column;
+      align-items: center;
+    }
+
     span + span {
       margin-left: 24px;
     }

@@ -85,7 +85,29 @@ class StarterSite extends Timber\Site {
 	}
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
-
+		register_post_type(
+			'directory',
+			array(
+				'labels'            => array(
+					'name'               => __( 'Directory' ),
+					'singular_name'      => __( 'Directory Item' ),
+					'add_new_item'       => __( 'Add Directory Item' ),
+					'edit_item'          => __( 'Edit Directory Item' ),
+					'new_item'           => __( 'New Directory Item' ),
+					'view_item'          => __( 'View Directory Item' ),
+					'search_items'       => __( 'Search Directory Items' ),
+					'not_found'          => __( 'Directory Item not found.' ),
+					'not_found_in_trash' => __( 'No Directory Item found in trash.' ),
+				),
+				'rewrite'           => array( 'slug' => 'campus-directory' ),
+				'public'            => true,
+				'has_archive'       => false,
+				'show_in_rest'      => true,
+				'menu_icon'         => 'dashicons-id-alt',
+				'show_in_nav_menus' => true,
+				'supports'          => array( 'title', 'editor', 'revisions', 'excerpt', 'thumbnail' ),
+			)
+		);
 	}
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {

@@ -2,9 +2,14 @@
 
 <div class="post-hero">
   <h1 class="post-hero__heading heading-style-2 text-dark text-center">{{ heading }}</h1>
-  <div class="post-hero__details paragraph-style-2 text-dark">
-    <span>{{ date }}</span>
-    <span>By {{ author }}</span>
+  <div class="post-hero__details {% if type %}post-hero__details--{{ type }} {% endif %}paragraph-style-2 text-dark">
+    {% if type == 'biography' %}
+      <div>{{ title }}</div>
+      <div>{{ department }}</div>
+    {% else %}
+      <span>{{ date }}</span>
+      <span>By {{ author }}</span>
+    {% endif %}
   </div>
   <div class="post-hero__image">
     {{ macros.picture(

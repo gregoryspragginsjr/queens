@@ -1,0 +1,46 @@
+<div class="directory-card">
+  {% if contact_phone or contact_email %}
+    <div class="directory-card__item">
+      <div class="directory-card__heading subheading-style-1">Contact</div>
+      {% if contact_phone %}
+        <div class="directory-card__text">
+          <svg class="fill-current icon icon--sm" viewBox="0 0 24 24">
+            <path d="M2.4 3.6a1.2 1.2 0 0 1 1.2-1.2h2.583a1.2 1.2 0 0 1 1.184 1.003l.887 5.323a1.2 1.2 0 0 1-.647 1.27l-1.857.93a13.244 13.244 0 0 0 7.325 7.324l.929-1.857a1.2 1.2 0 0 1 1.27-.647l5.323.887a1.2 1.2 0 0 1 1.003 1.184V20.4a1.2 1.2 0 0 1-1.2 1.2H18C9.384 21.6 2.4 14.615 2.4 6V3.6Z" />
+          </svg>
+          <a href="tel:{{ contact_phone }}">{{ contact_phone }}</a>
+        </div>
+      {% endif %}
+      {% if contact_email %}
+        <div class="directory-card__text">
+          <svg class="fill-current icon icon--sm" viewBox="0 0 21 20">
+            <path d="M2.503 5.884L10.5 9.882L18.497 5.884C18.4674 5.37444 18.2441 4.89549 17.8728 4.54523C17.5016 4.19497 17.0104 3.99991 16.5 4H4.5C3.98958 3.99991 3.49845 4.19497 3.12718 4.54523C2.75591 4.89549 2.5326 5.37444 2.503 5.884Z" />
+            <path d="M18.5 8.118L10.5 12.118L2.5 8.118V14C2.5 14.5304 2.71071 15.0391 3.08579 15.4142C3.46086 15.7893 3.96957 16 4.5 16H16.5C17.0304 16 17.5391 15.7893 17.9142 15.4142C18.2893 15.0391 18.5 14.5304 18.5 14V8.118Z" />
+          </svg>
+          <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if cv %}
+    <div class="directory-card__item">
+      <div class="directory-card__heading subheading-style-1">CV</div>
+      <div class="directory-card__text">
+        <a href="{{ fn('get_field', 'cv').url }}" target="_blank">
+          {{ fn('get_field', 'cv').filename }}
+        </a>
+      </div>
+    </div>
+  {% endif %}
+  {% if hours_from and hours_to %}
+    <div class="directory-card__item">
+      <div class="directory-card__heading subheading-style-1">Office Hours</div>
+      <div class="directory-card__text">{{ fn('get_field', 'hours_from') }} - {{ fn('get_field', 'hours_to') }}</div>
+    </div>
+  {% endif %}
+  {% for item in fn('get_field', 'misc') %}
+    <div class="directory-card__item">
+      <div class="directory-card__heading subheading-style-1">{{ item.label }}</div>
+      <div class="directory-card__text">{{ item.text }}</div>
+    </div>
+  {% endfor %}
+</div>

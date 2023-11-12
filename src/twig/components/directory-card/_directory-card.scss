@@ -1,0 +1,53 @@
+.directory-card {
+  padding: 24px 24px 0;
+  border-radius: 24px;
+  border: 1px solid #8fb7ff;
+
+  @include breakpoint(medium) {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 40px 0;
+  }
+
+  &__item {
+    width: 100%;
+    flex: 50%;
+    margin-bottom: 24px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__heading {
+    color: $gold-dark;
+  }
+
+  &__heading + &__text {
+    margin-top: 10px;
+  }
+
+  &__text {
+    @include paragraph-style-2;
+
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $navy;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    svg {
+      margin-right: 6px;
+    }
+  }
+
+  + .wysiwyg {
+    margin-top: 48px;
+  }
+}

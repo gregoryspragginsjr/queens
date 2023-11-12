@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="page page--single-post">
+    <div class="page__inner grid">
+      <div class="page__main">
+        {% include 'post-hero.twig' with {
+          type: 'biography',
+          heading: post.post_title,
+          title: post.custom.title,
+          department: post.custom.department,
+          paragraph: post.post_excerpt,
+          image: {
+            sizes: {
+              Rectangle: fn( 'get_the_post_thumbnail_url', post.ID, 'Rectangle' ),
+              Rectangle_mobile: fn( 'get_the_post_thumbnail_url', post.ID, 'Rectangle_mobile' ),
+            }
+          }
+        } %}
+        {% include 'directory-card.twig' with post.custom %}
+        {% include 'wysiwyg.twig' with {
+          text: post.content,
+        } %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
