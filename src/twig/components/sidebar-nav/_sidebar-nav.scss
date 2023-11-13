@@ -85,4 +85,18 @@
   li + li {
     margin-top: 10px;
   }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    fill: $navy;
+
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
 }
