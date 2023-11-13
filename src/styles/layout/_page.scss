@@ -59,6 +59,14 @@
     }
   }
 
+  &__secondary + &__main {
+    margin-top: 48px;
+
+    @include breakpoint(large) {
+      margin-top: 0;
+    }
+  }
+
   &__main {
     @include breakpoint(large) {
       grid-column: span 8 / span 8;
