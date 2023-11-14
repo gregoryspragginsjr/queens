@@ -4,7 +4,9 @@
   <h1 class="post-hero__heading heading-style-2 text-dark text-center">{{ heading }}</h1>
   <div class="post-hero__details {% if type %}post-hero__details--{{ type }} {% endif %}paragraph-style-2 text-dark">
     {% if type == 'biography' %}
-      <div>{{ title }}</div>
+      {% for item in titles %}
+        <div>{{ item.title }}</div>
+      {% endfor %}
       <div>{{ department }}</div>
     {% else %}
       <span>{{ date }}</span>

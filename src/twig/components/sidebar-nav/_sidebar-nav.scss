@@ -10,7 +10,7 @@
     border: 1px solid #8fb7ff;
   }
 
-  &:hover {
+  &--active {
     border-bottom: 1px solid transparent;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -21,7 +21,7 @@
     }
 
     ul {
-      visibility: visible;
+      visibility: visible !important;
     }
   }
 

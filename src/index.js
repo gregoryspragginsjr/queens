@@ -5,6 +5,7 @@ import Alert from './twig/components/alert/Alert.vue';
 import Video from './twig/components/video/Video.vue';
 import Accordion from './twig/components/accordion/Accordion.vue';
 import Directory from './twig/components/01-pages/Directory.vue';
+import SidebarNav from './twig/components/sidebar-nav/SidebarNav.vue';
 
 // Animated
 import Context from './twig/components/context/Context.vue';
@@ -30,7 +31,8 @@ const app = createApp({
     Directory,
     ContextSection,
     StaggeredMediaContextGrid,
-    PageHeader
+    PageHeader,
+    SidebarNav
   },
 });
 

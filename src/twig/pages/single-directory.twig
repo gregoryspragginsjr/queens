@@ -7,7 +7,7 @@
         {% include 'post-hero.twig' with {
           type: 'biography',
           heading: post.post_title,
-          title: post.custom.title,
+          titles: fn('get_field', 'titles'),
           department: post.custom.department,
           paragraph: post.post_excerpt,
           image: {
