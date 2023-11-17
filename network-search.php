@@ -1,6 +1,7 @@
 <?php
 /**
  * Search results page
+ * Template Name: Newtork Search
  *
  * Methods for TimberHelper can be found in the /lib sub-directory
  *
@@ -11,12 +12,15 @@
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 
+$search_query = ! empty( $_GET[ 'q' ] ) ? $_GET[ 'q' ] : '';
+$page_url = get_permalink();
+
 $context          = Timber::context();
-$context['title'] = 'Search results for ' . get_search_query();
+$context['title'] = 'Search results for ' . $search_query;
 $context['posts'] = new Timber\PostQuery();
 
 $myArray = [];
-$search_query = get_search_query();
+// $search_query = get_search_query();
 $query_arg = 'current_page';
 $current_page = ( isset( $_GET[ $query_arg ] ) && $_GET[ $query_arg ] ) ? absint( $_GET[ $query_arg ] ) : 1;
 
@@ -45,8 +49,21 @@ if( $query_search->have_posts() ) :
 
 	endwhile;
 
+  // if( $query_search->max_num_pages > 1 ) {
+	// 	echo paginate_links(
+	// 		array(
+	// 			'total' => $query_search->max_num_pages,
+	// 			'current' => $current_page,
+	// 			'base' => $page_url . '%_%',
+	// 			'format' => '?' . $query_arg . '=%#%'
+	// 		)
+	// 	);
+	// }
+
 endif;
 
+$context['search_page_num'] = $current_page;
+$context['search_query'] = $search_query;
 $context['max_num_pages'] = $query_search->max_num_pages;
 $context['posts'] = $myArray;
 

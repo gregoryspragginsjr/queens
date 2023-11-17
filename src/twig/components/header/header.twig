@@ -151,11 +151,11 @@
     <div class="search-modal__inner grid">
       <div class="search-modal__main">
         <div class="search-modal__input-wrap">
-          <form role="search" method="get" action="{{ site.link }}">
+          <form role="search" method="get" action="{{ fn('network_site_url', 'network-search') }}">
             {% if in_component_library %}
               <input type="text" placeholder="What are you looking for?" name="s" id="s" />
             {% else %}
-              <input type="text" placeholder="What are you looking for?" value="{{ function('get_search_query') }}" name="s" id="s" />
+              <input type="text" placeholder="What are you looking for?" name="q" id="s" />
             {% endif %}
             <input type="submit" id="searchsubmit" value="Search" />
           </form>

@@ -1,0 +1,100 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="page page--archive">
+    {% include 'page-header.twig' with {
+      heading: title,
+    } %}
+
+    {% set featured = fn('Timber::get_posts', {
+      post_type: 'post',
+      post_per_page: 4,
+      tax_query: [
+        {
+          taxonomy: 'category',
+          field: 'slug',
+          terms: 'featured'
+        }
+      ]
+    })|map(i => {
+      image: {
+        sizes: {
+          Rectangle: fn( 'get_the_post_thumbnail_url', i.ID, 'Rectangle' ),
+          Rectangle_mobile: fn( 'get_the_post_thumbnail_url', i.ID, 'Rectangle_mobile' ),
+        }
+      },
+      heading: i.post_title,
+      subheading: i.post_date|date("M d, Y"),
+      paragraphs: '<p>' ~ (i.preview ? i.preview.length(20).read_more('') : i.post_excerpt) ~ '</p>',
+      buttons: [
+        {
+          button: {
+            title: 'Read More',
+            url: function('get_permalink', i.ID),
+          }
+        }
+      ]
+    }) %}
+
+    {% if posts.pagination.current == 1 and title == 'News' %}
+      {% include 'media-context.twig' with {
+        image: featured[0].image,
+        subheading: featured[0].subheading,
+        heading: featured[0].heading,
+        paragraphs: featured[0].paragraphs,
+        buttons: featured[0].buttons
+      } %}
+
+      {% include 'article-grid.twig' with {
+        size: 'xsmall',
+        break: 'condensed',
+        items: featured|slice(1),
+      } %}
+    {% endif %}
+    {% for item in posts %}
+      {% set image_thumb = null %}
+
+      {% set excerpt = item.preview ? item.preview.length(20).read_more('') : item.post_excerpt %}
+      {% if item.post_custom_thumbnail_desktop or item.post_custom_thumbnail_mobile %}
+        {% set image_thumb = {
+          sizes: {
+            desktop: item.post_custom_thumbnail_desktop,
+            mobile: item.post_custom_thumbnail_mobile,
+          }
+        } %}
+      {% endif %}
+
+      {% include 'archive-item.twig' with {
+        image: image_thumb is defined ? image_thumb : null,
+        subheading: item.post_date|date("M d, Y"),
+        heading: item.post_title,
+        paragraphs: '<p>' ~ excerpt ~ '</p>',
+        buttons: [
+          {
+            button: {
+              title: 'Read More',
+              url: item.post_permalink ? item.post_permalink : function('get_permalink', item.ID),
+            }
+          }
+        ]
+      } %}
+    {% endfor %}
+
+    {% set newPagination = [] %}
+
+    {% for i in 1..max_num_pages %}
+      {% set newPaginationItem = [{
+        active: (i == search_page_num),
+        url: '/network-search/?current_page=' ~ loop.index ~ '&q=' ~ search_query
+      }] %}
+
+      {% set newPagination = newPagination|merge(newPaginationItem) %}
+    {% endfor %}
+
+    {% include 'pagination.twig' with {
+      pages: newPagination,
+      prev: search_page_num != 1 ? '/network-search/?current_page=' ~ (search_page_num - 1) ~ '&q=' ~ search_query,
+      next: search_page_num != max_num_pages ? '/network-search/?current_page=' ~ (search_page_num + 1) ~ '&q=' ~ search_query
+    } %}
+  </div>
+{% endblock %}
