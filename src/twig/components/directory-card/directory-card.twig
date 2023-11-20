@@ -21,28 +21,22 @@
       {% endif %}
     </div>
   {% endif %}
-  {% if cv_type != 'none' %}
-    <div class="directory-card__item">
-      <div class="directory-card__heading subheading-style-1">CV</div>
+  <div class="directory-card__item">
+    <div class="directory-card__heading subheading-style-1">Professional Resources</div>
+    {% for item in fn('get_field', 'professional_resources') %}
       <div class="directory-card__text">
-        {% if cv_type == 'file' %}
-          <a href="{{ fn('get_field', 'cv').url }}" target="_blank">
-            {{ fn('get_field', 'cv').filename }}
+        {% if item.type == 'file' %}
+          <a href="{{ item.cv.url }}" target="_blank">
+            {{ item.cv.filename }}
           </a>
-        {% elseif cv_type == 'link' %}
+        {% elseif item.type == 'link' %}
           <a href="{{ external_link.url }}" target="_blank">
-            {{ external_link.title }}
+            {{ item.external_link.title }}
           </a>
         {% endif %}
       </div>
-    </div>
-  {% endif %}
-  {# {% if hours_from and hours_to %}
-    <div class="directory-card__item">
-      <div class="directory-card__heading subheading-style-1">Office Hours</div>
-      <div class="directory-card__text">{{ fn('get_field', 'hours_from') }} - {{ fn('get_field', 'hours_to') }}</div>
-    </div>
-  {% endif %} #}
+    {% endfor %}
+  </div>
   {% for item in fn('get_field', 'misc') %}
     <div class="directory-card__item">
       <div class="directory-card__heading subheading-style-1">{{ item.label }}</div>

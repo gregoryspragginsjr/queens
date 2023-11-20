@@ -20,7 +20,6 @@ $context['title'] = 'Search results for ' . $search_query;
 $context['posts'] = new Timber\PostQuery();
 
 $myArray = [];
-// $search_query = get_search_query();
 $query_arg = 'current_page';
 $current_page = ( isset( $_GET[ $query_arg ] ) && $_GET[ $query_arg ] ) ? absint( $_GET[ $query_arg ] ) : 1;
 
@@ -48,17 +47,6 @@ if( $query_search->have_posts() ) :
     restore_current_blog();
 
 	endwhile;
-
-  // if( $query_search->max_num_pages > 1 ) {
-	// 	echo paginate_links(
-	// 		array(
-	// 			'total' => $query_search->max_num_pages,
-	// 			'current' => $current_page,
-	// 			'base' => $page_url . '%_%',
-	// 			'format' => '?' . $query_arg . '=%#%'
-	// 		)
-	// 	);
-	// }
 
 endif;
 
