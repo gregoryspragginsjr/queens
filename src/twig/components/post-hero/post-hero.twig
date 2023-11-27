@@ -13,16 +13,18 @@
       <span>By {{ author }}</span>
     {% endif %}
   </div>
-  <div class="post-hero__image">
-    {{ macros.picture(
-      'object-cover',
-      image.srcset,
-      image.src,
-      image.sizes.Rectangle,
-      image.sizes.Rectangle_mobile,
-      image.alt,
-      in_component_library
-    ) }}
-  </div>
+  {% if image %}
+    <div class="post-hero__image">
+      {{ macros.picture(
+        'object-cover',
+        image.srcset,
+        image.src,
+        image.sizes.Rectangle,
+        image.sizes.Rectangle_mobile,
+        image.alt,
+        in_component_library
+      ) }}
+    </div>
+  {% endif %}
   <p class="post-hero__p paragraph-style-4 text-dark">{{ paragraph }}</p>
 </div>
