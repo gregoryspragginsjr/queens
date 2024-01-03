@@ -4,6 +4,14 @@
   border-radius: 4px;
   border: 1px solid $navy;
 
+  .page--no-vue & {
+    display: none;
+
+    @include breakpoint(large) {
+      display: block;
+    }
+  }
+
   @include breakpoint(large) {
     padding: 24px;
     border-radius: 24px;
