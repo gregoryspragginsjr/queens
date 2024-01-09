@@ -6,6 +6,16 @@
       align-items: center;
       justify-content: flex-start;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: $transition-default;
+
+      // &:hover {
+      //   color: $mid-blue;
+      // }
+    }
   }
 
   &__subheading {

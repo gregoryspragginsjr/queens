@@ -11,7 +11,13 @@
     <div class="context__subheading">{{ subheading }}</div>
   {% endif %}
   {% if heading %}
-    <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}"><div>{{ heading }}</div>
+    <h2 class="context__heading{% if type == 'primary' %} text-primary{% endif %}">
+      {% if buttons %}
+        {% set firstBtn = buttons|first %}
+        <a href="{{ firstBtn.button.url }}">
+      {% endif %}
+      <div>{{ heading }}</div>
+      {% if buttons %}</a>{% endif %}
       {% if icon %}
         {{ icons.icon(icon, 'context__icon') }}
       {% elseif squiggle %}

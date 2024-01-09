@@ -12,6 +12,10 @@
 >
   {% if image %}
     <div class="article__image">
+      {% if buttons %}
+        {% set firstBtn = buttons|first %}
+        <a href="{{ firstBtn.button.url }}">
+      {% endif %}
       {{ macros.picture(
         'w-full object-cover',
         image.srcset,
@@ -21,6 +25,7 @@
         image.alt,
         in_component_library
       ) }}
+      {% if buttons %}</a>{% endif %}
     </div>
   {% endif %}
   {% include context with {

@@ -35,6 +35,7 @@ if( $query_search->have_posts() ) :
     array_push($myArray, array(
       'post_custom_thumbnail_desktop' => get_the_post_thumbnail_url($query_search->post->ID, 'Collage_rectangle'),
       'post_custom_thumbnail_mobile' => get_the_post_thumbnail_url($query_search->post->ID, 'Square_mobile'),
+      'post_type' => get_post_type($query_search->post->ID),
       'post_date'  => $query_search->post->post_date,
       'post_title' => $query_search->post->post_title,
       'post_excerpt'   => get_the_excerpt($query_search->post->ID),

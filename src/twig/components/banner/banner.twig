@@ -1,7 +1,13 @@
 <div class="banner">
   <div class="banner__inner grid">
     <div class="banner__main">
-      <p>{{ text }}</p>
+      <p>
+        {% if url %}
+          <a href="{{ url }}">{{ text }}</a>
+        {% else %}
+          {{ text }}
+        {% endif %}
+      </p>
     </div>
   </div>
 </div>
