@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .wysiwyg {
   // The reason why we target DIRECT CHILDREN in the wysiwyg is
   // to better harmonize these styles with independent block styles
@@ -8,6 +10,42 @@
   // smaller styles as to not compete aesthetically with the
   // actual page header
   // ~ Greg
+
+  &.page {
+    > h1, > h2, > h3, > h4, > h5, > h6, > p, > ul, > ol, > blockquote {
+      width: 100%;
+      max-width: $grid-max-width;
+      padding: 0 calc(map.get($grid-column-gutter, large) / 2);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    > div + h1,
+    > div + h2,
+    > div + h3,
+    > div + h4,
+    > div + h5,
+    > div + h6,
+    > div + p,
+    > div + ul,
+    > div + ol,
+    > div + blockquote {
+      margin-top: 48px;
+    }
+
+    > h1 + div,
+    > h2 + div,
+    > h3 + div,
+    > h4 + div,
+    > h5 + div,
+    > h6 + div,
+    > p + div,
+    > ul + div,
+    > ol + div,
+    > blockquote + div {
+      margin-top: 48px;
+    }
+  }
 
   > h1 { @extend .heading-style-2; }
 

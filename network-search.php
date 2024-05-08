@@ -15,6 +15,8 @@ $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $search_query = ! empty( $_GET[ 'q' ] ) ? $_GET[ 'q' ] : '';
 $page_url = get_permalink();
 
+$search_query = sanitize_text_field($search_query);
+
 $context          = Timber::context();
 $context['title'] = 'Search results for ' . $search_query;
 $context['posts'] = new Timber\PostQuery();

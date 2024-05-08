@@ -74,9 +74,9 @@ if ( empty( $disable_event_search ) ) {
 
 			<div class="tribe-events-calendar-list__sidebar">
 
-				<div class="tribe-events-calendar-list__sidebar-group">
+				<!-- <div class="tribe-events-calendar-list__sidebar-group">
 					<a href="<?php echo get_site_url(); ?>/events/community/add" class="btn">Submit an Event</a>
-				</div>
+				</div> -->
 	
 				<?php $this->template( 'components/ical-link' ); ?>
 

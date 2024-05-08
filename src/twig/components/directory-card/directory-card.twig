@@ -30,7 +30,7 @@
             {{ item.cv.filename }}
           </a>
         {% elseif item.type == 'link' %}
-          <a href="{{ external_link.url }}" target="_blank">
+          <a href="{{ item.external_link.url }}" target="_blank">
             {{ item.external_link.title }}
           </a>
         {% endif %}

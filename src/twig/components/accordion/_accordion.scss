@@ -52,6 +52,11 @@
     appearance: none;
     cursor: pointer;
     background-color: transparent;
+
+    &:focus {
+      color: $navy;
+      background-color: transparent;
+    }
   }
 
   &__window {
