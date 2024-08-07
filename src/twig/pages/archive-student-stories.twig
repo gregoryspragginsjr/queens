@@ -8,12 +8,12 @@
 
     {% set featured = fn('Timber::get_posts', {
       post_type: 'post',
-      post_per_page: 4,
+      posts_per_page: 3,
       tax_query: [
         {
           taxonomy: 'category',
           field: 'slug',
-          terms: 'featured'
+          terms: 'student-stories'
         }
       ]
     })|map(i => {
@@ -36,23 +36,21 @@
       ]
     }) %}
 
-    {% if posts.pagination.current == 1 and title == 'News' %}
-      {% include 'media-context.twig' with {
-        image: featured[0].image,
-        subheading: featured[0].subheading,
-        heading: featured[0].heading,
-        paragraphs: featured[0].paragraphs,
-        buttons: featured[0].buttons
-      } %}
-
+    {% if posts.pagination.current == 1 %}
       {% include 'article-grid.twig' with {
         size: 'xsmall',
         break: 'condensed',
-        items: featured|slice(1),
+        items: featured,
       } %}
     {% endif %}
 
-    {% for item in posts %}
+    {% if posts.pagination.current == 1 %}
+      {% set actual_posts = posts|slice(3) %}
+    {% else %}
+      {% set actual_posts = posts %}
+    {% endif %}
+
+    {% for item in actual_posts %}
       {% set excerpt = item.preview ? item.preview.length(20).read_more('') : item.post_excerpt %}
       {% include 'archive-item.twig' with {
         image: {
